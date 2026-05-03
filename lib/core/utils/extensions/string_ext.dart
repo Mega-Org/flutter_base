@@ -1,6 +1,3 @@
-
-import 'dart:ui';
-
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
@@ -85,14 +82,10 @@ extension StringExtensions on String {
   /// [showIfLess] - Whether to show the original text if its length is less than [showCount].
   String maskText({int showCount = 3, bool showIfLess = true}) {
     if (length <= showCount) {
-      return showIfLess
-          ? this
-          : ''; // Show text or hide it based on `showIfLess`
+      return showIfLess ? this : ''; // Show text or hide it based on `showIfLess`
     }
-    final String visiblePart =
-        substring(length - showCount); // Get the visible part
-    final String maskedPart =
-        '*' * (length - showCount); // Generate the masked part
+    final String visiblePart = substring(length - showCount); // Get the visible part
+    final String maskedPart = '*' * (length - showCount); // Generate the masked part
     if (getLocale.languageCode.toLowerCase() == "ar") {
       return '$visiblePart$maskedPart';
     } else {
@@ -113,19 +106,16 @@ extension StringExtensions on String {
 
   TextPainter textPainter(TextStyle style, {double? maxWidth, int? maxLines}) {
     final TextPainter textPainter = TextPainter(
-        text: TextSpan(text: this, style: style),
-        maxLines: maxLines,
-        textDirection: TextDirection.ltr)
-      ..layout(maxWidth: maxWidth ?? double.infinity);
+      text: TextSpan(text: this, style: style),
+      maxLines: maxLines,
+      textDirection: TextDirection.ltr,
+    )..layout(maxWidth: maxWidth ?? double.infinity);
     return textPainter;
   }
 
   String get capitalizeFirst {
     if (trim().isNotEmpty) {
-      return replaceAllMapped(
-        RegExp(r"(^\w)"),
-        (match) => match.group(0)!.toUpperCase(),
-      );
+      return replaceAllMapped(RegExp(r"(^\w)"), (match) => match.group(0)!.toUpperCase());
     }
     return this;
   }

@@ -46,16 +46,8 @@ class DarkTheme extends AppTheme {
     canvasColor: canvasBackgroundColor,
     dividerColor: dividerColor,
     dividerTheme: DividerThemeData(color: dividerColor, thickness: .8),
-    textSelectionTheme: TextSelectionThemeData(
-      cursorColor: primary,
-      selectionColor: primary100,
-      selectionHandleColor: primary100,
-    ),
-    textTheme: ThemeData.dark().primaryTextTheme.apply(
-      bodyColor: text,
-      displayColor: text,
-      fontFamily: AppFonts.elMessiri,
-    ),
+    textSelectionTheme: TextSelectionThemeData(cursorColor: primary, selectionColor: primary100, selectionHandleColor: primary100),
+    textTheme: ThemeData.dark().primaryTextTheme.apply(bodyColor: text, displayColor: text, fontFamily: AppFonts.elMessiri),
     cardTheme: CardThemeData(
       color: cardColor,
       surfaceTintColor: cardColor,
@@ -138,11 +130,7 @@ class DarkTheme extends AppTheme {
       centerTitle: true,
       surfaceTintColor: canvasBackgroundColor,
     ),
-    actionIconTheme: ActionIconThemeData(
-      // backButtonIconBuilder: (context) {
-      //   return AppSvgIcon(path: 'assets/icons/arrow_ic.svg', isReversed: getLocaleTypeEnum == AppLanguageType.en);
-      // },
-    ),
+    actionIconTheme: const ActionIconThemeData(),
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: ButtonStyle(
         alignment: Alignment.center,
@@ -154,9 +142,7 @@ class DarkTheme extends AppTheme {
           return BorderSide(color: primary500);
         }),
         surfaceTintColor: WidgetStateProperty.all(Colors.transparent),
-        shape: WidgetStateProperty.all(
-          const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(12))),
-        ),
+        shape: WidgetStateProperty.all(const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(12)))),
         backgroundColor: WidgetStateProperty.all(Colors.transparent),
         foregroundColor: WidgetStateProperty.all(primary),
         textStyle: WidgetStateProperty.resolveWith<TextStyle>((states) {
@@ -209,9 +195,7 @@ class DarkTheme extends AppTheme {
           }
           return primary;
         }),
-        shape: WidgetStateProperty.all(
-          const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(8))),
-        ),
+        shape: WidgetStateProperty.all(const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(8)))),
         foregroundColor: WidgetStateProperty.resolveWith<Color>((states) {
           if (states.contains(WidgetState.disabled)) {
             return primary100;

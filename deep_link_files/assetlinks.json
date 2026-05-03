@@ -1,0 +1,20 @@
+[
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "com.moltaqa.thoud",
+            "sha256_cert_fingerprints": [
+                "53:C9:13:DA:AC:B5:B9:70:4B:DB:97:7F:87:86:77:7B:B8:16:87:0D:A1:A5:80:34:A7:03:5D:52:D9:E8:A5:19",
+                "A5:A6:EA:8E:48:1B:C2:02:9E:F0:A0:5A:CF:B8:61:8A:FC:F9:C1:A2:08:E3:E2:28:D1:35:BD:C4:D0:2E:57:01",
+"53:C9:13:DA:AC:B5:B9:70:4B:DB:97:7F:87:86:77:7B:B8:16:87:0D:A1:A5:80:34:A7:03:5D:52:D9:E8:A5:19",
+                "D2:BA:EE:54:42:6D:0D:B9:01:55:16:7F:3F:52:02:75:DE:92:19:2B:CB:18:76:5A:AE:74:4E:84:71:F4:5A:81",
+                "A5:A6:EA:8E:48:1B:C2:02:9E:F0:A0:5A:CF:B8:61:8A:FC:F9:C1:A2:08:E3:E2:28:D1:35:BD:C4:D0:2E:57:01",
+                "D2:BA:EE:54:42:6D:0D:B9:01:55:16:7F:3F:52:02:75:DE:92:19:2B:CB:18:76:5A:AE:74:4E:84:71:F4:5A:81",
+                "D5:D3:22:7C:6C:1F:6B:39:91:DF:70:5E:4E:EC:36:9F:76:1F:DD:23:B6:44:11:61:DE:A7:AE:C6:2F:FE:BE:E5"
+            ]
+        }
+    }
+]

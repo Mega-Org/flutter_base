@@ -45,16 +45,8 @@ class LightTheme extends AppTheme {
     canvasColor: Colors.white,
     dividerColor: dividerColor,
     dividerTheme: DividerThemeData(color: dividerColor, thickness: .8),
-    textSelectionTheme: TextSelectionThemeData(
-      cursorColor: primary,
-      selectionColor: primary100,
-      selectionHandleColor: primary100,
-    ),
-    textTheme: ThemeData.light().primaryTextTheme.apply(
-      bodyColor: primary,
-      displayColor: primary,
-      fontFamily: AppFonts.elMessiri,
-    ),
+    textSelectionTheme: TextSelectionThemeData(cursorColor: primary, selectionColor: primary100, selectionHandleColor: primary100),
+    textTheme: ThemeData.light().primaryTextTheme.apply(bodyColor: primary, displayColor: primary, fontFamily: AppFonts.elMessiri),
     cardTheme: CardThemeData(
       color: Colors.white,
       surfaceTintColor: Colors.white,
@@ -126,12 +118,7 @@ class LightTheme extends AppTheme {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
       side: BorderSide(color: primary600),
     ),
-    colorScheme: ColorScheme.light(
-      primary: primary,
-      secondary: primary600,
-      onSecondary: AppColors.primary,
-      error: error,
-    ),
+    colorScheme: ColorScheme.light(primary: primary, secondary: primary600, onSecondary: AppColors.primary, error: error),
     cardColor: cardColor,
     appBarTheme: AppBarTheme(
       titleSpacing: 0,
@@ -142,7 +129,7 @@ class LightTheme extends AppTheme {
       centerTitle: true,
       surfaceTintColor: canvasBackgroundColor,
     ),
-    actionIconTheme: ActionIconThemeData(
+    actionIconTheme: const ActionIconThemeData(
       // backButtonIconBuilder: (context) {
       //   return AppSvgIcon(path: 'assets/icons/arrow_ic.svg', isReversed: getLocaleTypeEnum == AppLanguageType.en);
       // },
@@ -158,9 +145,7 @@ class LightTheme extends AppTheme {
           return BorderSide(color: primary500);
         }),
         surfaceTintColor: WidgetStateProperty.all(Colors.transparent),
-        shape: WidgetStateProperty.all(
-          const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(12))),
-        ),
+        shape: WidgetStateProperty.all(const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(12)))),
         backgroundColor: WidgetStateProperty.all(Colors.transparent),
         foregroundColor: WidgetStateProperty.all(AppColors.primary),
         textStyle: WidgetStateProperty.resolveWith<TextStyle>((states) {
@@ -213,9 +198,7 @@ class LightTheme extends AppTheme {
           }
           return AppColors.primary;
         }),
-        shape: WidgetStateProperty.all(
-          const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(8))),
-        ),
+        shape: WidgetStateProperty.all(const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(8)))),
         foregroundColor: WidgetStateProperty.resolveWith<Color>((states) {
           if (states.contains(WidgetState.disabled)) {
             return Colors.white;

@@ -1,7 +1,6 @@
 part of core;
 
-class ThemeNotifier extends ChangeNotifier
-    implements ValueListenable<AppTheme> {
+class ThemeNotifier extends ChangeNotifier implements ValueListenable<AppTheme> {
   ThemeNotifier._();
 
   static ThemeNotifier? _instance;
@@ -12,11 +11,10 @@ class ThemeNotifier extends ChangeNotifier
   factory ThemeNotifier() => instance;
 
   final ThemeRepository _themeRepostory = ThemeRepositoryImp();
-  AppTheme _theme = LightTheme();
+  AppTheme _theme = const LightTheme();
   AppTheme get theme => _theme;
 
-  ThemeMode get themeMode =>
-      _theme is LightTheme ? ThemeMode.light : ThemeMode.dark;
+  ThemeMode get themeMode => _theme is LightTheme ? ThemeMode.light : ThemeMode.dark;
 
   Future<void> initialize() async {
     try {

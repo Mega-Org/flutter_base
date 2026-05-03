@@ -31,7 +31,6 @@ abstract class AppTheme {
   abstract final Color canvasBackgroundColor;
   abstract final Color cardColor;
 
-
   abstract final Color text;
   abstract final Color text1;
   abstract final Color text2;
@@ -39,36 +38,17 @@ abstract class AppTheme {
   abstract final Color hintColor;
   abstract final Color bgGreyColor;
 
-
   final Color greyColor = const Color(0xffA3A3A3);
   final Color grey2Color = const Color(0xffF7F7F8);
   final Color borderColor = const Color(0xffF0F0F0);
   final Color border2Color = const Color(0xffD6D6D6);
   final Color disableBorderColor = const Color(0xffD6D6D6);
 
-  final BoxShadow boxShadow = const BoxShadow(
-    color: Colors.black12,
-    blurRadius: 12,
-    offset: Offset(-2, 2),
-  );
+  final BoxShadow boxShadow = const BoxShadow(color: Colors.black12, blurRadius: 12, offset: Offset(-2, 2));
 
-  final BoxShadow boxShadow2 = const BoxShadow(
-    color: Colors.black12,
-    blurRadius: 4,
-    offset: Offset(0, 1),
-  );
-  final BoxShadow boxShadow3 = const BoxShadow(
-    color: Colors.black12,
-    blurRadius: .5,
-    spreadRadius: .5,
-    offset: Offset(-.09, .09),
-  );
-  BoxShadow get boxShadow4 => BoxShadow(
-        color: Colors.grey.shade100,
-        blurRadius: 24,
-        spreadRadius: 12,
-        offset: const Offset(0, 4),
-      );
+  final BoxShadow boxShadow2 = const BoxShadow(color: Colors.black12, blurRadius: 4, offset: Offset(0, 1));
+  final BoxShadow boxShadow3 = const BoxShadow(color: Colors.black12, blurRadius: .5, spreadRadius: .5, offset: Offset(-.09, .09));
+  BoxShadow get boxShadow4 => BoxShadow(color: Colors.grey.shade100, blurRadius: 24, spreadRadius: 12, offset: const Offset(0, 4));
 
   final String fontFamily = AppFonts.elMessiri;
   final Color dividerColor = const Color(0xffE6E6EA);
@@ -165,76 +145,31 @@ abstract class AppTheme {
   final Color grey = const Color(0xFF666666);
   final Color lightGrey = const Color(0xFFF2F2F2);
 
-  LinearGradient get primaryGradient => const LinearGradient(
-        begin: Alignment.topCenter,
-        end: Alignment.bottomCenter,
-        colors: [
-          Color(0xff1F2D38),
-          Color(0xff0A0D10),
-        ],
-      );
+  LinearGradient get primaryGradient =>
+      const LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [Color(0xff1F2D38), Color(0xff0A0D10)]);
 
   /// Represnet grid4 in design
-  LinearGradient get linearGradient1 => LinearGradient(
-        begin: Alignment.centerRight,
-        end: Alignment.centerLeft,
-        colors: [
-        primary500, primary600,
-        ],
-      );
-  LinearGradient get linearGradient1Horizntal => LinearGradient(
-        begin: Alignment.topCenter,
-        end: Alignment.bottomCenter,
-        colors: [
-        primary500, primary600,
-        ],
-      );
-  LinearGradient get grid1 => LinearGradient(
-          begin: Alignment.topRight,
-          end: Alignment.bottomLeft,
-          colors: [
-        primary500, primary600,
-          ],
-          stops: [
-            0.47,
-            0.92,
-          ]);
+  LinearGradient get linearGradient1 =>
+      LinearGradient(begin: Alignment.centerRight, end: Alignment.centerLeft, colors: [primary500, primary600]);
+  LinearGradient get linearGradient1Horizntal =>
+      LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [primary500, primary600]);
+  LinearGradient get grid1 =>
+      LinearGradient(begin: Alignment.topRight, end: Alignment.bottomLeft, colors: [primary500, primary600], stops: [0.47, 0.92]);
 
   /// Represnet grid3 in design
   LinearGradient get linearGradient2 => LinearGradient(
-        begin: Alignment(0.9968, -0.0793), // start from top-right-ish
-        end: Alignment(-0.9968, 0.0793), // end at bottom-left-ish
-        colors: [
-         primary500, primary600, primary700,
-        ],
-        stops: [0.0, 0.47, 0.92],
-      );
+    begin: const Alignment(0.9968, -0.0793), // start from top-right-ish
+    end: const Alignment(-0.9968, 0.0793), // end at bottom-left-ish
+    colors: [primary500, primary600, primary700],
+    stops: [0.0, 0.47, 0.92],
+  );
 
-  LinearGradient get linearGradient3 => LinearGradient(
-        colors: [
-          canvasBackgroundColor,
-          canvasBackgroundColor,
-        ],
-      );
+  LinearGradient get linearGradient3 => LinearGradient(colors: [canvasBackgroundColor, canvasBackgroundColor]);
 
-  LinearGradient get cardGradient => LinearGradient(
-        colors: [
-          cardColor,
-          cardColor,
-        ],
-      );
+  LinearGradient get cardGradient => LinearGradient(colors: [cardColor, cardColor]);
 
-  LinearGradient get linearGradient4 => LinearGradient(
-        begin: Alignment.topCenter,
-        end: Alignment.bottomCenter,
-        colors: [
-                primary500, primary600,
-        ],
-      );
+  LinearGradient get linearGradient4 =>
+      LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [primary500, primary600]);
 
-  LinearGradient get disableGradient => LinearGradient(
-        colors: [
-          primary500, primary600,
-        ],
-      );
+  LinearGradient get disableGradient => LinearGradient(colors: [primary500, primary600]);
 }

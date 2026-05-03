@@ -1,7 +1,6 @@
 part of core;
 
-AppLocalizations get appLocalizer =>
-    injector<LocalizationContainer>().appLocalizations;
+AppLocalizations get appLocalizer => injector<LocalizationContainer>().appLocalizations;
 
 Locale get getLocale {
   try {

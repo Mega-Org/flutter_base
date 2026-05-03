@@ -1,3 +1,4 @@
+// ignore_for_file: non_constant_identifier_names
 
 import 'package:intl/intl.dart' as intl;
 
@@ -18,9 +19,7 @@ enum WeekDayEnum {
   const WeekDayEnum({required this.dayValue, required this.jsonValue});
 
   factory WeekDayEnum.fromJson(String json) {
-    return WeekDayEnum.values.firstWhere(
-      (element) => element.jsonValue.toLowerCase() == json.toLowerCase(),
-    );
+    return WeekDayEnum.values.firstWhere((element) => element.jsonValue.toLowerCase() == json.toLowerCase());
   }
 
   String get localizedName {
@@ -44,8 +43,7 @@ enum WeekDayEnum {
 }
 
 extension DateTimeExtention on DateTime {
-  WeekDayEnum get dayType =>
-      WeekDayEnum.values.firstWhere((element) => element.dayValue == weekday);
+  WeekDayEnum get dayType => WeekDayEnum.values.firstWhere((element) => element.dayValue == weekday);
 }
 
 /// DateTime Format Extensions
@@ -54,23 +52,17 @@ extension DateTimeExtention on DateTime {
 extension DateTimeFormatExtention on DateTime {
   // 04:30 AM
   String get toHHMMa {
-    return intl.DateFormat('hh:mm a', getLocale.languageCode).format(
-      this,
-    );
+    return intl.DateFormat('hh:mm a', getLocale.languageCode).format(this);
   }
 
   // 14:30
   // 10:30
   String get toHHMM {
-    return intl.DateFormat('hh:mm', getLocale.languageCode).format(
-      this,
-    );
+    return intl.DateFormat('hh:mm', getLocale.languageCode).format(this);
   }
 
   String get toHHMMForApi {
-    return intl.DateFormat('HH:mm:ss', 'en').format(
-      this,
-    );
+    return intl.DateFormat('HH:mm:ss', 'en').format(this);
   }
 
   // Feb 03,2023
@@ -80,9 +72,9 @@ extension DateTimeFormatExtention on DateTime {
 
   // sunday 3 september 2023
   String get toEEEEdMMMMy {
-    return intl.DateFormat('EEEE d MMMM y', getLocale.languageCode)
-        .format(this);
+    return intl.DateFormat('EEEE d MMMM y', getLocale.languageCode).format(this);
   }
+
   // sunday 3 september 2023 10:00 AM
   String get toEEEEdMMMMyHHmma {
     return intl.DateFormat('EEEE d MMMM y h:mm a', getLocale.languageCode).format(this);
@@ -115,14 +107,12 @@ extension DateTimeFormatExtention on DateTime {
 
   // Output: 12 Feb 2024 , 9:00 PM
   String get DMYHMA {
-    return intl.DateFormat('dd MMM yyyy , h:mm a', getLocale.languageCode)
-        .format(this);
+    return intl.DateFormat('dd MMM yyyy , h:mm a', getLocale.languageCode).format(this);
   }
 
   // Output: Mon 12 Feb , 9:00 PM
   String get EDMMMHMMA {
-    return intl.DateFormat('E d MMM , h:mm a', getLocale.languageCode)
-        .format(this);
+    return intl.DateFormat('E d MMM , h:mm a', getLocale.languageCode).format(this);
   }
 
   // Output: Mon 12 Feb
@@ -142,8 +132,7 @@ extension DateTimeFormatExtention on DateTime {
 
   // Format the date as "yyyy-MM-dd HH:mm:ss"
   String get YYYMMDDHHmmss {
-    return intl.DateFormat('yyyy-MM-dd HH:mm:ss', getLocale.languageCode)
-        .format(this);
+    return intl.DateFormat('yyyy-MM-dd HH:mm:ss', getLocale.languageCode).format(this);
   }
 
   // Output: 15/12/2023
