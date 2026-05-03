@@ -41,7 +41,7 @@ enum PopularLinksSitesEnum {
   whatsApp,
   zoom,
   apple,
-  unKnown
+  unKnown,
 }
 
 extension PopularLinksSitesEnumExtension on PopularLinksSitesEnum {
@@ -133,14 +133,12 @@ extension PopularLinksSitesEnumExtension on PopularLinksSitesEnum {
     }
   }
 
-  Widget iconWidget({double? size, Color? color}) {
-    return AppSvgIcon(
-      path: svgPath,
-      size: size,
-      color: color,
-      placholder: const AppSvgIcon(
-        path: _PopularLinksSitesSvgPaths.unKnown,
-      ),
+  Widget iconWidget({final double? size, final Color? color}) {
+    return SvgPicture.asset(
+      svgPath,
+      width: size,
+      height: size,
+      colorFilter: color != null ? ColorFilter.mode(color, BlendMode.srcIn) : null,
     );
   }
 }

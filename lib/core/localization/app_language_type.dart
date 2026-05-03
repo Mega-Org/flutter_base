@@ -1,12 +1,9 @@
 import 'dart:convert';
 import 'dart:ui';
 
-import 'package:zyarat_24/core/core.dart';
-
 enum AppLanguageType {
   ar(value: "ar", countryCode: "EG"),
-  en(value: "en", countryCode: "US"),
-  ur(value: "ur", countryCode: "PK");
+  en(value: "en", countryCode: "US");
 
   final String value;
   final String countryCode;
@@ -28,29 +25,12 @@ enum AppLanguageType {
         return "العربية";
       case AppLanguageType.en:
         return "English";
-      case AppLanguageType.ur:
-        return "اردو";
-    }
-
-  }
-
-  String get flagPath {
-    switch (this) {
-      case AppLanguageType.ar:
-        return AppIcons.ar;
-      case AppLanguageType.en:
-        return AppIcons.en;
-      case AppLanguageType.ur:
-        return AppIcons.ur;
     }
   }
 
   String get localCountryCode => "$value-$countryCode";
 
-  Map<String, dynamic> get toMap => {
-    "value": value,
-    "countryCode": countryCode,
-  };
+  Map<String, dynamic> get toMap => {"value": value, "countryCode": countryCode};
 
   String get toJson => json.encode(toMap);
 
@@ -60,9 +40,7 @@ enum AppLanguageType {
     final String? countryCode = encodedMap["countryCode"]?.toLowerCase();
 
     return AppLanguageType.values.firstWhere(
-      (element) =>
-          element.value.toLowerCase() == value &&
-          element.countryCode.toLowerCase() == countryCode,
+      (element) => element.value.toLowerCase() == value && element.countryCode.toLowerCase() == countryCode,
     );
   }
 }

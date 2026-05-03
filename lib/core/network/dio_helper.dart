@@ -6,38 +6,27 @@ class DioHelper {
     _init();
   }
 
-  @PostConstruct(
-    preResolve: true,
-  )
+  @PostConstruct(preResolve: true)
   Future<DioHelper> create() async {
     return DioHelper();
   }
 
-  final Dio _dio = Dio(BaseOptions(
+  final Dio _dio = Dio(
+    BaseOptions(
       baseUrl: ApiConstants.getBaseApiUrl,
-    receiveDataWhenStatusError: true,
-    sendTimeout: const Duration(milliseconds: 30000),
-    receiveTimeout: const Duration(milliseconds: 30000),
-    connectTimeout: const Duration(milliseconds: 30000),
-  ));
+      receiveDataWhenStatusError: true,
+      sendTimeout: const Duration(milliseconds: 30000),
+      receiveTimeout: const Duration(milliseconds: 30000),
+      connectTimeout: const Duration(milliseconds: 30000),
+    ),
+  );
 
-  final Map<String, String> _headers = <String, String>{
-    'Content-Type': 'application/json',
-    'Accept': 'application/json',
-    
-    // "api-key": ApiConstants.apiKey,
-    "x-app-type": EnvironmentsConfig.appEnvironment.falvorName.toUpperCase()
-  };
+  final Map<String, String> _headers = <String, String>{'Content-Type': 'application/json', 'Accept': 'application/json'};
 
   void _init() {
     _dio.options.headers = _headers;
-    _dio.interceptors.add(
-      HeaderInterceptor(),
-    );
-    _dio.interceptors.add(PrettyDioLogger(
-      requestHeader: true,
-      requestBody: true,
-    ));
+    _dio.interceptors.add(HeaderInterceptor());
+    _dio.interceptors.add(PrettyDioLogger(requestHeader: true, requestBody: true));
     _dio.interceptors.add(UnAuthenticatedInterceptor.instance);
   }
 
@@ -47,16 +36,11 @@ class DioHelper {
     return newDioObj;
   }
 
-  Future<Map<String, dynamic>> get({
-    required String url,
-    Map<String, dynamic>? body,
-    Map<String, dynamic>? queryParameters,
-  }) async {
+  Future<Map<String, dynamic>> get({required String url, Map<String, dynamic>? body, Map<String, dynamic>? queryParameters}) async {
     final result = await apiExecptionCollecter(
       task: () async {
         final FormData? formData = body != null ? FormData.fromMap(body) : null;
-        final result = await _dio.get(url,
-            data: formData, queryParameters: queryParameters);
+        final result = await _dio.get(url, data: formData, queryParameters: queryParameters);
         return result;
       },
     );
@@ -67,19 +51,11 @@ class DioHelper {
     }
   }
 
-  Future<Map<String, dynamic>> put({
-    required String url,
-    Map<String, dynamic>? formData,
-    Map<String, dynamic>? body,
-  }) async {
+  Future<Map<String, dynamic>> put({required String url, Map<String, dynamic>? formData, Map<String, dynamic>? body}) async {
     return apiExecptionCollecter(
       task: () async {
-        final FormData? form =
-            formData != null ? FormData.fromMap(formData) : null;
-        return await _dio.put(
-          url,
-          data: form ?? body,
-        );
+        final FormData? form = formData != null ? FormData.fromMap(formData) : null;
+        return await _dio.put(url, data: form ?? body);
       },
     );
   }
@@ -88,7 +64,7 @@ class DioHelper {
     required final String url,
     final Map<String, dynamic>? body,
     final Map<String, dynamic>? json,
-    bool isRaw = true 
+    bool isRaw = true,
   }) async {
     return apiExecptionCollecter(
       task: () async {
@@ -98,9 +74,7 @@ class DioHelper {
     );
   }
 
-  Future<dynamic> delete({
-    required String url,
-  }) async {
+  Future<dynamic> delete({required String url}) async {
     return apiExecptionCollecter(
       task: () async {
         return await _dio.delete(url);

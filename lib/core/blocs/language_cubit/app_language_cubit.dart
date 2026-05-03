@@ -12,15 +12,11 @@ class AppLanguageCubit extends Cubit<AppLanguageState> {
   static AppLanguageCubit of(BuildContext context) => BlocProvider.of(context);
 
   void changeLanguage(AppLanguageType langCode) async {
-    emit(state.copyWith(
-      changeLanguageState: const Async.loading(),
-    ));
+    emit(state.copyWith(changeLanguageState: const Async.loading()));
 
     await changeLanguageLocally(langCode);
 
-    emit(state.copyWith(
-      changeLanguageState: const Async.initial(),
-    ));
+    emit(state.copyWith(changeLanguageState: const Async.initial()));
   }
 
   Future<void> changeLanguageLocally(AppLanguageType langCode) async {
@@ -35,7 +31,7 @@ class AppLanguageCubit extends Cubit<AppLanguageState> {
   }
 
   bool get isRtl {
-    return isArabic || isUrdu;
+    return isArabic;
   }
 
   bool get isArabic {
@@ -44,10 +40,6 @@ class AppLanguageCubit extends Cubit<AppLanguageState> {
 
   bool get isEnglish {
     return state.langCode == AppLanguageType.en;
-  }
-
-  bool get isUrdu {
-    return state.langCode == AppLanguageType.ur;
   }
 
   @override

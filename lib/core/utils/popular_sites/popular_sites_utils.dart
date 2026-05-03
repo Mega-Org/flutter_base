@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import '../../../../material/media/svg_icon.dart';
-import '../../../core.dart';
-import '../url_launcher_utils.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import '../share_and_url_launch/url_launcher_utils.dart';
 
 part 'assets_paths.dart';
 part 'popular_sites_enum.dart';
 
-typedef PopularSitesLinksUtilsBuilderType = Widget Function(
-    String url, VoidCallback launchFun, Widget siteWidget);
+typedef PopularSitesLinksUtilsBuilderType = Widget Function(String url, VoidCallback launchFun, Widget siteWidget);
 
 class PopularSitesLinksUtils {
   final String url;
@@ -17,22 +15,19 @@ class PopularSitesLinksUtils {
     urlUri = Uri.tryParse(url);
   }
 
-  Widget build(BuildContext context,
-      {double? size, bool canLaunchUrl = true, Color? color}) {
+  Widget build(BuildContext context, {double? size, bool canLaunchUrl = true, Color? color}) {
     return GestureDetector(
-        onTap: () {
-          if (canLaunchUrl) {
-            LaunchUrlUtils.openUrl(url: url);
-          }
-        },
-        child: getSiteType.iconWidget(size: size, color: color));
+      onTap: () {
+        if (canLaunchUrl) {
+          LaunchUrlUtils.openUrl(url: url);
+        }
+      },
+      child: getSiteType.iconWidget(size: size, color: color),
+    );
   }
 
-  Widget builder(
-      BuildContext context, PopularSitesLinksUtilsBuilderType buildFunction,
-      {double? iconSize, Color? color}) {
-    return buildFunction(url, () => LaunchUrlUtils.openUrl(url: url),
-        getSiteType.iconWidget(size: iconSize, color: color));
+  Widget builder(BuildContext context, PopularSitesLinksUtilsBuilderType buildFunction, {double? iconSize, Color? color}) {
+    return buildFunction(url, () => LaunchUrlUtils.openUrl(url: url), getSiteType.iconWidget(size: iconSize, color: color));
   }
 
   // final _pattern = r'^(http|https):\/\/([\w.]+)+(:[0-9]{1,5})?(\/.*)?$';
@@ -50,15 +45,12 @@ class PopularSitesLinksUtils {
   }
 
   bool get isMessengerLink {
-    return url.contains('m.me') ||
-        url.contains('messenger.com') ||
-        url.startsWith("https://www.messenger.com/");
+    return url.contains('m.me') || url.contains('messenger.com') || url.startsWith("https://www.messenger.com/");
   }
 
   /// [isFacebookVideoLink] Detect If [url] is for facebook video not post or story or else
   bool get isFacebookVideoLink {
-    if (isFacebookLink &&
-        (url.contains('/videos/') || url.contains('/watch/'))) {
+    if (isFacebookLink && (url.contains('/videos/') || url.contains('/watch/'))) {
       return true;
     }
     return false;
@@ -70,9 +62,7 @@ class PopularSitesLinksUtils {
   ///
   bool get isXLink {
     final RegExp twitterRegex = RegExp(r'^https?://(www\.)?twitter\.com/');
-    return twitterRegex.hasMatch(url) ||
-        url.contains('https://x.com') ||
-        url.contains('x.com');
+    return twitterRegex.hasMatch(url) || url.contains('https://x.com') || url.contains('x.com');
   }
 
   /// [YouTube]
@@ -82,9 +72,7 @@ class PopularSitesLinksUtils {
   /// [isYouTubeLink] Detect any [url] if is YouTube link
   bool get isYouTubeLink {
     final RegExp youtubeRegex = RegExp(r'^https?://(www\.)?youtube\.com/');
-    return youtubeRegex.hasMatch(url) ||
-        url.contains('https://youtu.be') ||
-        url.contains('youtube.com');
+    return youtubeRegex.hasMatch(url) || url.contains('https://youtu.be') || url.contains('youtube.com');
   }
 
   /// [isYouTubeVideoLink] Detect Only YouTube video [url] not page or channel or story
@@ -150,8 +138,7 @@ class PopularSitesLinksUtils {
   }
 
   bool get isAmazonMusicLink {
-    return url.startsWith("https://music.amazon.com/albums/") ||
-        url.startsWith("https://music.amazon.com");
+    return url.startsWith("https://music.amazon.com/albums/") || url.startsWith("https://music.amazon.com");
   }
 
   /// [Apple]
@@ -160,9 +147,7 @@ class PopularSitesLinksUtils {
   ///
   ///
   bool get isAppleLink {
-    return url.contains('apps.apple.com') ||
-        url.contains('itunes.apple.com') ||
-        url.startsWith('https://www.apple.com/');
+    return url.contains('apps.apple.com') || url.contains('itunes.apple.com') || url.startsWith('https://www.apple.com/');
   }
 
   bool get isAppleMusicLink {
@@ -211,8 +196,7 @@ class PopularSitesLinksUtils {
   ///
   ///
   bool get isDiscordLink {
-    return url.startsWith("https://www.discord.com") ||
-        url.startsWith("https://discord.com");
+    return url.startsWith("https://www.discord.com") || url.startsWith("https://discord.com");
   }
 
   /// [GitHub]
@@ -279,16 +263,11 @@ class PopularSitesLinksUtils {
   }
 
   bool get isMicrosoftOneDriveLink {
-    return url.contains('1drv.ms') ||
-        url.contains('1drv.ws') ||
-        url.contains('onedrive.live.com') ||
-        url.contains('sharepoint.com/sites/');
+    return url.contains('1drv.ms') || url.contains('1drv.ws') || url.contains('onedrive.live.com') || url.contains('sharepoint.com/sites/');
   }
 
   bool get isOutlookLink {
-    return url.contains('outlook.com') ||
-        url.contains('office.com') ||
-        url.contains('outlook.live.com');
+    return url.contains('outlook.com') || url.contains('office.com') || url.contains('outlook.live.com');
   }
 
   bool get isOneNoteLink {
@@ -308,8 +287,7 @@ class PopularSitesLinksUtils {
   }
 
   bool get isPowerPointLink {
-    return url.contains('powerpoint.office.com') ||
-        url.contains('sharepoint.com/sites/');
+    return url.contains('powerpoint.office.com') || url.contains('sharepoint.com/sites/');
   }
 
   /// [LinkedIn]
@@ -349,8 +327,7 @@ class PopularSitesLinksUtils {
   ///
   ///
   bool get isTelegramLink {
-    return url.startsWith("https://web.telegram.org") ||
-        url.startsWith("https://t.me");
+    return url.startsWith("https://web.telegram.org") || url.startsWith("https://t.me");
   }
 
   /// [Threads]
