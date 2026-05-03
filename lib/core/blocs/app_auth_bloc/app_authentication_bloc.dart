@@ -1,6 +1,5 @@
 part of core;
 
-
 class AppAuthenticationBloc
     extends Bloc<AppAuthenticationEvent, AppAuthenticationState> {
   static AppAuthenticationBloc of(BuildContext context) {
@@ -16,7 +15,9 @@ class AppAuthenticationBloc
     on<LoggedOutEvent>(_onLogout);
   }
 
-  CacheUserEntity? get user => state is AuthAuthenticatedState ? (state as AuthAuthenticatedState).user : null;
+  CacheUserEntity? get user => state is AuthAuthenticatedState
+      ? (state as AuthAuthenticatedState).user
+      : null;
   final _getIsUserAuthenticatedUseCase = GetIsUserAuthenticatedUseCase();
   final _deleteAllCachedUseCase = DeleteAllSecureCacheUseCase.getInstance();
   final _getCachedUserUseCase = GetCachedUserUseCase.getInstance();
@@ -54,8 +55,6 @@ class AppAuthenticationBloc
     emit(AuthLogInPageState());
   }
 
-
-
   void _onAuthenticated(
     AuthenticatedEvent event,
     Emitter<AppAuthenticationState> emit,
@@ -63,8 +62,7 @@ class AppAuthenticationBloc
     final cachedUser = await _getCachedUserUseCase();
     if (cachedUser != null) {
       _log("Auth Authenticated State");
-      
-    
+
       emit(AuthAuthenticatedState(user: cachedUser));
     } else {
       await _startMainApp(emit);
@@ -88,7 +86,6 @@ class AppAuthenticationBloc
     _log('Auth Log Out');
     emit(AuthLogOutState());
   }
-
 
   void _onContinueAsGuest(
     GuestEvent event,

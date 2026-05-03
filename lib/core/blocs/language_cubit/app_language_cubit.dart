@@ -11,7 +11,7 @@ class AppLanguageCubit extends Cubit<AppLanguageState> {
 
   static AppLanguageCubit of(BuildContext context) => BlocProvider.of(context);
 
-  void changeLanguage(AppLanguageType langCode) async {
+  void changeLanguage(final AppLanguageType langCode) async {
     emit(state.copyWith(changeLanguageState: const Async.loading()));
 
     await changeLanguageLocally(langCode);
@@ -19,7 +19,7 @@ class AppLanguageCubit extends Cubit<AppLanguageState> {
     emit(state.copyWith(changeLanguageState: const Async.initial()));
   }
 
-  Future<void> changeLanguageLocally(AppLanguageType langCode) async {
+  Future<void> changeLanguageLocally(final AppLanguageType langCode) async {
     if (langCode == state.langCode) return;
     await injector<LocalizationContainer>().setLanguage(langCode);
     emit(state.copyWith(langCode: langCode));

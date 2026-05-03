@@ -18,5 +18,5 @@ analyzer:
     use_string_in_part_of_directives: ignore
     # unused_element: ignore
 
-formatter:
-  page_width: 140
+# formatter:
+#   page_width: 140
