@@ -1,0 +1,22 @@
+include: package:flutter_lints/flutter.yaml
+
+linter:
+  rules:
+    unnecessary_library_name: false
+    prefer_const_constructors: true
+    prefer_const_constructors_in_immutables: true
+    avoid_redundant_argument_values: false
+    prefer_final_locals: true
+    # avoid_dynamic_calls: true
+    prefer_const_declarations: true
+    always_declare_return_types: true
+
+# https://dart.dev/guides/language/analysis-options
+
+analyzer:
+  errors:
+    use_string_in_part_of_directives: ignore
+    # unused_element: ignore
+
+formatter:
+  page_width: 140

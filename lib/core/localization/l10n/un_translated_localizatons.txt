@@ -1,0 +1,9 @@
+{
+  "ur": [
+    "carPlateLettersHint",
+    "carPlateNumbersHint",
+    "hourlyDirections",
+    "hourlyDirectionsDescription",
+    "navigateToConnectionMode"
+  ]
+}

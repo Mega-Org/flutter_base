@@ -1,0 +1,10 @@
+flutter_launcher_icons:
+  android: false
+  adaptive_icon_background: #FFFFFF
+  ios: true
+  image_path: "assets/launcher_icon/app_launcher_icon.png"
+  remove_alpha_ios: true
+
+
+# Run Command :
+#  dart run flutter_launcher_icons
