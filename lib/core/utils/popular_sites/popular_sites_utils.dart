@@ -200,7 +200,7 @@ class PopularSitesLinksUtils {
   }
 
   /// [GitHub]
-  /// [PopularLinksSitesEnum.gitHup]
+  /// [PopularLinksSitesEnum.github]
   ///
   ///
   bool get isGitHubLink {
@@ -315,7 +315,7 @@ class PopularSitesLinksUtils {
   }
 
   /// [Snapchat]
-  /// [PopularLinksSitesEnum.snapChat]
+  /// [PopularLinksSitesEnum.snapchat]
   ///
   ///
   bool get isSnapchatLink {
@@ -392,7 +392,7 @@ class PopularSitesLinksUtils {
     } else if (isClubHouseLink) {
       return PopularLinksSitesEnum.clubhouse;
     } else if (isGitHubLink) {
-      return PopularLinksSitesEnum.gitHup;
+      return PopularLinksSitesEnum.github;
     } else if (isGoogleLink) {
       return PopularLinksSitesEnum.google;
     } else if (isGmailLink) {
@@ -428,7 +428,7 @@ class PopularSitesLinksUtils {
     } else if (isRedditLink) {
       return PopularLinksSitesEnum.reddit;
     } else if (isSnapchatLink) {
-      return PopularLinksSitesEnum.snapChat;
+      return PopularLinksSitesEnum.snapchat;
     } else if (isTelegramLink) {
       return PopularLinksSitesEnum.telegram;
     } else if (isThreadsLink) {

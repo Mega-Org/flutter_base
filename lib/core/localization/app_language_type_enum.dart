@@ -1,19 +1,19 @@
 import 'dart:convert';
 import 'dart:ui';
 
-enum AppLanguageType {
+enum AppLanguageTypeEnum {
   ar(value: "ar", countryCode: "EG"),
   en(value: "en", countryCode: "US");
 
   final String value;
   final String countryCode;
 
-  const AppLanguageType({required this.value, required this.countryCode});
+  const AppLanguageTypeEnum({required this.value, required this.countryCode});
 
-  factory AppLanguageType.fromLanguageCode(String languageCode) {
-    return AppLanguageType.values.firstWhere(
+  factory AppLanguageTypeEnum.fromLanguageCode(String languageCode) {
+    return AppLanguageTypeEnum.values.firstWhere(
       (element) => element.value.toLowerCase() == languageCode.toLowerCase(),
-      orElse: () => AppLanguageType.ar,
+      orElse: () => AppLanguageTypeEnum.ar,
     );
   }
 
@@ -21,26 +21,31 @@ enum AppLanguageType {
 
   String get displayName {
     switch (this) {
-      case AppLanguageType.ar:
+      case AppLanguageTypeEnum.ar:
         return "العربية";
-      case AppLanguageType.en:
+      case AppLanguageTypeEnum.en:
         return "English";
     }
   }
 
   String get localCountryCode => "$value-$countryCode";
 
-  Map<String, dynamic> get toMap => {"value": value, "countryCode": countryCode};
+  Map<String, dynamic> get toMap => {
+    "value": value,
+    "countryCode": countryCode,
+  };
 
   String get toJson => json.encode(toMap);
 
-  factory AppLanguageType.fromJson(String tokenJson) {
+  factory AppLanguageTypeEnum.fromJson(String tokenJson) {
     final Map<String, dynamic> encodedMap = json.decode(tokenJson);
     final String? value = encodedMap["value"]?.toLowerCase();
     final String? countryCode = encodedMap["countryCode"]?.toLowerCase();
 
-    return AppLanguageType.values.firstWhere(
-      (element) => element.value.toLowerCase() == value && element.countryCode.toLowerCase() == countryCode,
+    return AppLanguageTypeEnum.values.firstWhere(
+      (element) =>
+          element.value.toLowerCase() == value &&
+          element.countryCode.toLowerCase() == countryCode,
     );
   }
 }

@@ -168,7 +168,7 @@ class Validator {
     ];
 
     final bool isValid = patterns.any((pattern) => pattern.hasMatch(id));
-    if (isValid == false && id.length < 5) {
+    if (!isValid) {
       return appLocalizer.invalidIdentityNumber;
     }
     return null;

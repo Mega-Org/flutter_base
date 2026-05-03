@@ -1,6 +1,7 @@
 part of core;
 
-AppLocalizations get appLocalizer => injector<LocalizationContainer>().appLocalizations;
+AppLocalizations get appLocalizer =>
+    injector<LocalizationContainer>().appLocalizations;
 
 Locale get getLocale {
   try {
@@ -14,38 +15,35 @@ Locale get getLocale {
   }
 }
 
-AppLanguageType get getLocaleTypeEnum {
+AppLanguageTypeEnum get getLocaleTypeEnum {
   try {
-    return AppLanguageType.fromLanguageCode(getLocale.languageCode);
+    return AppLanguageTypeEnum.fromLanguageCode(getLocale.languageCode);
   } catch (_) {
-    return AppLanguageType.ar;
+    return AppLanguageTypeEnum.ar;
   }
 }
 
-/// This class will be registered manually in initializeDependencies()
-/// Initial [AppLanguageType] value is set in [LanguagePreferencesHelper]
-// @LazySingleton()
+/// Registered by injectable; initial [AppLanguageTypeEnum] comes from
+/// [LanguagePreferencesHelper] via [GetCachedLanguageUseCase] in [@PostConstruct].
+@singleton
 class LocalizationContainer {
-  final _getLanguageUseCase = GetCachedLanguageUseCase.getInstance();
-  final _setLanguageUseCase = SetCachedLanguageUseCase.getInstance();
+  LocalizationContainer(this._getLanguageUseCase, this._setLanguageUseCase);
 
-  LocalizationContainer();
+  final GetCachedLanguageUseCase _getLanguageUseCase;
+  final SetCachedLanguageUseCase _setLanguageUseCase;
 
-  AppLanguageType _lang = AppLanguageType.ar;
+  AppLanguageTypeEnum _lang = AppLanguageTypeEnum.ar;
 
-  AppLanguageType get getLang => _lang;
+  AppLanguageTypeEnum get getLang => _lang;
 
   AppLocalizations appLocalizations = AppLocalizationsAr();
 
-  // @PostConstruct(preResolve: true)
-  Future<Locale> init() async {
-    Locale locale;
+  @PostConstruct()
+  Future<void> init() async {
     _lang = await _getLanguageUseCase();
-    locale = _lang.local;
-    return locale;
   }
 
-  Future<void> setLanguage(AppLanguageType lang) async {
+  Future<void> setLanguage(AppLanguageTypeEnum lang) async {
     _lang = lang;
     await _setLanguageUseCase(lang);
   }

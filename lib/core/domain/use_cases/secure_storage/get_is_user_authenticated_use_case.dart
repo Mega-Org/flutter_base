@@ -2,11 +2,13 @@ part of core;
 
 @Injectable()
 class GetIsUserAuthenticatedUseCase {
-  GetIsUserAuthenticatedUseCase();
-  final GetTokenUseCase _getTokenUseCase = GetTokenUseCase.getInstance();
-  final GetCachedUserUseCase _getCachedUserUseCase =
-      GetCachedUserUseCase.getInstance();
+  const GetIsUserAuthenticatedUseCase(
+    this._getTokenUseCase,
+    this._getCachedUserUseCase,
+  );
 
+  final GetTokenUseCase _getTokenUseCase;
+  final GetCachedUserUseCase _getCachedUserUseCase;
 
   Future<({bool isAuthenticated, CachedUser? cachedUser})> call() async {
     try {
@@ -17,7 +19,8 @@ class GetIsUserAuthenticatedUseCase {
       return (isAuthenticated: isAuthenticated, cachedUser: cachedUser);
     } catch (_) {
       debugPrint(
-          "[GetIsUserAuthenticatedUseCase] Failed to get is user authenticated");
+        "[GetIsUserAuthenticatedUseCase] Failed to get is user authenticated",
+      );
       return (isAuthenticated: false, cachedUser: null);
     }
   }

@@ -5,7 +5,7 @@
     "description": "----------------- ERRORS Localizations -----------------"
   },
   "unexpectedError": "An unexpected error occurred. Please try again.",
-  "unAutherizedUserExeption": "Unauthorized user. Please log in again.",
+  "unauthorizedUserException": "Unauthorized user. Please log in again.",
   "failToLoad": "Failed to load. Please try again.",
   "somethingWentWrong": "Something went wrong. Please try again.",
   "noInternetConnection": "No internet connection available.",

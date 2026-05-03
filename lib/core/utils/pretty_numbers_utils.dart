@@ -10,18 +10,18 @@ class TimePreviewUtils {
 
   Duration get differenceDuration => endDate.difference(date);
 
-  int get differenceMinites => differenceDuration.inMinutes;
+  int get differenceMinutes => differenceDuration.inMinutes;
   int get differenceHours => differenceDuration.inHours;
   int get differenceInDays => differenceDuration.inDays;
   int get differenceInWeeks => differenceDuration.inDays ~/ 7;
   int get differenceInMonths => differenceDuration.inDays ~/ 30;
   int get differenceInYears => differenceDuration.inDays ~/ 365;
 
-  String                                                                    prettyText() {
-    if (differenceMinites <= 5) {
+  String prettyText() {
+    if (differenceMinutes <= 5) {
       return "now";
-    } else if (differenceMinites < 60) {
-      return "$differenceMinites M";
+    } else if (differenceMinutes < 60) {
+      return "$differenceMinutes M";
     } else if (differenceHours < 24) {
       return "$differenceHours H";
     } else if (differenceInDays < 7) {

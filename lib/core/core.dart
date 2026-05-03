@@ -24,7 +24,7 @@ import 'configs/values/assets.gen.dart';
 import 'constants/api_constants.dart';
 import 'data/models/token_model.dart';
 import 'di/di.dart';
-import 'localization/app_language_type.dart';
+import 'localization/app_language_type_enum.dart';
 import 'utils/files/io_file_utils.dart';
 
 // Foundation
@@ -42,7 +42,7 @@ part 'network/errors/exceptions.dart';
 part 'network/errors/failures.dart';
 part 'network/errors/status_code.dart';
 part 'network/errors/failure_collect.dart';
-part 'network/errors/execption_collect.dart';
+part 'network/errors/exception_mapper.dart';
 
 // Localization
 part 'localization/localization_container.dart';
@@ -73,14 +73,14 @@ part 'configs/router/animated_routes.dart';
 part 'configs/router/app_scaled_box.dart';
 
 // Data
-part 'data/data_source/language_cache_date_source.dart';
+part 'data/data_source/language_cache_data_source.dart';
 part 'data/data_source/secure_storage_data_source.dart';
 part 'data/models/cache_user_model.dart';
 
 // Repository
-part 'data/repository/language_cache_repository_imp.dart';
-part 'data/repository/secure_storage_repository_imp.dart';
-part 'data/repository/theme_repository_imp.dart';
+part 'data/repository/language_cache_repository_impl.dart';
+part 'data/repository/secure_storage_repository_impl.dart';
+part 'data/repository/theme_repository_impl.dart';
 
 // Domain
 part 'domain/entities/token_entity.dart';
@@ -90,7 +90,7 @@ part 'domain/repository/theme_repository.dart';
 
 // Entity
 part 'domain/entities/cached_user_entity.dart';
-part 'domain/entities/attachement.dart';
+part 'domain/entities/attachment_entity.dart';
 
 // Use Cases
 part 'domain/use_cases/language/clear_language_cache_use_case.dart';
@@ -107,6 +107,10 @@ part 'domain/use_cases/secure_storage/set_cached_user_use_case.dart';
 part 'domain/use_cases/secure_storage/set_token_use_case.dart';
 
 
+
+// Utils (library parts)
+part 'utils/pretty_numbers_utils.dart';
+part 'utils/regular_exp/regular_exp.dart';
 
 // Extensions
 

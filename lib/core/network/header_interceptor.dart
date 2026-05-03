@@ -25,8 +25,9 @@ class HeaderInterceptor implements Interceptor {
     handler.next(response);
   }
 
-  final _getCachedLanguageUseCase = GetCachedLanguageUseCase.getInstance();
-  final _getTokenUseCase = GetTokenUseCase.getInstance();
+  final GetCachedLanguageUseCase _getCachedLanguageUseCase =
+      injector<GetCachedLanguageUseCase>();
+  final _getTokenUseCase = injector<GetTokenUseCase>();
 
   Future<void> _initLang(RequestOptions options) async {
     try {

@@ -7,9 +7,10 @@ class SetCachedLanguageUseCase {
   const SetCachedLanguageUseCase(this._repository);
 
   factory SetCachedLanguageUseCase.getInstance() => SetCachedLanguageUseCase(
-      LanguageCacheRepositoryImp(LanguageCacheDateSourceImp()));
+    LanguageCacheRepositoryImpl(LanguageCacheDataSourceImpl()),
+  );
 
-  Future<bool> call(AppLanguageType language) async {
+  Future<bool> call(AppLanguageTypeEnum language) async {
     return await _repository.setLanguageCode(language);
   }
 }

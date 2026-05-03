@@ -1,7 +1,7 @@
 part of core;
 
 class AppLanguageState extends Equatable {
-  final AppLanguageType langCode;
+  final AppLanguageTypeEnum langCode;
   final Async<void> changeLanguageState;
 
   const AppLanguageState({
@@ -10,21 +10,21 @@ class AppLanguageState extends Equatable {
   });
 
   const AppLanguageState.initial()
-      : this(
-          langCode: AppLanguageType.ar,
-          changeLanguageState: const Async.initial(),
-        );
-
-  @override
-  List<Object> get props => [langCode, changeLanguageState];
+    : this(
+        langCode: AppLanguageTypeEnum.ar,
+        changeLanguageState: const Async.initial(),
+      );
 
   AppLanguageState copyWith({
-    AppLanguageType? langCode,
-    Async<void>? changeLanguageState,
+    final AppLanguageTypeEnum? langCode,
+    final Async<void>? changeLanguageState,
   }) {
     return AppLanguageState(
       langCode: langCode ?? this.langCode,
       changeLanguageState: changeLanguageState ?? this.changeLanguageState,
     );
   }
+
+  @override
+  List<Object> get props => [langCode, changeLanguageState];
 }

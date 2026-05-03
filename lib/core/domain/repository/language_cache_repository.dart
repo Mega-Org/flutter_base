@@ -1,9 +1,9 @@
 part of core;
 
 abstract class LanguageCacheRepository {
-  Future<AppLanguageType> getLanguage();
-  Future<bool> setLanguageCode(AppLanguageType language);
-  Future<AppLanguageType> getDeviceLanguage();
-  AppLanguageType get getDefaultAppLanguage;
+  Future<AppLanguageTypeEnum> getLanguage();
+  Future<bool> setLanguageCode(AppLanguageTypeEnum language);
+  Future<AppLanguageTypeEnum> getDeviceLanguage();
+  AppLanguageTypeEnum get getDefaultAppLanguage;
   Future<void> clearCache();
 }

@@ -6,7 +6,7 @@ class Failure extends Equatable {
   const Failure({this.message = ''});
 
   @override
-  List<Object> get props => [message];
+  List<Object?> get props => [message];
 }
 
 class ServerFailure extends Failure {
@@ -15,6 +15,9 @@ class ServerFailure extends Failure {
     required super.message,
     this.errorMap,
   });
+
+  @override
+  List<Object?> get props => [...super.props, errorMap];
 }
 
 class RequestFailure extends Failure {
@@ -23,8 +26,8 @@ class RequestFailure extends Failure {
   });
 }
 
-class UnExpectedFailure extends Failure {
-  const UnExpectedFailure({
+class UnexpectedFailure extends Failure {
+  const UnexpectedFailure({
     required super.message,
   });
 }
@@ -32,6 +35,9 @@ class UnExpectedFailure extends Failure {
 class UnVerifiedUserFailure extends Failure {
   final Token token;
   const UnVerifiedUserFailure({required super.message, required this.token});
+
+  @override
+  List<Object?> get props => [...super.props, token];
 }
 
 class SecureStorageFailure extends Failure {

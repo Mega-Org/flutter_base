@@ -5,7 +5,8 @@ class GetCachedUserUseCase {
   final SecureStorageRepository _repository;
 
   factory GetCachedUserUseCase.getInstance() => GetCachedUserUseCase(
-      SecureStorageRepositoryImp(SecureStorageDataSourceImpl()));
+      SecureStorageRepositoryImpl(SecureStorageDataSourceImpl(const FlutterSecureStorage(
+          aOptions: AndroidOptions(encryptedSharedPreferences: true)))));
 
   const GetCachedUserUseCase(this._repository);
 

@@ -3,7 +3,7 @@ part of core;
 
 /// Events are:
 /// 1- AppStarted
-/// 2- OnFinishWalkThrowEvent
+/// 2- OnFinishWalkthroughEvent
 /// 3- RoleChanged
 /// 4- Authenticated
 /// 5- LoggedOut
@@ -21,8 +21,8 @@ class AppStartedEvent extends AppAuthenticationEvent {
   const AppStartedEvent();
 }
 
-class OnFinishWalkThrowEvent extends AppAuthenticationEvent {
-  const OnFinishWalkThrowEvent();
+class OnFinishWalkthroughEvent extends AppAuthenticationEvent {
+  const OnFinishWalkthroughEvent();
 }
 
 class AuthenticatedEvent extends AppAuthenticationEvent {

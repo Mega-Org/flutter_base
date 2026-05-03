@@ -1,10 +1,10 @@
 part of core;
 
 @Injectable(as: SecureStorageRepository)
-class SecureStorageRepositoryImp implements SecureStorageRepository {
+class SecureStorageRepositoryImpl implements SecureStorageRepository {
   final SecureStorageDataSource _dataSource;
 
-  const SecureStorageRepositoryImp(this._dataSource);
+  const SecureStorageRepositoryImpl(this._dataSource);
 
   @override
   Future<Token?> getToken() async {

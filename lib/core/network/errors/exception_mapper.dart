@@ -1,16 +1,14 @@
 part of core;
 
-Future<T> apiExecptionCollecter<T>({
+Future<T> mapApiException<T>({
   required Future<Response?> Function() task,
 }) async {
   try {
     final taskResult = await task();
     final Response? response = taskResult;
     if (response == null) {
-      final String errorMessage =
-          response?.data["message"] ?? appLocalizer.unexpectedError;
-      throw UnExpectedException(
-        message: errorMessage,
+      throw UnexpectedException(
+        message: appLocalizer.unexpectedError,
       );
     }
     switch (response.statusCode) {
@@ -18,49 +16,36 @@ Future<T> apiExecptionCollecter<T>({
       case 201:
       case 204:
         return response.data;
-      // return{ };
-      /// Bad response
-      ///
       case 400:
       case 422:
         final data = response.data;
         throw ApiRequestException(message: data['message'].toString());
 
-      /// Un autherized
-      ///
       case 401:
         final data = response.data;
         final String errorMessage =
-            data["message"] ?? appLocalizer.unAutherizedUserExeption;
+            data["message"] ?? appLocalizer.unauthorizedUserException;
         throw UnauthorizedException(message: errorMessage);
 
-      /// Forbidden user [Like user token has expired]
       case 403:
         final data = response.data;
         final String errorMessage =
-            data["message"] ?? appLocalizer.unAutherizedUserExeption;
+            data["message"] ?? appLocalizer.unauthorizedUserException;
         throw ApiRequestException(message: errorMessage);
 
-      /// If the account is temporarily locked due to unverified status.
       case 423:
-        throw UnVerifiedUserException.fromReeponse(response.data);
-     
+        throw UnVerifiedUserException.fromResponse(response.data);
 
       case 500:
       default:
-        throw UnExpectedException(
+        throw UnexpectedException(
             message: response.data["error"] ??
                 response.data["message"] ??
                 appLocalizer.unexpectedError);
     }
   } on SocketException {
     throw ServerException(message: appLocalizer.noInternetConnection);
-  }
-
-  /// On exception occured
-  /// Like bad response or server error or any execption back from server
-  ///
-  on DioException catch (e) {
+  } on DioException catch (e) {
     final Response? response = e.response;
     String? errorMessage = response?.data["message"] ?? e.message;
 
@@ -68,15 +53,14 @@ Future<T> apiExecptionCollecter<T>({
       errorMessage = null;
     }
 
-    /// If the account is temporarily locked due to unverified status.
     if (response?.statusCode == 423) {
-      throw UnVerifiedUserException.fromReeponse(response?.data);
-    }
-
-    /// User need to subscripe to package
-    ///
-    else if (response?.statusCode == 300) {
-      throw UserNeedSubscripeToPackageException();
+      final Object? data = response?.data;
+      if (data is Map<String, dynamic>) {
+        throw UnVerifiedUserException.fromResponse(data);
+      }
+      throw UnexpectedException(message: appLocalizer.unexpectedError);
+    } else if (response?.statusCode == 300) {
+      throw UserNeedsSubscriptionException();
     }
 
     if (e.type == DioExceptionType.sendTimeout ||
@@ -89,10 +73,10 @@ Future<T> apiExecptionCollecter<T>({
     } else if (e.type == DioExceptionType.connectionError) {
       throw ApiRequestException(message: appLocalizer.noInternetConnection);
     } else {
-      throw UnExpectedException(
+      throw UnexpectedException(
           message: errorMessage ?? appLocalizer.unexpectedError);
     }
-  } on UnExpectedException catch (_) {
+  } on UnexpectedException catch (_) {
     rethrow;
   } on ApiRequestException catch (_) {
     rethrow;
@@ -101,8 +85,8 @@ Future<T> apiExecptionCollecter<T>({
   } on UnauthorizedException catch (_) {
     rethrow;
   } on String catch (e) {
-    throw UnExpectedException(message: e);
+    throw UnexpectedException(message: e);
   } catch (e) {
-    throw UnExpectedException(message: appLocalizer.unexpectedError);
+    throw UnexpectedException(message: appLocalizer.unexpectedError);
   }
 }

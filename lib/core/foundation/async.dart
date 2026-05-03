@@ -1,18 +1,18 @@
 part of core;
 
-
 class Async<T> extends Equatable {
   final T? data;
   final Failure? failure;
   final bool _successWithoutData;
   final bool? _loading;
 
-  const Async._(
+  const Async._({
     this.data,
-    this._successWithoutData,
-    this._loading,
+    required final bool successWithoutData,
+    required final bool? loading,
     this.failure,
-  );
+  }) : _successWithoutData = successWithoutData,
+       _loading = loading;
 
   String? get errorMessage => failure?.message;
 
@@ -29,15 +29,45 @@ class Async<T> extends Equatable {
       (_successWithoutData == false) &&
       (_loading == null);
 
-  const Async.loading() : this._(null, false, true, null);
+  const Async.loading()
+    : this._(
+        data: null,
+        successWithoutData: false,
+        loading: true,
+        failure: null,
+      );
 
-  const Async.success(T data) : this._(data, false, false, null);
+  const Async.success(final T data)
+    : this._(
+        data: data,
+        successWithoutData: false,
+        loading: false,
+        failure: null,
+      );
 
-  const Async.successWithoutData() : this._(null, true, false, null);
+  const Async.successWithoutData()
+    : this._(
+        data: null,
+        successWithoutData: true,
+        loading: false,
+        failure: null,
+      );
 
-  const Async.failure(Failure failure) : this._(null, false, false, failure);
+  const Async.failure(final Failure failure)
+    : this._(
+        data: null,
+        successWithoutData: false,
+        loading: false,
+        failure: failure,
+      );
 
-  const Async.initial() : this._(null, false, null, null);
+  const Async.initial()
+    : this._(
+        data: null,
+        successWithoutData: false,
+        loading: null,
+        failure: null,
+      );
 
   @override
   String toString() {
@@ -46,13 +76,13 @@ class Async<T> extends Equatable {
 
   @override
   List<Object?> get props => [
-        data,
-        _successWithoutData,
-        _loading,
-        isFailure,
-        isLoading,
-        isSuccess,
-        isInitial,
-        failure,
-      ];
+    data,
+    _successWithoutData,
+    _loading,
+    isFailure,
+    isLoading,
+    isSuccess,
+    isInitial,
+    failure,
+  ];
 }

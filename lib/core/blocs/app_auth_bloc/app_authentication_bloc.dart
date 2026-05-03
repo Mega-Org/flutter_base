@@ -2,14 +2,14 @@ part of core;
 
 class AppAuthenticationBloc
     extends Bloc<AppAuthenticationEvent, AppAuthenticationState> {
-  static AppAuthenticationBloc of(BuildContext context) {
+  static AppAuthenticationBloc of(final BuildContext context) {
     return BlocProvider.of(context);
   }
 
   AppAuthenticationBloc() : super(AuthUninitialized()) {
     on<AppStartedEvent>(_onAppStarted);
     on<AuthenticatedEvent>(_onAuthenticated);
-    on<OnFinishWalkThrowEvent>(_onFinishWalkThrow);
+    on<OnFinishWalkthroughEvent>(_onFinishWalkthrough);
     on<GuestEvent>(_onContinueAsGuest);
     on<AuthRestartEvent>(_onAuthRestart);
     on<LoggedOutEvent>(_onLogout);
@@ -18,19 +18,22 @@ class AppAuthenticationBloc
   CacheUserEntity? get user => state is AuthAuthenticatedState
       ? (state as AuthAuthenticatedState).user
       : null;
-  final _getIsUserAuthenticatedUseCase = GetIsUserAuthenticatedUseCase();
-  final _deleteAllCachedUseCase = DeleteAllSecureCacheUseCase.getInstance();
-  final _getCachedUserUseCase = GetCachedUserUseCase.getInstance();
+  final GetIsUserAuthenticatedUseCase _getIsUserAuthenticatedUseCase =
+      injector<GetIsUserAuthenticatedUseCase>();
+  final DeleteAllSecureCacheUseCase _deleteAllCachedUseCase =
+      injector<DeleteAllSecureCacheUseCase>();
+  final GetCachedUserUseCase _getCachedUserUseCase =
+      injector<GetCachedUserUseCase>();
 
   void _onAppStarted(
-    AppStartedEvent event,
-    Emitter<AppAuthenticationState> emit,
+    final AppStartedEvent event,
+    final Emitter<AppAuthenticationState> emit,
   ) async {
     _log("Auth Started");
     await _startMainApp(emit);
   }
 
-  Future<void> _startMainApp(Emitter<AppAuthenticationState> emit) async {
+  Future<void> _startMainApp(final Emitter<AppAuthenticationState> emit) async {
     final getIsAuthResult = await _getIsUserAuthenticatedUseCase();
     final bool isAuthenticated = getIsAuthResult.isAuthenticated;
     final cachedUser = getIsAuthResult.cachedUser;
@@ -47,17 +50,17 @@ class AppAuthenticationBloc
     return await GetCachedUserUseCase.getInstance().call();
   }
 
-  void _onFinishWalkThrow(
-    OnFinishWalkThrowEvent event,
-    Emitter<AppAuthenticationState> emit,
+  void _onFinishWalkthrough(
+    final OnFinishWalkthroughEvent event,
+    final Emitter<AppAuthenticationState> emit,
   ) async {
     _log("Auth Log In Page");
     emit(AuthLogInPageState());
   }
 
   void _onAuthenticated(
-    AuthenticatedEvent event,
-    Emitter<AppAuthenticationState> emit,
+    final AuthenticatedEvent event,
+    final Emitter<AppAuthenticationState> emit,
   ) async {
     final cachedUser = await _getCachedUserUseCase();
     if (cachedUser != null) {
@@ -70,16 +73,16 @@ class AppAuthenticationBloc
   }
 
   void _onAuthRestart(
-    AuthRestartEvent event,
-    Emitter<AppAuthenticationState> emit,
+    final AuthRestartEvent event,
+    final Emitter<AppAuthenticationState> emit,
   ) async {
     _log("Auth Restarted");
     emit(AuthUninitialized());
   }
 
   void _onLogout(
-    LoggedOutEvent event,
-    Emitter<AppAuthenticationState> emit,
+    final LoggedOutEvent event,
+    final Emitter<AppAuthenticationState> emit,
   ) async {
     await _deleteAllCachedUseCase();
     // FirebaseHelper.deleteDeviceFcmToken();
@@ -88,21 +91,19 @@ class AppAuthenticationBloc
   }
 
   void _onContinueAsGuest(
-    GuestEvent event,
-    Emitter<AppAuthenticationState> emit,
+    final GuestEvent event,
+    final Emitter<AppAuthenticationState> emit,
   ) async {
     _log("Auth GuestState");
-    // emit(AuthUninitialized());
-    // await Future.delayed(Durations.medium1);
     emit(GuestState());
   }
 
-  void _log(String message) {
+  void _log(final String message) {
     debugPrint('[AppAuthenticationBloc] ::: $message :::');
   }
 
   @override
-  void onEvent(AppAuthenticationEvent event) {
+  void onEvent(final AppAuthenticationEvent event) {
     if (!isClosed) {
       super.onEvent(event);
     }

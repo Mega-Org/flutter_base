@@ -4,7 +4,6 @@ import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../constants/api_constants.dart';
-import '../core.dart';
 import 'di.config.dart';
 
 final injector = GetIt.instance;
@@ -15,18 +14,9 @@ final injector = GetIt.instance;
   asExtension: true,
 )
 Future<void> initializeDependencies() async {
-  injector.registerLazySingleton(
-    () => const FlutterSecureStorage(
-      aOptions: AndroidOptions(encryptedSharedPreferences: true),
-    ),
-  );
-  final sharedPrefInstance = await SharedPreferences.getInstance();
-  injector.registerLazySingleton<SharedPreferences>(() => sharedPrefInstance);
-  injector.registerSingleton(LocalizationContainer());
-  await injector<LocalizationContainer>().init();
-
-  // Push new scope, so when i reset the scope,
-  // the LocalizationContainer does not get reset with it
+  // Push new scope: scoped deps reset with [resetDependenciesScope].
+  // [LocalizationContainer] is registered inside [injector.init] (injectable) and
+  // is recreated on scope reset; language is re-read from cache in PostConstruct.
   injector.pushNewScope(
     init: (_) async {
       await configureDependencies();
@@ -45,6 +35,16 @@ Future<void> resetDependenciesScope() async {
 
 @module
 abstract class RegisterModule {
+  @lazySingleton
+  FlutterSecureStorage get flutterSecureStorage => const FlutterSecureStorage(
+    aOptions: AndroidOptions(encryptedSharedPreferences: true),
+  );
+
+  @preResolve
+  @lazySingleton
+  Future<SharedPreferences> get sharedPreferences =>
+      SharedPreferences.getInstance();
+
   @injectable
   Dio get dio => Dio(
     BaseOptions(

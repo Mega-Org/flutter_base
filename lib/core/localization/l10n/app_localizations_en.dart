@@ -12,10 +12,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get appName => 'Rise Now';
 
   @override
-  String get unexpectedError => 'An unexpected error occurred. Please try again.';
+  String get unexpectedError =>
+      'An unexpected error occurred. Please try again.';
 
   @override
-  String get unAutherizedUserExeption => 'Unauthorized user. Please log in again.';
+  String get unauthorizedUserException =>
+      'Unauthorized user. Please log in again.';
 
   @override
   String get failToLoad => 'Failed to load. Please try again.';
@@ -27,13 +29,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get noInternetConnection => 'No internet connection available.';
 
   @override
-  String get connectionIssueTryLater => 'There was a connection issue. Please try again later.';
+  String get connectionIssueTryLater =>
+      'There was a connection issue. Please try again later.';
 
   @override
   String get noInternetFound => 'No internet found, check your connection';
 
   @override
-  String get unAuthenticatedMessage => 'Your session has expired, please log in again';
+  String get unAuthenticatedMessage =>
+      'Your session has expired, please log in again';
 
   @override
   String get saturday => 'Saturday';
@@ -67,7 +71,8 @@ class AppLocalizationsEn extends AppLocalizations {
       'Make sure to save any changes you\'ve made or finish the tasks you\'re working on before continuing to avoid data loss.';
 
   @override
-  String get deleteAccountSuccessMessage => 'Your account has been deleted successfully.';
+  String get deleteAccountSuccessMessage =>
+      'Your account has been deleted successfully.';
 
   @override
   String get logOut => 'Logout';
@@ -104,7 +109,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get changeLanguage => 'Change Language';
 
   @override
-  String get changeLanguageDescription => 'Choose the language you want to use in the app';
+  String get changeLanguageDescription =>
+      'Choose the language you want to use in the app';
 
   @override
   String get contactUs => 'Contact Us';
@@ -249,7 +255,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get fieldMustNotHaveSpaces => 'This field must not have spaces.';
 
   @override
-  String get invalidIban => 'The IBAN must contain only letters and numbers, and be between 15 and 34 characters long.';
+  String get invalidIban =>
+      'The IBAN must contain only letters and numbers, and be between 15 and 34 characters long.';
 
   @override
   String get nameTooShort => 'Name is too short.';
@@ -295,7 +302,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get noResultFound => 'No result found';
 
   @override
-  String get youMustAgreeTermsAndConditionsFirst => 'You must agree to the terms and conditions first';
+  String get youMustAgreeTermsAndConditionsFirst =>
+      'You must agree to the terms and conditions first';
 
   @override
   String get invalidIdentityNumber => 'Invalid identity number';
@@ -325,7 +333,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get clientOnboardingTitleOne => 'Easy trip anytime';
 
   @override
-  String get clientOnboardingSubtitleOne => 'Order your car with one click, arrive faster at the lowest cost.';
+  String get clientOnboardingSubtitleOne =>
+      'Order your car with one click, arrive faster at the lowest cost.';
 
   @override
   String get clientOnboardingTitleTwo => 'Choose your trip your way';
@@ -338,25 +347,31 @@ class AppLocalizationsEn extends AppLocalizations {
   String get clientOnboardingTitleThree => 'Safe and reliable trip';
 
   @override
-  String get clientOnboardingSubtitleThree => 'Share your location with those you love, and enjoy a comfortable, reassuring trip';
+  String get clientOnboardingSubtitleThree =>
+      'Share your location with those you love, and enjoy a comfortable, reassuring trip';
 
   @override
   String get staffOnboardingTitleOne => 'Printing services tailored to you';
 
   @override
-  String get staffOnboardingSubtitleOne => 'Everything you need in one place, just a few simple steps away.';
+  String get staffOnboardingSubtitleOne =>
+      'Everything you need in one place, just a few simple steps away.';
 
   @override
-  String get staffOnboardingTitleTwo => 'Your print shop in your pocket—order and print anytime.';
+  String get staffOnboardingTitleTwo =>
+      'Your print shop in your pocket—order and print anytime.';
 
   @override
-  String get staffOnboardingSubtitleTwo => 'Quick service, top quality, and competitive prices.';
+  String get staffOnboardingSubtitleTwo =>
+      'Quick service, top quality, and competitive prices.';
 
   @override
-  String get staffOnboardingTitleThree => 'From the print shop to your home or office, safely and fast.';
+  String get staffOnboardingTitleThree =>
+      'From the print shop to your home or office, safely and fast.';
 
   @override
-  String get staffOnboardingSubtitleThree => 'Start now—let your prints reflect professionalism and take your work to the next level.';
+  String get staffOnboardingSubtitleThree =>
+      'Start now—let your prints reflect professionalism and take your work to the next level.';
 
   @override
   String get driverOnboardingTitleOne => 'Start your journey with Zyarat';
@@ -404,7 +419,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get marketerRegistrationTitle => 'Marketer Registration';
 
   @override
-  String get marketerRegistrationDescription => 'Create your marketer account to start earning.';
+  String get marketerRegistrationDescription =>
+      'Create your marketer account to start earning.';
 
   @override
   String get marketerAvatar => 'Avatar';
@@ -431,7 +447,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get marketerNationalityHint => 'Select nationality';
 
   @override
-  String get marketerAcceptTermsRequired => 'You must accept the terms and conditions';
+  String get marketerAcceptTermsRequired =>
+      'You must accept the terms and conditions';
 
   @override
   String get marketerHomeCardTitle => 'Total earnings';
@@ -446,7 +463,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get pleaseSelectRoleFirst => 'Please select user role first';
 
   @override
-  String get selectRoleTitleFirstSection => 'Choose what suits you to start with the app';
+  String get selectRoleTitleFirstSection =>
+      'Choose what suits you to start with the app';
 
   @override
   String get selectRoleDescription =>
@@ -462,7 +480,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get welcomeBackToRiseNowFirstSection => 'Welcome back to the app';
 
   @override
-  String get loginDescription => 'We are glad to see you again, and hope that your experience with us is always enjoyable and smooth.';
+  String get loginDescription =>
+      'We are glad to see you again, and hope that your experience with us is always enjoyable and smooth.';
 
   @override
   String get sendCode => 'Send activation code';
@@ -483,7 +502,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get mobileFieldHint => 'Enter your mobile number';
 
   @override
-  String get otpFirstSection => 'Please enter the verification code sent via text message to your mobile number';
+  String get otpFirstSection =>
+      'Please enter the verification code sent via text message to your mobile number';
 
   @override
   String get otpSecondSection => 'to complete the verification process.';
@@ -492,7 +512,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get enterVerificationCode => 'Enter verification code';
 
   @override
-  String get verificationCodeLengthValidation => 'Verification code must be 4 digits';
+  String get verificationCodeLengthValidation =>
+      'Verification code must be 4 digits';
 
   @override
   String get otpSentSuccessfully => 'Verification code sent successfully';
@@ -523,7 +544,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get identityNumberFieldHint => 'Enter your identity number';
 
   @override
-  String get commercialRegistrationNumberFieldHint => 'Commercial Registration Number';
+  String get commercialRegistrationNumberFieldHint =>
+      'Commercial Registration Number';
 
   @override
   String get emailAddressFieldHint => 'Email Address';
@@ -588,7 +610,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get noCategoriesFoundTitle => 'No categories found';
 
   @override
-  String get noCategoriesFoundDescription => 'There are no categories available at the moment, they will be added as soon as possible.';
+  String get noCategoriesFoundDescription =>
+      'There are no categories available at the moment, they will be added as soon as possible.';
 
   @override
   String get mobileNumbers => 'Mobile numbers';
@@ -661,7 +684,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get welcomeInZyarat24 => 'Welcome to Zyarat 24';
 
   @override
-  String get loginNowToStartYourTrips => 'Login now to start your trips with Zyarat 24';
+  String get loginNowToStartYourTrips =>
+      'Login now to start your trips with Zyarat 24';
 
   @override
   String get male => 'Male';
@@ -721,7 +745,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get hijriDateOfBirthHint => 'Select your birth day in hijri calendar';
 
   @override
-  String get youAgeMustBeMoreThan18YearsOld => 'You must be more than 18 years old';
+  String get youAgeMustBeMoreThan18YearsOld =>
+      'You must be more than 18 years old';
 
   @override
   String get completeYourProfile => 'Complete your profile';
@@ -787,16 +812,19 @@ class AppLocalizationsEn extends AppLocalizations {
   String get specialNeedsCarImage => 'Special needs car image';
 
   @override
-  String get vehicleRegistrationNumberHint => 'Enter the serial number of the vehicle on the form';
+  String get vehicleRegistrationNumberHint =>
+      'Enter the serial number of the vehicle on the form';
 
   @override
   String get vehicleRegistrationNumber => 'Vehicle registration number';
 
   @override
-  String get specialNeedsCarImageDescription => 'Attach a car image for special needs';
+  String get specialNeedsCarImageDescription =>
+      'Attach a car image for special needs';
 
   @override
-  String get attachCarImageFromFrontWithClearPlate => 'Attach car image from the front with a clear plate';
+  String get attachCarImageFromFrontWithClearPlate =>
+      'Attach car image from the front with a clear plate';
 
   @override
   String get nationalId => 'National ID';
@@ -814,7 +842,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get vehicleRegistration => 'Vehicle Registration';
 
   @override
-  String get attachVehicleRegistrationImage => 'Attach Vehicle Registration image';
+  String get attachVehicleRegistrationImage =>
+      'Attach Vehicle Registration image';
 
   @override
   String get vehicleInsurance => 'Vehicle Insurance';
@@ -829,7 +858,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get toWhere => 'To where?';
 
   @override
-  String get attachOwnershipAuthorizationImage => 'Attach Ownership Authorization image (if you are not the car owner)';
+  String get attachOwnershipAuthorizationImage =>
+      'Attach Ownership Authorization image (if you are not the car owner)';
 
   @override
   String get carReservation => 'Car Reservation';
@@ -880,47 +910,57 @@ class AppLocalizationsEn extends AppLocalizations {
   String get intercityTripFullTitle => 'Intercity Trip';
 
   @override
-  String get carReservationDescription => 'Book your car easily and safely with the best drivers';
+  String get carReservationDescription =>
+      'Book your car easily and safely with the best drivers';
 
   @override
-  String get multipleDestinationsDescription => 'Travel to multiple destinations in one trip';
+  String get multipleDestinationsDescription =>
+      'Travel to multiple destinations in one trip';
 
   @override
   String get roundTripDescription => 'Round trip with the best prices';
 
   @override
-  String get femaleDriverDescription => 'Professional female drivers for more comfort';
+  String get femaleDriverDescription =>
+      'Professional female drivers for more comfort';
 
   @override
-  String get specialNeedsDescription => 'Specialized service for people with special needs';
+  String get specialNeedsDescription =>
+      'Specialized service for people with special needs';
 
   @override
   String get earlyBookingDescription => 'Book in advance and save more';
 
   @override
-  String get driverByHourDescription => 'Rent a driver by the hour according to your needs';
+  String get driverByHourDescription =>
+      'Rent a driver by the hour according to your needs';
 
   @override
   String get intercityTripDescription => 'Comfortable travel between cities';
 
   @override
-  String get carReservationFeature1 => 'A comfortable daily transportation solution that meets your needs.';
+  String get carReservationFeature1 =>
+      'A comfortable daily transportation solution that meets your needs.';
 
   @override
-  String get carReservationFeature2 => 'Booking options: instant for immediate travel, or scheduled for a specific time.';
+  String get carReservationFeature2 =>
+      'Booking options: instant for immediate travel, or scheduled for a specific time.';
 
   @override
-  String get carReservationFeature3 => 'Choose trip style: individual for complete privacy, or shared to reduce cost.';
+  String get carReservationFeature3 =>
+      'Choose trip style: individual for complete privacy, or shared to reduce cost.';
 
   @override
   String get carReservationFeature4 =>
       'Choose the driver: you can select your preferred driver or let the system assign the nearest available driver.';
 
   @override
-  String get carReservationFeature5 => 'Choose car type: select from several car options that suit your needs.';
+  String get carReservationFeature5 =>
+      'Choose car type: select from several car options that suit your needs.';
 
   @override
-  String get multipleDestinationsFeature1 => 'Multiple destinations in one trip';
+  String get multipleDestinationsFeature1 =>
+      'Multiple destinations in one trip';
 
   @override
   String get multipleDestinationsFeature2 => 'Optimized route planning';
@@ -929,75 +969,95 @@ class AppLocalizationsEn extends AppLocalizations {
   String get multipleDestinationsFeature3 => 'Save time and cost';
 
   @override
-  String get roundTripFeature1 => 'Select destinations: choose your departure and return locations.';
+  String get roundTripFeature1 =>
+      'Select destinations: choose your departure and return locations.';
 
   @override
-  String get roundTripFeature2 => 'Choose return time: set the time or duration before the return trip.';
+  String get roundTripFeature2 =>
+      'Choose return time: set the time or duration before the return trip.';
 
   @override
   String get roundTripFeature3 => 'Trip type: individual or shared.';
 
   @override
-  String get roundTripFeature4 => 'Advance notification: notification before the return trip to confirm booking';
+  String get roundTripFeature4 =>
+      'Advance notification: notification before the return trip to confirm booking';
 
   @override
-  String get femaleDriverFeature1 => 'Certified drivers: all female drivers are licensed and verified.';
+  String get femaleDriverFeature1 =>
+      'Certified drivers: all female drivers are licensed and verified.';
 
   @override
-  String get femaleDriverFeature2 => 'Vehicle options: choose the car suitable for your trip.';
+  String get femaleDriverFeature2 =>
+      'Vehicle options: choose the car suitable for your trip.';
 
   @override
-  String get femaleDriverFeature3 => 'Timing options: instant or scheduled booking available.';
+  String get femaleDriverFeature3 =>
+      'Timing options: instant or scheduled booking available.';
 
   @override
-  String get femaleDriverFeature4 => 'Comfort and privacy: service designed specifically for women.';
+  String get femaleDriverFeature4 =>
+      'Comfort and privacy: service designed specifically for women.';
 
   @override
-  String get specialNeedsFeature1 => 'Custom vehicles: equipped with lifts and ramps for wheelchairs.';
+  String get specialNeedsFeature1 =>
+      'Custom vehicles: equipped with lifts and ramps for wheelchairs.';
 
   @override
-  String get specialNeedsFeature2 => 'Trained drivers: for professional and respectful handling.';
+  String get specialNeedsFeature2 =>
+      'Trained drivers: for professional and respectful handling.';
 
   @override
-  String get specialNeedsFeature3 => 'Booking options: instant or scheduled according to passenger needs.';
+  String get specialNeedsFeature3 =>
+      'Booking options: instant or scheduled according to passenger needs.';
 
   @override
-  String get specialNeedsFeature4 => 'Comfort and safety: a smooth and humane transportation experience from start to finish.';
+  String get specialNeedsFeature4 =>
+      'Comfort and safety: a smooth and humane transportation experience from start to finish.';
 
   @override
-  String get earlyBookingFeature1 => 'Choose time: easily select the date and time that suits you.';
+  String get earlyBookingFeature1 =>
+      'Choose time: easily select the date and time that suits you.';
 
   @override
   String get earlyBookingFeature2 =>
       'Advance confirmation: the driver is notified of the trip before the scheduled time to confirm availability.';
 
   @override
-  String get earlyBookingFeature3 => 'Automatic alert: you receive a notification before the trip time to confirm readiness.';
+  String get earlyBookingFeature3 =>
+      'Automatic alert: you receive a notification before the trip time to confirm readiness.';
 
   @override
-  String get earlyBookingFeature4 => 'Guaranteed comfort: scheduled trips ensure departure at the specified time without delay.';
+  String get earlyBookingFeature4 =>
+      'Guaranteed comfort: scheduled trips ensure departure at the specified time without delay.';
 
   @override
-  String get driverByHourFeature1 => 'Enjoy hourly driver service for multiple trips and flexible stops.';
+  String get driverByHourFeature1 =>
+      'Enjoy hourly driver service for multiple trips and flexible stops.';
 
   @override
-  String get driverByHourFeature2 => 'Booking options: instant for immediate departure, or scheduled for a specific time.';
+  String get driverByHourFeature2 =>
+      'Booking options: instant for immediate departure, or scheduled for a specific time.';
 
   @override
-  String get driverByHourFeature3 => 'Trip styles: individual for complete freedom, or shared to save cost.';
+  String get driverByHourFeature3 =>
+      'Trip styles: individual for complete freedom, or shared to save cost.';
 
   @override
   String get driverByHourFeature4 =>
       'Choose the driver: you can select your preferred driver or let the system assign the nearest available driver.';
 
   @override
-  String get driverByHourFeature5 => 'Choose car type: select from several car options that suit your needs.';
+  String get driverByHourFeature5 =>
+      'Choose car type: select from several car options that suit your needs.';
 
   @override
-  String get intercityTripFeature1 => 'Select destination: choose the city you want to travel to.';
+  String get intercityTripFeature1 =>
+      'Select destination: choose the city you want to travel to.';
 
   @override
-  String get intercityTripFeature2 => 'Choose time: set the date and time suitable for departure.';
+  String get intercityTripFeature2 =>
+      'Choose time: set the date and time suitable for departure.';
 
   @override
   String get intercityTripFeature3 =>
@@ -1008,7 +1068,8 @@ class AppLocalizationsEn extends AppLocalizations {
       'Choose the driver: you can select your preferred driver or let the system assign the nearest available driver.';
 
   @override
-  String get intercityTripFeature5 => 'Choose car type: select from several car options that suit your needs.';
+  String get intercityTripFeature5 =>
+      'Choose car type: select from several car options that suit your needs.';
 
   @override
   String get services => 'Services';
@@ -1053,7 +1114,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get drawerOpportunities => 'Opportunities';
 
   @override
-  String get noOpportunitiesFound => 'No opportunities found at the moment. Check back later for new opportunities.';
+  String get noOpportunitiesFound =>
+      'No opportunities found at the moment. Check back later for new opportunities.';
 
   @override
   String get drawerEarnings => 'Earnings';
@@ -1123,10 +1185,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get profileCompletedSuccessfully => 'Profile completed successfully';
 
   @override
-  String get positionTheCardWithinTheFrame => 'Position the card within the frame';
+  String get positionTheCardWithinTheFrame =>
+      'Position the card within the frame';
 
   @override
-  String get vehicleCategoryDescription => 'If the car is private, select number(1) and if the car is taxi, select number(2)';
+  String get vehicleCategoryDescription =>
+      'If the car is private, select number(1) and if the car is taxi, select number(2)';
 
   @override
   String get captureCarPhotos => 'Capture Car Photos';
@@ -1142,19 +1206,23 @@ class AppLocalizationsEn extends AppLocalizations {
       'Only original documents are accepted. Temporary driving licenses or photos will not be accepted.';
 
   @override
-  String get onlySaudiDriversCanJoin => 'Only Saudi drivers / sons of female citizens can join';
+  String get onlySaudiDriversCanJoin =>
+      'Only Saudi drivers / sons of female citizens can join';
 
   @override
   String get requiredDocuments => 'Required Documents:';
 
   @override
-  String get avoidUnclearPhotos => 'Avoid uploading unclear, poorly lit, or cropped photos.';
+  String get avoidUnclearPhotos =>
+      'Avoid uploading unclear, poorly lit, or cropped photos.';
 
   @override
-  String get licenseMustBeValidForOneYear => 'The license must be valid for at least one year.';
+  String get licenseMustBeValidForOneYear =>
+      'The license must be valid for at least one year.';
 
   @override
-  String get delayWillAffectAccountActivation => 'If there is a delay, it will affect your account activation.';
+  String get delayWillAffectAccountActivation =>
+      'If there is a delay, it will affect your account activation.';
 
   @override
   String get learnMoreInformation => 'Learn more information';
@@ -1240,7 +1308,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get pleaseSelectDestination => 'Please select destination';
 
   @override
-  String get pleaseSelectAtLeastTwoDestinations => 'Please select at least two destinations';
+  String get pleaseSelectAtLeastTwoDestinations =>
+      'Please select at least two destinations';
 
   @override
   String get selectTripDate => 'Select trip date';
@@ -1249,10 +1318,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get selectTripTime => 'Select trip time';
 
   @override
-  String get pleaseSelectDateAndTime => 'Please select date and time for scheduled trip';
+  String get pleaseSelectDateAndTime =>
+      'Please select date and time for scheduled trip';
 
   @override
-  String get pleaseSelectFutureDateAndTime => 'Please select a future date and time';
+  String get pleaseSelectFutureDateAndTime =>
+      'Please select a future date and time';
 
   @override
   String get safety => 'Safety';
@@ -1276,13 +1347,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get setSafetyPreferences => 'Set Safety Preferences';
 
   @override
-  String get setSafetyPreferencesSubtitle => 'Choose your favorite safety tools and schedule them';
+  String get setSafetyPreferencesSubtitle =>
+      'Choose your favorite safety tools and schedule them';
 
   @override
   String get emergencyNumber999 => 'Emergency Number 999';
 
   @override
-  String get emergencyNumber999Description => 'You must share your location details and vehicle information with 999';
+  String get emergencyNumber999Description =>
+      'You must share your location details and vehicle information with 999';
 
   @override
   String get estimatedLocation => 'Estimated Location';
@@ -1480,7 +1553,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get cancelTrip => 'Cancel Trip';
 
   @override
-  String get cancelTripConfirmation => 'Are you sure you want to cancel this trip?';
+  String get cancelTripConfirmation =>
+      'Are you sure you want to cancel this trip?';
 
   @override
   String get cancelTripReason => 'Cancellation Reason';
@@ -1501,7 +1575,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get completeTrip => 'Complete Trip';
 
   @override
-  String get unableToSwitchToConnectionMode => 'Unable to switch to connection mode';
+  String get unableToSwitchToConnectionMode =>
+      'Unable to switch to connection mode';
 
   @override
   String get tripAcceptedSuccessfully => 'Trip accepted successfully';
@@ -1522,7 +1597,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get walletChargeBalance => 'Charge Balance';
 
   @override
-  String get chargeBalanceSubtitle => 'Fast and secure charging for your balance to use at any time.';
+  String get chargeBalanceSubtitle =>
+      'Fast and secure charging for your balance to use at any time.';
 
   @override
   String get amountValue => 'Amount Value';
@@ -1534,7 +1610,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get transactionLog => 'Transaction Log';
 
   @override
-  String get searchByTripOrTransactionRef => 'Search using trip/transaction reference..';
+  String get searchByTripOrTransactionRef =>
+      'Search using trip/transaction reference..';
 
   @override
   String get filterByStatus => 'Filter by Status';
@@ -1588,7 +1665,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get penalty => 'Penalty';
 
   @override
-  String get chargeSuccessMessage => 'Your balance has been successfully charged!';
+  String get chargeSuccessMessage =>
+      'Your balance has been successfully charged!';
 
   @override
   String get transactionType => 'Transaction Type';
@@ -1627,13 +1705,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get filterByTripServiceType => 'Filter by trip service type';
 
   @override
-  String get applyDiscountOrShare => 'Apply discount or share profits at a rate of x2';
+  String get applyDiscountOrShare =>
+      'Apply discount or share profits at a rate of x2';
 
   @override
   String get filterByPreferredDistricts => 'Filter by preferred districts';
 
   @override
-  String get preferredDistrictsDescription => 'Get trips that start in the areas you choose and end there. For up to 2 hours daily.';
+  String get preferredDistrictsDescription =>
+      'Get trips that start in the areas you choose and end there. For up to 2 hours daily.';
 
   @override
   String get filterByYouthRequests => 'Filter by youth requests';
@@ -1667,7 +1747,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get disabled => 'Disabled';
 
   @override
-  String get vehicleMovementPermit => 'How to obtain a vehicle movement permit from government authorities';
+  String get vehicleMovementPermit =>
+      'How to obtain a vehicle movement permit from government authorities';
 
   @override
   String get vehicleMovementPermitSteps => 'The following steps are shown';
@@ -1726,10 +1807,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get requestAdjustment => 'Request Adjustment';
 
   @override
-  String get fillBankAccountInformation => 'Please fill in bank account information';
+  String get fillBankAccountInformation =>
+      'Please fill in bank account information';
 
   @override
-  String get incomeTransferMethod => 'Income transfer method - weekly to account******';
+  String get incomeTransferMethod =>
+      'Income transfer method - weekly to account******';
 
   @override
   String get payments => 'Payments';
@@ -1745,10 +1828,12 @@ class AppLocalizationsEn extends AppLocalizations {
       'The wage week starts on Monday at 4:00 PM until the following Monday at 4:00 PM.\n\nWages for the week will be issued during that period.\n\nIssuing wages may require a longer period at the end of each month due to bank delays.';
 
   @override
-  String get requestAdjustmentSubtitle => 'Request a settlement for your earnings. Enter the amount you wish to withdraw.';
+  String get requestAdjustmentSubtitle =>
+      'Request a settlement for your earnings. Enter the amount you wish to withdraw.';
 
   @override
-  String get requestAdjustmentSuccessMessage => 'Settlement request submitted successfully!';
+  String get requestAdjustmentSuccessMessage =>
+      'Settlement request submitted successfully!';
 
   @override
   String get emergencyCallDescription =>
@@ -1793,13 +1878,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get offers => 'Promotional Offers';
 
   @override
-  String get rateTripDescription => 'Rate the driver and service to ensure the best experience in the future';
+  String get rateTripDescription =>
+      'Rate the driver and service to ensure the best experience in the future';
 
   @override
-  String get weWillNotifyYouWhenYouCanMakeTrips => 'We will notify you when you can make trips';
+  String get weWillNotifyYouWhenYouCanMakeTrips =>
+      'We will notify you when you can make trips';
 
   @override
-  String get requiredActionsDescription => 'The requirements that the driver partner must fulfill';
+  String get requiredActionsDescription =>
+      'The requirements that the driver partner must fulfill';
 
   @override
   String directChatWith(String name) {
@@ -1855,7 +1943,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get incomeDirections => 'Income Directions';
 
   @override
-  String get incomeDirectionsSubtitle => 'How and when your earnings are transferred to you';
+  String get incomeDirectionsSubtitle =>
+      'How and when your earnings are transferred to you';
 
   @override
   String get incomeTransferMethodTitle => 'Transfer method';
@@ -1864,13 +1953,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get incomeTransferDateTitle => 'Transfer date';
 
   @override
-  String get incomeTransferDateDescription => 'View when your next transfer is scheduled';
+  String get incomeTransferDateDescription =>
+      'View when your next transfer is scheduled';
 
   @override
   String get hourlyDirections => 'Hourly Directions';
 
   @override
-  String get hourlyDirectionsDescription => 'The colors display the data in real time while the gray color displays the previous data';
+  String get hourlyDirectionsDescription =>
+      'The colors display the data in real time while the gray color displays the previous data';
 
   @override
   String get navigateToConnectionMode => 'Navigate to connection mode';
@@ -1879,7 +1970,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get selectWaypoint => 'Select Waypoint on the map';
 
   @override
-  String get addressNotAvailableForNavigation => 'Address not available for navigation';
+  String get addressNotAvailableForNavigation =>
+      'Address not available for navigation';
 
   @override
   String get locationUnavailable => 'Location unavailable';

@@ -7,7 +7,7 @@ class ClearLanguageCacheUseCase {
   const ClearLanguageCacheUseCase(this._repository);
 
   factory ClearLanguageCacheUseCase.getInstance() => ClearLanguageCacheUseCase(
-      LanguageCacheRepositoryImp(LanguageCacheDateSourceImp()));
+      LanguageCacheRepositoryImpl(LanguageCacheDataSourceImpl()));
 
   Future<void> call() async {
     return await _repository.clearCache();

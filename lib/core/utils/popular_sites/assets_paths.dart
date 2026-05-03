@@ -21,7 +21,7 @@ class _PopularLinksSitesSvgPaths {
   static const String amazon = '$_mainIconsPath/amazon.svg';
   static const String clubhouse = '$_mainIconsPath/clubhouse.svg';
   static const String discord = '$_mainIconsPath/discord.svg';
-  static const String gitHup = '$_mainIconsPath/githup.svg';
+  static const String github = '$_mainIconsPath/githup.svg';
   static const String gmail = '$_mainIconsPath/gmail.svg';
   static const String googleDrive = '$_mainIconsPath/google_drive.svg';
   static const String google = '$_mainIconsPath/google.svg';
@@ -34,7 +34,7 @@ class _PopularLinksSitesSvgPaths {
   static const String pinterest = '$_mainIconsPath/pinterest.svg';
   static const String reddit = '$_mainIconsPath/reddit.svg';
   static const String skype = '$_mainIconsPath/skype.svg';
-  static const String snapShat = '$_mainIconsPath/snapchat5.svg';
+  static const String snapchat = '$_mainIconsPath/snapchat5.svg';
   static const String telegram = '$_mainIconsPath/telegram.svg';
   static const String threads = '$_mainIconsPath/threads.svg';
   static const String utorrent = '$_mainIconsPath/utorrent.svg';

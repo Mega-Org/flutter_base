@@ -10,7 +10,7 @@ class ThemeNotifier extends ChangeNotifier implements ValueListenable<AppTheme> 
 
   factory ThemeNotifier() => instance;
 
-  final ThemeRepository _themeRepostory = ThemeRepositoryImp();
+  final ThemeRepository _themeRepository = ThemeRepositoryImpl();
   AppTheme _theme = const LightTheme();
   AppTheme get theme => _theme;
 
@@ -18,7 +18,7 @@ class ThemeNotifier extends ChangeNotifier implements ValueListenable<AppTheme> 
 
   Future<void> initialize() async {
     try {
-      _theme = await _themeRepostory.getTheme();
+      _theme = await _themeRepository.getTheme();
       _manageSystemUIOverlayStyle();
       notifyListeners();
     } catch (_) {
@@ -36,7 +36,7 @@ class ThemeNotifier extends ChangeNotifier implements ValueListenable<AppTheme> 
       } else {
         changedTheme = const DarkTheme();
       }
-      _theme = await _themeRepostory.changeTheme(changedTheme);
+      _theme = await _themeRepository.changeTheme(changedTheme);
       _manageSystemUIOverlayStyle();
       notifyListeners();
     } catch (_) {

@@ -3,8 +3,8 @@ part of core;
 const String _kThemeKey = "theme_cache_key";
 
 @Injectable(as: ThemeRepository)
-class ThemeRepositoryImp implements ThemeRepository {
-  ThemeRepositoryImp();
+class ThemeRepositoryImpl implements ThemeRepository {
+  ThemeRepositoryImpl();
   SharedPreferences? _sharedPreferences;
   Future<SharedPreferences> get _sharedPreferencesInstance async =>
       _sharedPreferences ??= await SharedPreferences.getInstance();

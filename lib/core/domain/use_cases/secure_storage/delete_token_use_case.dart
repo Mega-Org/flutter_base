@@ -5,7 +5,8 @@ class DeleteTokenUseCase {
   final SecureStorageRepository _repository;
 
   factory DeleteTokenUseCase.getInstance() => DeleteTokenUseCase(
-      SecureStorageRepositoryImp(SecureStorageDataSourceImpl()));
+      SecureStorageRepositoryImpl(SecureStorageDataSourceImpl(const FlutterSecureStorage(
+          aOptions: AndroidOptions(encryptedSharedPreferences: true)))));
 
   const DeleteTokenUseCase(this._repository);
 

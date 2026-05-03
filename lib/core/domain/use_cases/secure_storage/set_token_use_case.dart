@@ -4,12 +4,9 @@ part of core;
 class SetTokenUseCase {
   final SecureStorageRepository _repository;
 
-  SetTokenUseCase(this._repository);
+  const SetTokenUseCase(this._repository);
 
-  factory SetTokenUseCase.getInstance() => SetTokenUseCase(
-      SecureStorageRepositoryImp(SecureStorageDataSourceImpl()));
-
-  Future<void> call(Token params) async {
+  Future<void> call(final Token params) async {
     return await _repository.setToken(params);
   }
 }

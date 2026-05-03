@@ -271,8 +271,8 @@ class NoNumbersTextInputFormatter extends TextInputFormatter {
   TextEditingValue formatEditUpdate(
       TextEditingValue oldValue, TextEditingValue newValue) {
     // Deny input of numbers in Arabic and English
-    String filteredValue = newValue.text.replaceAll(RegExp(r'[0-9]'), '');
-    filteredValue = newValue.text.replaceAll(RegExp(r'[٠-٩]'), '');
+    final String filteredValue =
+        newValue.text.replaceAll(RegExp(r'[0-9]'), '').replaceAll(RegExp(r'[٠-٩]'), '');
     // Ensure the start position of the selection range is within the valid range
     final selection = newValue.selection.copyWith(
       baseOffset: newValue.selection.baseOffset.clamp(0, filteredValue.length),

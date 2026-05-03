@@ -112,7 +112,7 @@ class MediaPickerUtils {
         path: pickedVideo.path,
         type: AttachmentTypeEnum.video,
         fileType: IoFileTypeEnum.file,
-        // tumbnail: videoThumbnailPath,
+        // thumbnail: videoThumbnailPath,
       ));
     }
   }

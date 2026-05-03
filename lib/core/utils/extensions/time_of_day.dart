@@ -7,7 +7,7 @@ extension TimeOfDayExtention on TimeOfDay {
     return DateTime(now.year, now.month, now.day, hour, minute);
   }
 
-  String get asformatted {
+  String get asFormatted {
     return asDateTime.toHHMMa;
   }
 

@@ -7,7 +7,8 @@ class DeleteCachedUserUseCase {
   const DeleteCachedUserUseCase(this._repository);
 
   factory DeleteCachedUserUseCase.getInstance() => DeleteCachedUserUseCase(
-      SecureStorageRepositoryImp(SecureStorageDataSourceImpl()));
+      SecureStorageRepositoryImpl(SecureStorageDataSourceImpl(const FlutterSecureStorage(
+          aOptions: AndroidOptions(encryptedSharedPreferences: true)))));
 
   Future<void> call() async {
     return await _repository.deleteCachedUser();

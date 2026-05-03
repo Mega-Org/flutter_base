@@ -4,12 +4,9 @@ part of core;
 class SetCachedUserUseCase {
   final SecureStorageRepository _repository;
 
-  SetCachedUserUseCase(this._repository);
+  const SetCachedUserUseCase(this._repository);
 
-  factory SetCachedUserUseCase.getInstance() => SetCachedUserUseCase(
-      SecureStorageRepositoryImp(SecureStorageDataSourceImpl()));
-
-  Future<void> call(CachedUser params) async {
+  Future<void> call(final CachedUser params) async {
     return await _repository.setCachedUser(params);
   }
 }

@@ -15,7 +15,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get unexpectedError => 'حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى.';
 
   @override
-  String get unAutherizedUserExeption => 'مستخدم غير مصرح. يرجى تسجيل الدخول مرة أخرى.';
+  String get unauthorizedUserException =>
+      'مستخدم غير مصرح. يرجى تسجيل الدخول مرة أخرى.';
 
   @override
   String get failToLoad => 'فشل التحميل. يرجى المحاولة مرة أخرى.';
@@ -27,13 +28,16 @@ class AppLocalizationsAr extends AppLocalizations {
   String get noInternetConnection => 'لا يوجد اتصال بالإنترنت.';
 
   @override
-  String get connectionIssueTryLater => 'كانت هناك مشكلة في الاتصال. يرجى المحاولة مرة أخرى لاحقًا.';
+  String get connectionIssueTryLater =>
+      'كانت هناك مشكلة في الاتصال. يرجى المحاولة مرة أخرى لاحقًا.';
 
   @override
-  String get noInternetFound => 'لم يتم العثور على اتصال بالإنترنت تحقق من اتصالك بالانترنت';
+  String get noInternetFound =>
+      'لم يتم العثور على اتصال بالإنترنت تحقق من اتصالك بالانترنت';
 
   @override
-  String get unAuthenticatedMessage => 'انتهت صلاحية جلستك. برجاء تسجيل الدخول مرة أخرى';
+  String get unAuthenticatedMessage =>
+      'انتهت صلاحية جلستك. برجاء تسجيل الدخول مرة أخرى';
 
   @override
   String get saturday => 'السبت';
@@ -76,7 +80,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get logOutTitle => 'هل تريد تسجيل الخروج؟';
 
   @override
-  String get logoutDescription => 'تأكد من حفظ أي تغييرات قمت بها أو من إنهاء المهام التي تعمل عليها قبل المتابعة لتجنب فقدان البيانات.';
+  String get logoutDescription =>
+      'تأكد من حفظ أي تغييرات قمت بها أو من إنهاء المهام التي تعمل عليها قبل المتابعة لتجنب فقدان البيانات.';
 
   @override
   String get riyal => 'ريال';
@@ -248,7 +253,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get fieldMustNotHaveSpaces => 'لا يمكن ان يحتوي الحقل على مسافات';
 
   @override
-  String get invalidIban => 'رقم الآيبان يجب أن يحتوي على أحرف وأرقام فقط، ويتكون من 15 إلى 34 خانة';
+  String get invalidIban =>
+      'رقم الآيبان يجب أن يحتوي على أحرف وأرقام فقط، ويتكون من 15 إلى 34 خانة';
 
   @override
   String get nameTooShort => 'الاسم قصير جدًا.';
@@ -263,7 +269,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get invalidEmailFormat => 'تنسيق البريد الإلكتروني غير صحيح.';
 
   @override
-  String get passwordRequirements => 'يجب أن تكون كلمة المرور مكونة من 8 أحرف على الأقل، وتشمل أحرف كبيرة وصغيرة و علامة مميزة.';
+  String get passwordRequirements =>
+      'يجب أن تكون كلمة المرور مكونة من 8 أحرف على الأقل، وتشمل أحرف كبيرة وصغيرة و علامة مميزة.';
 
   @override
   String get passwordConfirmValidation => 'كلمة المرور غير متطابقة!';
@@ -293,7 +300,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get noResultFound => 'لم يتم العثور على نتائج';
 
   @override
-  String get youMustAgreeTermsAndConditionsFirst => 'يجب الموافقة على الشروط والأحكام أولاً';
+  String get youMustAgreeTermsAndConditionsFirst =>
+      'يجب الموافقة على الشروط والأحكام أولاً';
 
   @override
   String get invalidIdentityNumber => 'رقم الهوية غير صالح';
@@ -323,7 +331,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get clientOnboardingTitleOne => 'رحلة سهلة في أي وقت';
 
   @override
-  String get clientOnboardingSubtitleOne => 'اطلب سيارتك بضغطة زر، ووصل أسرع بأقل تكلفة.';
+  String get clientOnboardingSubtitleOne =>
+      'اطلب سيارتك بضغطة زر، ووصل أسرع بأقل تكلفة.';
 
   @override
   String get clientOnboardingTitleTwo => 'اختر رحلتك على طريقتك';
@@ -336,25 +345,30 @@ class AppLocalizationsAr extends AppLocalizations {
   String get clientOnboardingTitleThree => 'رحلة آمنة وموثوقة';
 
   @override
-  String get clientOnboardingSubtitleThree => 'شارك موقعك مع من تحب، واستمتع برحلة مريحة مطمئنة';
+  String get clientOnboardingSubtitleThree =>
+      'شارك موقعك مع من تحب، واستمتع برحلة مريحة مطمئنة';
 
   @override
   String get staffOnboardingTitleOne => 'خدمات طباعة مصممة لتناسبك.';
 
   @override
-  String get staffOnboardingSubtitleOne => 'كل ما تحتاجه من مطبوعات في مكان واحد بخطوات بسيطة.';
+  String get staffOnboardingSubtitleOne =>
+      'كل ما تحتاجه من مطبوعات في مكان واحد بخطوات بسيطة.';
 
   @override
   String get staffOnboardingTitleTwo => 'مطبعتك في جيبك اطلب واطبع بكل سهولة.';
 
   @override
-  String get staffOnboardingSubtitleTwo => 'خدمة طباعة سريعة، جودة عالية، وأسعار تنافسية.';
+  String get staffOnboardingSubtitleTwo =>
+      'خدمة طباعة سريعة، جودة عالية، وأسعار تنافسية.';
 
   @override
-  String get staffOnboardingTitleThree => 'من المطبعة لبيتك أو مكتبك بسرعة وأمان.';
+  String get staffOnboardingTitleThree =>
+      'من المطبعة لبيتك أو مكتبك بسرعة وأمان.';
 
   @override
-  String get staffOnboardingSubtitleThree => 'ابدأ الآن وخلّي مطبوعاتك تعكس احترافك وترفع شغلك لمستوى أعلى.';
+  String get staffOnboardingSubtitleThree =>
+      'ابدأ الآن وخلّي مطبوعاتك تعكس احترافك وترفع شغلك لمستوى أعلى.';
 
   @override
   String get driverOnboardingTitleOne => 'ابدأ رحلتك مع زيارات';
@@ -367,37 +381,43 @@ class AppLocalizationsAr extends AppLocalizations {
   String get driverOnboardingTitleTwo => 'اعمل وقت ما تشاء';
 
   @override
-  String get driverOnboardingSubtitleTwo => 'تحكم بجدولك بنفسك، اختر الرحلات التي تناسبك، وتابع أرباحك لحظة بلحظة عبر التطبيق.';
+  String get driverOnboardingSubtitleTwo =>
+      'تحكم بجدولك بنفسك، اختر الرحلات التي تناسبك، وتابع أرباحك لحظة بلحظة عبر التطبيق.';
 
   @override
   String get driverOnboardingTitleThree => 'رحلات آمنة ودعم متواصل';
 
   @override
-  String get driverOnboardingSubtitleThree => 'سلامتك تهمنا، كل رحلة يتم تتبعها لحظة بلحظة، وفريق الدعم متاح دائمًا عند الحاجة.';
+  String get driverOnboardingSubtitleThree =>
+      'سلامتك تهمنا، كل رحلة يتم تتبعها لحظة بلحظة، وفريق الدعم متاح دائمًا عند الحاجة.';
 
   @override
   String get marketerOnboardingTitleOne => 'شارك الأكواد واربح المزيد.';
 
   @override
-  String get marketerOnboardingSubtitleOne => 'شارك الكود وخلي الكل يستفيد وحقق مكاسب أكثر.!';
+  String get marketerOnboardingSubtitleOne =>
+      'شارك الكود وخلي الكل يستفيد وحقق مكاسب أكثر.!';
 
   @override
   String get marketerOnboardingTitleTwo => 'رحلتك أوفر مع الأكواد الذكية.';
 
   @override
-  String get marketerOnboardingSubtitleTwo => 'استخدم الكود وتمتع بعروض حصرية واجعل كل رحلة أوفر !';
+  String get marketerOnboardingSubtitleTwo =>
+      'استخدم الكود وتمتع بعروض حصرية واجعل كل رحلة أوفر !';
 
   @override
   String get marketerOnboardingTitleThree => 'فعل الكود وزوّد دخلك بسهولة.';
 
   @override
-  String get marketerOnboardingSubtitleThree => 'أكوادك تفتح لك فرص أكبرسهّلها على الركاب واستفيد أكتر!';
+  String get marketerOnboardingSubtitleThree =>
+      'أكوادك تفتح لك فرص أكبرسهّلها على الركاب واستفيد أكتر!';
 
   @override
   String get marketerRegistrationTitle => 'تسجيل المسوق';
 
   @override
-  String get marketerRegistrationDescription => 'أنشئ حساب المسوق للبدء في الكسب.';
+  String get marketerRegistrationDescription =>
+      'أنشئ حساب المسوق للبدء في الكسب.';
 
   @override
   String get marketerAvatar => 'الصورة الشخصية';
@@ -455,7 +475,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get welcomeBackToRiseNowFirstSection => 'مرحبا بعودتك فى تطبيق';
 
   @override
-  String get loginDescription => ' سعداء جداً لرؤيتك مجدداً، ونتمنى أن تكون تجربتك معنا دائماً ممتعة وسلسة';
+  String get loginDescription =>
+      ' سعداء جداً لرؤيتك مجدداً، ونتمنى أن تكون تجربتك معنا دائماً ممتعة وسلسة';
 
   @override
   String get sendCode => 'إرسال رمز التحقق';
@@ -476,7 +497,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get mobileFieldHint => 'ادخل رقم الجوال';
 
   @override
-  String get otpFirstSection => 'من فضلك أدخل رمز التحقق الذي تم إرساله عبر رسالة نصية إلى رقم الجوال';
+  String get otpFirstSection =>
+      'من فضلك أدخل رمز التحقق الذي تم إرساله عبر رسالة نصية إلى رقم الجوال';
 
   @override
   String get otpSecondSection => 'لإتمام عملية التحقق .';
@@ -485,7 +507,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get enterVerificationCode => 'ادخل رمز التحقق';
 
   @override
-  String get verificationCodeLengthValidation => 'رمز التحقق يجب ان يكون 4 أرقام';
+  String get verificationCodeLengthValidation =>
+      'رمز التحقق يجب ان يكون 4 أرقام';
 
   @override
   String get otpSentSuccessfully => 'تم ارسال رمز التحقق بنجاح';
@@ -497,7 +520,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get resend => 'اعادة الارسال';
 
   @override
-  String get registrationDescription => 'إنشئ حسابك وابدأ رحلاتك الآن مع زيارات 24';
+  String get registrationDescription =>
+      'إنشئ حسابك وابدأ رحلاتك الآن مع زيارات 24';
 
   @override
   String get nameFieldHint => 'الإسم';
@@ -566,7 +590,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get noAdvertismentsFoundTitle => ' لا يوجد اعلانات متاحة حاليا';
 
   @override
-  String get noAdvertismentsFoundDescription => ' لا توجد إعلانات متاحة حاليًا، لكن تابعنا لتكون أول من يعرف عن العروض القادمة.';
+  String get noAdvertismentsFoundDescription =>
+      ' لا توجد إعلانات متاحة حاليًا، لكن تابعنا لتكون أول من يعرف عن العروض القادمة.';
 
   @override
   String get noAdvertismentsAddedYetTitle => 'لم تقم بنشر أي إعلان حتى الآن';
@@ -579,7 +604,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get noCategoriesFoundTitle => ' لا يوجد فئات متاحة حاليا';
 
   @override
-  String get noCategoriesFoundDescription => 'لا توجد فئات متاحة حالياً، سيتم اضافتها في أقرب وقت ممكن.';
+  String get noCategoriesFoundDescription =>
+      'لا توجد فئات متاحة حالياً، سيتم اضافتها في أقرب وقت ممكن.';
 
   @override
   String get mobileNumbers => 'أرقام الجوال';
@@ -652,7 +678,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get welcomeInZyarat24 => 'مرحبا بك في زيارة 24';
 
   @override
-  String get loginNowToStartYourTrips => 'سجل دخولك الآن وابدأ رحلاتك مع زيارات 24';
+  String get loginNowToStartYourTrips =>
+      'سجل دخولك الآن وابدأ رحلاتك مع زيارات 24';
 
   @override
   String get male => 'ذكر';
@@ -712,7 +739,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get hijriDateOfBirthHint => 'اختر تاريخ ميلادك بالهجري';
 
   @override
-  String get youAgeMustBeMoreThan18YearsOld => 'يجب أن يكون عمرك أكثر من 18 عاما';
+  String get youAgeMustBeMoreThan18YearsOld =>
+      'يجب أن يكون عمرك أكثر من 18 عاما';
 
   @override
   String get completeYourProfile => 'إستكمال بيانات الحساب';
@@ -778,16 +806,20 @@ class AppLocalizationsAr extends AppLocalizations {
   String get specialNeedsCarImage => 'صورة سيارة ذوي الهمم';
 
   @override
-  String get vehicleRegistrationNumberHint => 'ادخل الرقم التسلسلي الموجود اسفل الاستمارة';
+  String get vehicleRegistrationNumberHint =>
+      'ادخل الرقم التسلسلي الموجود اسفل الاستمارة';
 
   @override
-  String get vehicleRegistrationNumber => 'رقم لرقم التسلسلي للسيارة الموجود اسفل الاستمارة';
+  String get vehicleRegistrationNumber =>
+      'رقم لرقم التسلسلي للسيارة الموجود اسفل الاستمارة';
 
   @override
-  String get specialNeedsCarImageDescription => 'ارفق صورة سيارة الخاصة بذوي الهمم';
+  String get specialNeedsCarImageDescription =>
+      'ارفق صورة سيارة الخاصة بذوي الهمم';
 
   @override
-  String get attachCarImageFromFrontWithClearPlate => 'ارفق صورة السيارة من الإمام مع وضوح لوحة السيارة';
+  String get attachCarImageFromFrontWithClearPlate =>
+      'ارفق صورة السيارة من الإمام مع وضوح لوحة السيارة';
 
   @override
   String get nationalId => 'الهوية الوطنية';
@@ -820,7 +852,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get toWhere => 'الى اين؟';
 
   @override
-  String get attachOwnershipAuthorizationImage => 'ارفق صورة تفويض الملكية (في حالة عدم كونك مالك السيارة)';
+  String get attachOwnershipAuthorizationImage =>
+      'ارفق صورة تفويض الملكية (في حالة عدم كونك مالك السيارة)';
 
   @override
   String get carReservation => 'حجز سياره';
@@ -871,130 +904,169 @@ class AppLocalizationsAr extends AppLocalizations {
   String get intercityTripFullTitle => 'رحلة بين المدن';
 
   @override
-  String get carReservationDescription => 'حلّك المثالي للتنقل داخل مدينتك بسهولة وسرعة.';
+  String get carReservationDescription =>
+      'حلّك المثالي للتنقل داخل مدينتك بسهولة وسرعة.';
 
   @override
-  String get multipleDestinationsDescription => 'جولات سياحية مريحة لاكتشاف أبرز المعالم والأماكن المميزة في المملكة.';
+  String get multipleDestinationsDescription =>
+      'جولات سياحية مريحة لاكتشاف أبرز المعالم والأماكن المميزة في المملكة.';
 
   @override
-  String get roundTripDescription => 'احجز رحلتك للذهاب والعودة معًا لتوفير الوقت وضمان وجود السائق في الموعدين.';
+  String get roundTripDescription =>
+      'احجز رحلتك للذهاب والعودة معًا لتوفير الوقت وضمان وجود السائق في الموعدين.';
 
   @override
-  String get femaleDriverDescription => 'تنقلي بأمان وراحة مع سائقة نسائية معتمدة لتجربة أكثر خصوصية واطمئنانًا.';
+  String get femaleDriverDescription =>
+      'تنقلي بأمان وراحة مع سائقة نسائية معتمدة لتجربة أكثر خصوصية واطمئنانًا.';
 
   @override
-  String get specialNeedsDescription => 'خدمة مخصصة لذوي الهمم بسيارات مجهزة وسائقين مدربين لتجربة مريحة وآمنة.';
+  String get specialNeedsDescription =>
+      'خدمة مخصصة لذوي الهمم بسيارات مجهزة وسائقين مدربين لتجربة مريحة وآمنة.';
 
   @override
-  String get earlyBookingDescription => 'احجز رحلتك مسبقًا وحدد اليوم والوقت المناسب لتبدأ رحلتك بدون انتظار.';
+  String get earlyBookingDescription =>
+      'احجز رحلتك مسبقًا وحدد اليوم والوقت المناسب لتبدأ رحلتك بدون انتظار.';
 
   @override
-  String get driverByHourDescription => 'خدمة توفر لك سائقًا خاصًا بالساعة مع مرونة في التنقل بين وجهات متعددة';
+  String get driverByHourDescription =>
+      'خدمة توفر لك سائقًا خاصًا بالساعة مع مرونة في التنقل بين وجهات متعددة';
 
   @override
-  String get intercityTripDescription => 'انتقل بين المدن بأمان وراحة مع خدمة الرحلات بين المدن';
+  String get intercityTripDescription =>
+      'انتقل بين المدن بأمان وراحة مع خدمة الرحلات بين المدن';
 
   @override
-  String get carReservationFeature1 => 'وسيلة تنقل يومية مريحة تناسب احتياجاتك.';
+  String get carReservationFeature1 =>
+      'وسيلة تنقل يومية مريحة تناسب احتياجاتك.';
 
   @override
-  String get carReservationFeature2 => 'خيارات الحجز: فوري للانتقال مباشرة، أو مجدول لموعد محدد.';
+  String get carReservationFeature2 =>
+      'خيارات الحجز: فوري للانتقال مباشرة، أو مجدول لموعد محدد.';
 
   @override
-  String get carReservationFeature3 => 'اختر نمط الرحلة: فردي لخصوصية تامة، أو تشاركي لتقليل التكلفة.';
+  String get carReservationFeature3 =>
+      'اختر نمط الرحلة: فردي لخصوصية تامة، أو تشاركي لتقليل التكلفة.';
 
   @override
-  String get carReservationFeature4 => 'اختر السائق: يمكنك اختيار سائقك المفضل أو ترك النظام يعين أقرب سائق متاح.';
+  String get carReservationFeature4 =>
+      'اختر السائق: يمكنك اختيار سائقك المفضل أو ترك النظام يعين أقرب سائق متاح.';
 
   @override
-  String get carReservationFeature5 => 'اختر نوع السيارة: اختر من بين عدة خيارات سيارات تناسب احتياجاتك.';
+  String get carReservationFeature5 =>
+      'اختر نوع السيارة: اختر من بين عدة خيارات سيارات تناسب احتياجاتك.';
 
   @override
-  String get multipleDestinationsFeature1 => 'استمتع بجولات سياحية مميزة لاكتشاف أبرز المعالم.';
+  String get multipleDestinationsFeature1 =>
+      'استمتع بجولات سياحية مميزة لاكتشاف أبرز المعالم.';
 
   @override
-  String get multipleDestinationsFeature2 => 'خيارات الحجز: فوري للانطلاق الآن، أو مجدول لتحديد موعد لاحق.';
+  String get multipleDestinationsFeature2 =>
+      'خيارات الحجز: فوري للانطلاق الآن، أو مجدول لتحديد موعد لاحق.';
 
   @override
-  String get multipleDestinationsFeature3 => 'اختر نمط الرحلة: فردي لخصوصية تامة، أو تشاركي لتقليل التكلفة.';
+  String get multipleDestinationsFeature3 =>
+      'اختر نمط الرحلة: فردي لخصوصية تامة، أو تشاركي لتقليل التكلفة.';
 
   @override
-  String get roundTripFeature1 => 'تحديد الوجهتين: اختر مكان الذهاب ومكان العودة.';
+  String get roundTripFeature1 =>
+      'تحديد الوجهتين: اختر مكان الذهاب ومكان العودة.';
 
   @override
-  String get roundTripFeature2 => 'اختيار وقت العودة: حدد الموعد أو المدة قبل رحلة العودة.';
+  String get roundTripFeature2 =>
+      'اختيار وقت العودة: حدد الموعد أو المدة قبل رحلة العودة.';
 
   @override
   String get roundTripFeature3 => 'نوع الرحلة: فردية أو تشاركية.';
 
   @override
-  String get roundTripFeature4 => 'تنبيه مسبق: إشعار قبل رحلة العودة لتأكيد الحجز';
+  String get roundTripFeature4 =>
+      'تنبيه مسبق: إشعار قبل رحلة العودة لتأكيد الحجز';
 
   @override
-  String get femaleDriverFeature1 => 'سائقات معتمدات: جميع السائقات مرخصات وتم التحقق من هويتهن.';
+  String get femaleDriverFeature1 =>
+      'سائقات معتمدات: جميع السائقات مرخصات وتم التحقق من هويتهن.';
 
   @override
-  String get femaleDriverFeature2 => 'خيارات المركبات: اختر السيارة المناسبة لرحلتك.';
+  String get femaleDriverFeature2 =>
+      'خيارات المركبات: اختر السيارة المناسبة لرحلتك.';
 
   @override
-  String get femaleDriverFeature3 => 'خيارات التوقيت: متاح الحجز الفوري أو المجدول.';
+  String get femaleDriverFeature3 =>
+      'خيارات التوقيت: متاح الحجز الفوري أو المجدول.';
 
   @override
   String get femaleDriverFeature4 => 'راحة وخصوصية: خدمة مصممة خصيصًا للسيدات.';
 
   @override
-  String get specialNeedsFeature1 => 'سيارات مخصصة: مزودة بمصاعد ومنحدرات للكراسي المتحركة.';
+  String get specialNeedsFeature1 =>
+      'سيارات مخصصة: مزودة بمصاعد ومنحدرات للكراسي المتحركة.';
 
   @override
   String get specialNeedsFeature2 => 'سائقون مدربون: للتعامل باحتراف واحترام.';
 
   @override
-  String get specialNeedsFeature3 => 'خيارات الحجز: فوري أو مجدول حسب احتياج الراكب.';
+  String get specialNeedsFeature3 =>
+      'خيارات الحجز: فوري أو مجدول حسب احتياج الراكب.';
 
   @override
-  String get specialNeedsFeature4 => 'راحة وأمان: تجربة تنقل إنسانية وسلسة من البداية للنهاية.';
+  String get specialNeedsFeature4 =>
+      'راحة وأمان: تجربة تنقل إنسانية وسلسة من البداية للنهاية.';
 
   @override
-  String get earlyBookingFeature1 => 'اختيار الموعد: حدد التاريخ والساعة التي تناسبك بسهولة.';
+  String get earlyBookingFeature1 =>
+      'اختيار الموعد: حدد التاريخ والساعة التي تناسبك بسهولة.';
 
   @override
-  String get earlyBookingFeature2 => 'تأكيد مسبق: يتم إشعار السائق بالرحلة قبل الموعد لتأكيد توفره.';
+  String get earlyBookingFeature2 =>
+      'تأكيد مسبق: يتم إشعار السائق بالرحلة قبل الموعد لتأكيد توفره.';
 
   @override
-  String get earlyBookingFeature3 => 'تنبيه تلقائي: يصلك إشعار قبل موعد الرحلة لتأكيد الجاهزية.';
+  String get earlyBookingFeature3 =>
+      'تنبيه تلقائي: يصلك إشعار قبل موعد الرحلة لتأكيد الجاهزية.';
 
   @override
-  String get earlyBookingFeature4 => 'راحة مضمونة: تضمن لك الرحلة المجدولة الانطلاق في الوقت المحدد دون تأخير.';
+  String get earlyBookingFeature4 =>
+      'راحة مضمونة: تضمن لك الرحلة المجدولة الانطلاق في الوقت المحدد دون تأخير.';
 
   @override
-  String get driverByHourFeature1 => 'استمتع بخدمة سائق بالساعة لرحلات متعددة وتوقفات مرنة.';
+  String get driverByHourFeature1 =>
+      'استمتع بخدمة سائق بالساعة لرحلات متعددة وتوقفات مرنة.';
 
   @override
-  String get driverByHourFeature2 => 'خيارات الحجز: فوري للانطلاق مباشرة، أو مجدول لوقت محدد.';
+  String get driverByHourFeature2 =>
+      'خيارات الحجز: فوري للانطلاق مباشرة، أو مجدول لوقت محدد.';
 
   @override
-  String get driverByHourFeature3 => 'أنماط الرحلة: فردي للحرية الكاملة، أو تشاركي لتوفير التكلفة.';
+  String get driverByHourFeature3 =>
+      'أنماط الرحلة: فردي للحرية الكاملة، أو تشاركي لتوفير التكلفة.';
 
   @override
-  String get driverByHourFeature4 => 'اختر السائق: يمكنك اختيار سائقك المفضل أو ترك النظام يعين أقرب سائق متاح.';
+  String get driverByHourFeature4 =>
+      'اختر السائق: يمكنك اختيار سائقك المفضل أو ترك النظام يعين أقرب سائق متاح.';
 
   @override
-  String get driverByHourFeature5 => 'اختر نوع السيارة: اختر من بين عدة خيارات سيارات تناسب احتياجاتك.';
+  String get driverByHourFeature5 =>
+      'اختر نوع السيارة: اختر من بين عدة خيارات سيارات تناسب احتياجاتك.';
 
   @override
-  String get intercityTripFeature1 => 'حدد الوجهة: اختر المدينة التي ترغب في السفر إليها.';
+  String get intercityTripFeature1 =>
+      'حدد الوجهة: اختر المدينة التي ترغب في السفر إليها.';
 
   @override
-  String get intercityTripFeature2 => 'اختر الموعد: حدد التاريخ والوقت المناسب للانطلاق.';
+  String get intercityTripFeature2 =>
+      'اختر الموعد: حدد التاريخ والوقت المناسب للانطلاق.';
 
   @override
-  String get intercityTripFeature3 => 'حدد عدد الركاب: أدخل عدد الركاب من الذكور والإناث لتوفير سيارة مناسبة.';
+  String get intercityTripFeature3 =>
+      'حدد عدد الركاب: أدخل عدد الركاب من الذكور والإناث لتوفير سيارة مناسبة.';
 
   @override
-  String get intercityTripFeature4 => 'اختر السائق: يمكنك اختيار سائقك المفضل أو ترك النظام يعين أقرب سائق متاح.';
+  String get intercityTripFeature4 =>
+      'اختر السائق: يمكنك اختيار سائقك المفضل أو ترك النظام يعين أقرب سائق متاح.';
 
   @override
-  String get intercityTripFeature5 => 'اختر نوع السيارة: اختر من بين عدة خيارات سيارات تناسب احتياجاتك.';
+  String get intercityTripFeature5 =>
+      'اختر نوع السيارة: اختر من بين عدة خيارات سيارات تناسب احتياجاتك.';
 
   @override
   String get services => 'الخدمات';
@@ -1039,7 +1111,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get drawerOpportunities => 'الفرص';
 
   @override
-  String get noOpportunitiesFound => 'لا توجد فرص في الوقت الحالي. تحقق لاحقاً للحصول على فرص جديدة.';
+  String get noOpportunitiesFound =>
+      'لا توجد فرص في الوقت الحالي. تحقق لاحقاً للحصول على فرص جديدة.';
 
   @override
   String get drawerEarnings => 'الأرباح';
@@ -1112,7 +1185,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get positionTheCardWithinTheFrame => 'اضبط البطاقة داخل الإطار';
 
   @override
-  String get vehicleCategoryDescription => 'إذا السيارة خاصة اختر رقم(1) وإذا السيارة تاكسي خاص اختر رقم(2)';
+  String get vehicleCategoryDescription =>
+      'إذا السيارة خاصة اختر رقم(1) وإذا السيارة تاكسي خاص اختر رقم(2)';
 
   @override
   String get captureCarPhotos => 'التقاط صور السيارة';
@@ -1124,22 +1198,27 @@ class AppLocalizationsAr extends AppLocalizations {
   String get capturePhoto => 'إلتقاط صورة';
 
   @override
-  String get onlyOriginalDocumentsAccepted => 'لا تقبل سوى المستندات الأصلية. لن يتم قبول رخصة القيادة المؤقتة أو الصورة.';
+  String get onlyOriginalDocumentsAccepted =>
+      'لا تقبل سوى المستندات الأصلية. لن يتم قبول رخصة القيادة المؤقتة أو الصورة.';
 
   @override
-  String get onlySaudiDriversCanJoin => 'يمكن فقط للسائق السعودي / ابن المواطنة الانضمام';
+  String get onlySaudiDriversCanJoin =>
+      'يمكن فقط للسائق السعودي / ابن المواطنة الانضمام';
 
   @override
   String get requiredDocuments => 'المستندات المطلوبة:';
 
   @override
-  String get avoidUnclearPhotos => 'تجنب تحميل صور غير واضحة أو ذات إضاءة ضعيفة أو مقصوصة.';
+  String get avoidUnclearPhotos =>
+      'تجنب تحميل صور غير واضحة أو ذات إضاءة ضعيفة أو مقصوصة.';
 
   @override
-  String get licenseMustBeValidForOneYear => 'صلاحية الرخصة يجب أن تكون سارية لمدة سنة واحدة على الأقل.';
+  String get licenseMustBeValidForOneYear =>
+      'صلاحية الرخصة يجب أن تكون سارية لمدة سنة واحدة على الأقل.';
 
   @override
-  String get delayWillAffectAccountActivation => 'إذا كان هناك تأخير، سيؤثر ذلك على تنشيط حسابك.';
+  String get delayWillAffectAccountActivation =>
+      'إذا كان هناك تأخير، سيؤثر ذلك على تنشيط حسابك.';
 
   @override
   String get learnMoreInformation => 'اعرف المزيد من المعلومات';
@@ -1225,7 +1304,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get pleaseSelectDestination => 'يرجى اختيار وجهتك';
 
   @override
-  String get pleaseSelectAtLeastTwoDestinations => 'يرجى اختيار وجهتين على الأقل';
+  String get pleaseSelectAtLeastTwoDestinations =>
+      'يرجى اختيار وجهتين على الأقل';
 
   @override
   String get selectTripDate => 'اختر تاريخ الرحلة';
@@ -1234,7 +1314,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get selectTripTime => 'اختر وقت الرحلة';
 
   @override
-  String get pleaseSelectDateAndTime => 'يرجى اختيار التاريخ والوقت للرحلة المجدولة';
+  String get pleaseSelectDateAndTime =>
+      'يرجى اختيار التاريخ والوقت للرحلة المجدولة';
 
   @override
   String get pleaseSelectFutureDateAndTime => 'يرجى اختيار تاريخ ووقت مستقبلي';
@@ -1261,13 +1342,15 @@ class AppLocalizationsAr extends AppLocalizations {
   String get setSafetyPreferences => 'حدد تفضيلات السلامة';
 
   @override
-  String get setSafetyPreferencesSubtitle => 'اختر أدوات السلامة المفضلة لديك وجدولها';
+  String get setSafetyPreferencesSubtitle =>
+      'اختر أدوات السلامة المفضلة لديك وجدولها';
 
   @override
   String get emergencyNumber999 => 'رقم الطوارئ 999';
 
   @override
-  String get emergencyNumber999Description => 'يجب عليك مشاركة تفاصيل موقعك وبيانات وسيلة التنقل 999 مع';
+  String get emergencyNumber999Description =>
+      'يجب عليك مشاركة تفاصيل موقعك وبيانات وسيلة التنقل 999 مع';
 
   @override
   String get estimatedLocation => 'الموقع المقدر';
@@ -1507,7 +1590,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get walletChargeBalance => 'شحن الرصيد';
 
   @override
-  String get chargeBalanceSubtitle => 'شحن سريع وآمن لرصيدك لاستخدامه في أي وقت.';
+  String get chargeBalanceSubtitle =>
+      'شحن سريع وآمن لرصيدك لاستخدامه في أي وقت.';
 
   @override
   String get amountValue => 'قيمة المبلغ';
@@ -1519,7 +1603,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get transactionLog => 'سجل الحركات';
 
   @override
-  String get searchByTripOrTransactionRef => 'بحث بإستخدام مرجع الرحلة/المعاملة ..';
+  String get searchByTripOrTransactionRef =>
+      'بحث بإستخدام مرجع الرحلة/المعاملة ..';
 
   @override
   String get filterByStatus => 'فرز حسب الحالة';
@@ -1631,7 +1716,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get filterByCashTrips => 'فرز حسب رحلات الكاش';
 
   @override
-  String get cashTripsDescription => 'أول رحلتين في بداية اليوم هيكونوا كاش لمدة 3 ساعات فقط، وبعدها يبدأ يوم جديد وتتفعل باقي طرق الدفع.';
+  String get cashTripsDescription =>
+      'أول رحلتين في بداية اليوم هيكونوا كاش لمدة 3 ساعات فقط، وبعدها يبدأ يوم جديد وتتفعل باقي طرق الدفع.';
 
   @override
   String get individualWithinCity => 'أفراد داخل المدينة';
@@ -1652,7 +1738,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get disabled => 'معطل';
 
   @override
-  String get vehicleMovementPermit => 'كيفية الحصول على تصريح وسيلة التنقل لدى الجهات الحكومة';
+  String get vehicleMovementPermit =>
+      'كيفية الحصول على تصريح وسيلة التنقل لدى الجهات الحكومة';
 
   @override
   String get vehicleMovementPermitSteps => 'الخطوات التالية الموضح بها';
@@ -1714,7 +1801,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get fillBankAccountInformation => 'يرجى تعبئة معلومات الحساب البنكي';
 
   @override
-  String get incomeTransferMethod => 'طريقة تحصيل الإجرة - أسبوعياً إلى حساب******';
+  String get incomeTransferMethod =>
+      'طريقة تحصيل الإجرة - أسبوعياً إلى حساب******';
 
   @override
   String get payments => 'المدفوعات';
@@ -1730,13 +1818,15 @@ class AppLocalizationsAr extends AppLocalizations {
       'يبدأ أسبوع الأجرة في يوم الإثنين الساعة 4:00 مساءًا إلى الإثنين التالي لينتهي الساعة 4:00 مساءًا.\n\nسيتم إصدار الأجرة للأسبوع خلال تلك الفترة.\n\nقد يتطلب إصدار الأجرة فترة أطول في نهاية كل شهر بسبب تعطيل من البنك.';
 
   @override
-  String get requestAdjustmentSubtitle => 'اطلب تسوية لأرباحك. أدخل المبلغ الذي ترغب بسحبه.';
+  String get requestAdjustmentSubtitle =>
+      'اطلب تسوية لأرباحك. أدخل المبلغ الذي ترغب بسحبه.';
 
   @override
   String get requestAdjustmentSuccessMessage => 'تم تقديم طلب التسوية بنجاح!';
 
   @override
-  String get emergencyCallDescription => 'اختر أحد إجراءات الطوارئ التالية، وسيتم التواصل ومشاركة موقعك فورًا.';
+  String get emergencyCallDescription =>
+      'اختر أحد إجراءات الطوارئ التالية، وسيتم التواصل ومشاركة موقعك فورًا.';
 
   @override
   String get emergencyCall => 'الاتصال الطوارئ';
@@ -1777,13 +1867,16 @@ class AppLocalizationsAr extends AppLocalizations {
   String get offers => 'العروض الترويجية';
 
   @override
-  String get rateTripDescription => 'ضع تقييمك للسائق والخدمة لنضمن لك تجربة أفضل في المستقبل';
+  String get rateTripDescription =>
+      'ضع تقييمك للسائق والخدمة لنضمن لك تجربة أفضل في المستقبل';
 
   @override
-  String get weWillNotifyYouWhenYouCanMakeTrips => 'سنبلغك متى يمكنك إجراء المشاوير';
+  String get weWillNotifyYouWhenYouCanMakeTrips =>
+      'سنبلغك متى يمكنك إجراء المشاوير';
 
   @override
-  String get requiredActionsDescription => 'المتطلبات التي يجب على الشريك السائق استيفاؤها';
+  String get requiredActionsDescription =>
+      'المتطلبات التي يجب على الشريك السائق استيفاؤها';
 
   @override
   String directChatWith(String name) {
@@ -1854,7 +1947,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get hourlyDirections => 'التوجهات على مدار الساعة';
 
   @override
-  String get hourlyDirectionsDescription => 'يُظهر الألوان البيانات في الوقت الفعلي بينما يعكس اللون الرمادي البيانات السابقة';
+  String get hourlyDirectionsDescription =>
+      'يُظهر الألوان البيانات في الوقت الفعلي بينما يعكس اللون الرمادي البيانات السابقة';
 
   @override
   String get navigateToConnectionMode => 'انتقل إلى وضع الاتصال';

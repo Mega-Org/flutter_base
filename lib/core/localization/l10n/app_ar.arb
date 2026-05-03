@@ -5,7 +5,7 @@
     "description": "----------------- ERRORS Localizations -----------------"
   },
   "unexpectedError": "حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى.",
-  "unAutherizedUserExeption": "مستخدم غير مصرح. يرجى تسجيل الدخول مرة أخرى.",
+  "unauthorizedUserException": "مستخدم غير مصرح. يرجى تسجيل الدخول مرة أخرى.",
   "failToLoad": "فشل التحميل. يرجى المحاولة مرة أخرى.",
   "somethingWentWrong": "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
   "noInternetConnection": "لا يوجد اتصال بالإنترنت.",

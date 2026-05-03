@@ -1,10 +1,10 @@
 part of core;
 
 @Injectable(as: LanguageCacheRepository)
-class LanguageCacheRepositoryImp implements LanguageCacheRepository {
-  final LanguageCacheDateSource _languageCacheDataSource;
+class LanguageCacheRepositoryImpl implements LanguageCacheRepository {
+  final LanguageCacheDataSource _languageCacheDataSource;
 
-  const LanguageCacheRepositoryImp(this._languageCacheDataSource);
+  const LanguageCacheRepositoryImpl(this._languageCacheDataSource);
 
   @override
   Future<void> clearCache() async {
@@ -12,21 +12,21 @@ class LanguageCacheRepositoryImp implements LanguageCacheRepository {
   }
 
   @override
-  AppLanguageType get getDefaultAppLanguage =>
+  AppLanguageTypeEnum get getDefaultAppLanguage =>
       _languageCacheDataSource.getDefaultAppLanguage;
 
   @override
-  Future<AppLanguageType> getDeviceLanguage() async {
+  Future<AppLanguageTypeEnum> getDeviceLanguage() async {
     return await _languageCacheDataSource.getDeviceLanguage();
   }
 
   @override
-  Future<AppLanguageType> getLanguage() async {
+  Future<AppLanguageTypeEnum> getLanguage() async {
     return await _languageCacheDataSource.getLanguage();
   }
 
   @override
-  Future<bool> setLanguageCode(AppLanguageType language) async {
+  Future<bool> setLanguageCode(AppLanguageTypeEnum language) async {
     return await _languageCacheDataSource.setLanguageCode(language);
   }
 }

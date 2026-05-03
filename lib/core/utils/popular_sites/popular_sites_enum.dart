@@ -16,7 +16,7 @@ enum PopularLinksSitesEnum {
   amazon,
   clubhouse,
   discord,
-  gitHup,
+  github,
   gmail,
   googleDrive,
   google,
@@ -34,7 +34,7 @@ enum PopularLinksSitesEnum {
   linkedIn,
   pinterest,
   reddit,
-  snapChat,
+  snapchat,
   telegram,
   threads,
   utorrent,
@@ -75,8 +75,8 @@ extension PopularLinksSitesEnumExtension on PopularLinksSitesEnum {
         return _PopularLinksSitesSvgPaths.clubhouse;
       case PopularLinksSitesEnum.discord:
         return _PopularLinksSitesSvgPaths.discord;
-      case PopularLinksSitesEnum.gitHup:
-        return _PopularLinksSitesSvgPaths.gitHup;
+      case PopularLinksSitesEnum.github:
+        return _PopularLinksSitesSvgPaths.github;
       case PopularLinksSitesEnum.gmail:
         return _PopularLinksSitesSvgPaths.gmail;
       case PopularLinksSitesEnum.googleDrive:
@@ -101,8 +101,8 @@ extension PopularLinksSitesEnumExtension on PopularLinksSitesEnum {
         return _PopularLinksSitesSvgPaths.reddit;
       case PopularLinksSitesEnum.microsoftSkype:
         return _PopularLinksSitesSvgPaths.skype;
-      case PopularLinksSitesEnum.snapChat:
-        return _PopularLinksSitesSvgPaths.snapShat;
+      case PopularLinksSitesEnum.snapchat:
+        return _PopularLinksSitesSvgPaths.snapchat;
       case PopularLinksSitesEnum.telegram:
         return _PopularLinksSitesSvgPaths.telegram;
       case PopularLinksSitesEnum.threads:

@@ -20,7 +20,8 @@ class UnAuthenticatedInterceptor extends Interceptor {
 
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) {
-    if (err.response?.statusCode == 401) {
+    final int? code = err.response?.statusCode;
+    if (code == 401 || code == 403) {
       notifyListeners();
     }
     super.onError(err, handler);

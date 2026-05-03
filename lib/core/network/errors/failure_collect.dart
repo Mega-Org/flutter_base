@@ -1,6 +1,6 @@
 part of core;
 
-Future<Either<Failure, T>> failureCollect<T>(
+Future<Either<Failure, T>> collectFailure<T>(
   Future<Either<Failure, T>> Function() task, {
   Future<Failure?> Function(Exception execption)? catchExecption,
   Future<Failure?> Function(Object? execption)? catchError,
@@ -27,6 +27,7 @@ Future<Either<Failure, T>> failureCollect<T>(
     } else if (e is ServerException) {
       return Left(ServerFailure(
         message: e.message,
+        errorMap: e.errorMap,
       ));
     } else if (e is SecureStorageException) {
       return Left(SecureStorageFailure(message: e.message));
@@ -34,8 +35,8 @@ Future<Either<Failure, T>> failureCollect<T>(
       return Left(UnAuthorizedFailure(message: e.message));
     } else if (e is UnVerifiedUserException) {
       return Left(UnVerifiedUserFailure(message: e.message, token: e.token));
-    } else if (e is UnExpectedException) {
-      return Left(UnExpectedFailure(message: e.message));
+    } else if (e is UnexpectedException) {
+      return Left(UnexpectedFailure(message: e.message));
     } else {
       return Left(
         ServerFailure(

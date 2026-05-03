@@ -21,26 +21,39 @@ class DioHelper {
     ),
   );
 
-  final Map<String, String> _headers = <String, String>{'Content-Type': 'application/json', 'Accept': 'application/json'};
+  final Map<String, String> _headers = <String, String>{
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+  };
 
   void _init() {
     _dio.options.headers = _headers;
     _dio.interceptors.add(HeaderInterceptor());
-    _dio.interceptors.add(PrettyDioLogger(requestHeader: true, requestBody: true));
+    _dio.interceptors.add(
+      PrettyDioLogger(requestHeader: true, requestBody: true),
+    );
     _dio.interceptors.add(UnAuthenticatedInterceptor.instance);
   }
 
   DioHelper copyWith(BaseOptions Function(BaseOptions options) getOptions) {
     final DioHelper newDioObj = this;
-    newDioObj._dio.options = getOptions(_dio.options);
+    newDioObj._dio.options = getOptions(_dio.clone().options);
     return newDioObj;
   }
 
-  Future<Map<String, dynamic>> get({required String url, Map<String, dynamic>? body, Map<String, dynamic>? queryParameters}) async {
-    final result = await apiExecptionCollecter(
+  Future<Map<String, dynamic>> get({
+    required String url,
+    Map<String, dynamic>? body,
+    Map<String, dynamic>? queryParameters,
+  }) async {
+    final result = await mapApiException(
       task: () async {
         final FormData? formData = body != null ? FormData.fromMap(body) : null;
-        final result = await _dio.get(url, data: formData, queryParameters: queryParameters);
+        final result = await _dio.get(
+          url,
+          data: formData,
+          queryParameters: queryParameters,
+        );
         return result;
       },
     );
@@ -51,10 +64,16 @@ class DioHelper {
     }
   }
 
-  Future<Map<String, dynamic>> put({required String url, Map<String, dynamic>? formData, Map<String, dynamic>? body}) async {
-    return apiExecptionCollecter(
+  Future<Map<String, dynamic>> put({
+    required String url,
+    Map<String, dynamic>? formData,
+    Map<String, dynamic>? body,
+  }) async {
+    return mapApiException(
       task: () async {
-        final FormData? form = formData != null ? FormData.fromMap(formData) : null;
+        final FormData? form = formData != null
+            ? FormData.fromMap(formData)
+            : null;
         return await _dio.put(url, data: form ?? body);
       },
     );
@@ -66,7 +85,7 @@ class DioHelper {
     final Map<String, dynamic>? json,
     bool isRaw = true,
   }) async {
-    return apiExecptionCollecter(
+    return mapApiException(
       task: () async {
         final FormData? formData = body != null ? FormData.fromMap(body) : null;
         return await _dio.post(url, data: isRaw ? body : (formData ?? body));
@@ -75,7 +94,7 @@ class DioHelper {
   }
 
   Future<dynamic> delete({required String url}) async {
-    return apiExecptionCollecter(
+    return mapApiException(
       task: () async {
         return await _dio.delete(url);
       },

@@ -14,9 +14,9 @@ abstract class SecureStorageDataSource {
 
 @Injectable(as: SecureStorageDataSource)
 class SecureStorageDataSourceImpl implements SecureStorageDataSource {
-  final FlutterSecureStorage _storageObj = const FlutterSecureStorage(
-    aOptions: AndroidOptions(encryptedSharedPreferences: true),
-  );
+  SecureStorageDataSourceImpl(this._storageObj);
+
+  final FlutterSecureStorage _storageObj;
 
   @override
   Future<void> setToken(TokenModel token) async {

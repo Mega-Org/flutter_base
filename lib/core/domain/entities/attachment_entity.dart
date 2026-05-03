@@ -3,41 +3,39 @@ part of core;
 class AttachmentEntity extends Equatable {
   final int id;
   final String path;
-  final String? tumbnail;
+  final String? thumbnail;
   final IoFileTypeEnum fileType;
   final AttachmentTypeEnum type;
   final double? size;
 
   const AttachmentEntity.empty()
-      : this(
-          fileType: IoFileTypeEnum.network,
-          path: '',
-          type: AttachmentTypeEnum.unKnown,
-        );
+    : this(
+        fileType: IoFileTypeEnum.network,
+        path: '',
+        type: AttachmentTypeEnum.unKnown,
+      );
 
   const AttachmentEntity({
-    this.id = 0,
+    this.id = -1,
     required this.path,
-    this.tumbnail,
+    this.thumbnail,
     required this.fileType,
     required this.type,
     this.size,
   });
 
-  factory AttachmentEntity.fromPath({
-    required String path,
-    int? id,
-  }) {
+  factory AttachmentEntity.fromPath({required final String path}) {
     final IoFileUtils ioFileObj = IoFileUtils(path);
     return AttachmentEntity(
-        fileType: ioFileObj.getIoFileType,
-        path: path,
-        type: ioFileObj.getAttachmentType);
+      fileType: ioFileObj.getIoFileType,
+      path: path,
+      type: ioFileObj.getAttachmentType,
+    );
   }
 
   factory AttachmentEntity.fromNetwork({
-    int id = 0,
-    required String url,
+    final int id = 0,
+    required final String url,
     double? size,
   }) {
     final IoFileUtils ioFileObj = IoFileUtils(url);
@@ -50,7 +48,7 @@ class AttachmentEntity extends Equatable {
     );
   }
 
-  factory AttachmentEntity.fromFile(File file) {
+  factory AttachmentEntity.fromFile(final File file) {
     final IoFileUtils ioFileObj = IoFileUtils(file.path);
     return AttachmentEntity(
       path: file.path,
@@ -68,7 +66,7 @@ class AttachmentEntity extends Equatable {
   }
 
   @override
-  List<Object?> get props => [path, fileType, type, tumbnail, size];
+  List<Object?> get props => [path, fileType, type, thumbnail, size];
 }
 
 enum AttachmentTypeEnum {

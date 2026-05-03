@@ -1,6 +1,5 @@
 part of core;
 
-
 @Injectable()
 class GetDeviceLanguageUseCase {
   final LanguageCacheRepository _repository;
@@ -8,9 +7,10 @@ class GetDeviceLanguageUseCase {
   const GetDeviceLanguageUseCase(this._repository);
 
   factory GetDeviceLanguageUseCase.getInstance() => GetDeviceLanguageUseCase(
-      LanguageCacheRepositoryImp(LanguageCacheDateSourceImp()));
+    LanguageCacheRepositoryImpl(LanguageCacheDataSourceImpl()),
+  );
 
-  Future<AppLanguageType> call() async {
+  Future<AppLanguageTypeEnum> call() async {
     return await _repository.getDeviceLanguage();
   }
 }
