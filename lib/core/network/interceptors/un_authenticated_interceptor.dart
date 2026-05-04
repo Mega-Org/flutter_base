@@ -33,11 +33,11 @@ class UnAuthenticatedInterceptor extends Interceptor {
   final ObserverList<UnAuthenticatedCallBackType> _listeners =
       ObserverList<UnAuthenticatedCallBackType>();
 
-  void addListener(UnAuthenticatedCallBackType listener) {
+  void addListener(final UnAuthenticatedCallBackType listener) {
     _listeners.add(listener);
   }
 
-  void removeListener(UnAuthenticatedCallBackType listener) {
+  void removeListener(final UnAuthenticatedCallBackType listener) {
     _listeners.remove(listener);
   }
 

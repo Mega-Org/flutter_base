@@ -4,6 +4,7 @@ import 'package:flutter_base/core/core.dart';
 import 'package:flutter_base/material/auth_states/unauthenticated_bottom_sheet.dart';
 import 'package:flutter_base/material/media/svg_icon.dart';
 import 'package:flutter_base/material/widgets/offstage.dart';
+import 'package:flutter_base/src/_deep_link/deep_link_utils.dart';
 
 import 'models/main_page_tabs_enum.dart';
 import 'observer/main_page_observer.dart';
@@ -28,7 +29,7 @@ class _MainPageState extends State<MainPage> with MainPageObserverMixin {
     });
   }
 
-  void _onCurrentTapChanged(MainPageTabsEnum currentTap) {
+  void _onCurrentTapChanged(final MainPageTabsEnum currentTap) {
     if (!_loadedPages.contains(currentTap)) {
       _loadedPages.add(currentTap);
     }
@@ -46,19 +47,10 @@ class _MainPageState extends State<MainPage> with MainPageObserverMixin {
   void initState() {
     _addUnAuthenticatedListener();
     super.initState();
-    // _getUnReadNotificationsCount();
-    // WidgetsBinding.instance.addPostFrameCallback((_) {
-    //   DeepLinksUtils.init();
-    // });
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      DeepLinksUtils.init();
+    });
   }
-
-  // void _getUnReadNotificationsCount() {
-  //   WidgetsBinding.instance.addPostFrameCallback((_) {
-  //     if (AppAuthenticationBloc.of(context).state is AuthAuthenticatedState) {
-  //       context.read<NotificationsCubit>().getUnreadNotificationCount();
-  //     }
-  //   });
-  // }
 
   @override
   Widget build(BuildContext context) {
