@@ -2,12 +2,12 @@ part of core;
 
 abstract class TextStyles {
   /// region:: Light
-    static const TextStyle light8 = TextStyle(
+  static const TextStyle light8 = TextStyle(
     fontSize: 8,
     fontWeight: FontWeight.w300,
     fontFamily: AppFonts.elMessiri,
   );
-    static const TextStyle light10 = TextStyle(
+  static const TextStyle light10 = TextStyle(
     fontSize: 10,
     fontWeight: FontWeight.w300,
     fontFamily: AppFonts.elMessiri,
@@ -263,8 +263,11 @@ abstract class TextStyles {
     fontWeight: FontWeight.w700,
     fontFamily: AppFonts.elMessiri,
   );
-  static const TextStyle semiBold10 = TextStyle(fontSize: 10, fontWeight: FontWeight.w700, fontFamily: AppFonts.elMessiri);
-
+  static const TextStyle semiBold10 = TextStyle(
+    fontSize: 10,
+    fontWeight: FontWeight.w700,
+    fontFamily: AppFonts.elMessiri,
+  );
 
   //endregion
 

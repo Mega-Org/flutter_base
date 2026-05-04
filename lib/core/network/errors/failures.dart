@@ -11,25 +11,18 @@ class Failure extends Equatable {
 
 class ServerFailure extends Failure {
   final Map<String, dynamic>? errorMap;
-  const ServerFailure({
-    required super.message,
-    this.errorMap,
-  });
+  const ServerFailure({required super.message, this.errorMap});
 
   @override
   List<Object?> get props => [...super.props, errorMap];
 }
 
 class RequestFailure extends Failure {
-  const RequestFailure({
-    required super.message,
-  });
+  const RequestFailure({required super.message});
 }
 
 class UnexpectedFailure extends Failure {
-  const UnexpectedFailure({
-    required super.message,
-  });
+  const UnexpectedFailure({required super.message});
 }
 
 class UnVerifiedUserFailure extends Failure {

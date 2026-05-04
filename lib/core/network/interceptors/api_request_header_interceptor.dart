@@ -1,17 +1,17 @@
 part of core;
 
-class HeaderInterceptor implements Interceptor {
-  HeaderInterceptor();
+class ApiRequestHeaderInterceptor implements Interceptor {
+  ApiRequestHeaderInterceptor();
 
   @override
-  void onError(DioException err, ErrorInterceptorHandler handler) {
+  void onError(final DioException err, final ErrorInterceptorHandler handler) {
     handler.next(err);
   }
 
   @override
   void onRequest(
-    RequestOptions options,
-    RequestInterceptorHandler handler,
+    final RequestOptions options,
+    final RequestInterceptorHandler handler,
   ) async {
     await Future.wait([_initToken(options), _initLang(options)]);
     handler.next(options);
@@ -19,8 +19,8 @@ class HeaderInterceptor implements Interceptor {
 
   @override
   void onResponse(
-    Response<dynamic> response,
-    ResponseInterceptorHandler handler,
+    final Response<dynamic> response,
+    final ResponseInterceptorHandler handler,
   ) {
     handler.next(response);
   }
@@ -29,7 +29,7 @@ class HeaderInterceptor implements Interceptor {
       injector<GetCachedLanguageUseCase>();
   final _getTokenUseCase = injector<GetTokenUseCase>();
 
-  Future<void> _initLang(RequestOptions options) async {
+  Future<void> _initLang(final RequestOptions options) async {
     try {
       final lang = await _getCachedLanguageUseCase();
       options.headers.addEntries(
@@ -42,15 +42,13 @@ class HeaderInterceptor implements Interceptor {
     }
   }
 
-  Future<void> _initToken(RequestOptions options) async {
+  Future<void> _initToken(final RequestOptions options) async {
     try {
-      final token = await _getTokenUseCase();
-      if (token != null) {
-        if (!token.isExpired) {
-          options.headers.addEntries(
-            {"Authorization": 'Bearer ${token.token}'}.entries,
-          );
-        }
+      final Token? token = await _getTokenUseCase();
+      if (token != null && !token.isExpired) {
+        options.headers.addEntries(
+          {"Authorization": 'Bearer ${token.token}'}.entries,
+        );
       }
     } catch (error) {
       debugPrint(

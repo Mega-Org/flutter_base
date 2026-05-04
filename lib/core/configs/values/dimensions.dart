@@ -37,6 +37,11 @@ class Dimensions {
 
   /// Icon Dimensions
   ///
+  static const double ic4 = 4;
+  static const double ic6 = 6;
+  static const double ic8 = 8;
+  static const double ic10 = 10;
+  static const double ic12 = 12;
   static const double ic14 = 14;
   static const double ic16 = 16;
   static const double ic18 = 18;
@@ -60,6 +65,9 @@ class Dimensions {
   static const double p40 = 40;
   static const double p48 = 48;
 
-  static const EdgeInsets pageMargins = EdgeInsets.symmetric(horizontal: p20, vertical: p20);
+  static const EdgeInsets pageMargins = EdgeInsets.symmetric(
+    horizontal: p20,
+    vertical: p20,
+  );
   static const EdgeInsets hPageMargins = EdgeInsets.symmetric(horizontal: p20);
 }

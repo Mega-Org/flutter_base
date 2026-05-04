@@ -7,8 +7,8 @@ import 'io_file_utils.dart';
 
 typedef PickedMediaCallback = void Function(AttachmentEntity media);
 
-typedef PickedMultipleMediaCallback = void Function(
-    List<AttachmentEntity> mediaList);
+typedef PickedMultipleMediaCallback =
+    void Function(List<AttachmentEntity> mediaList);
 
 // const int _maxAllowedImageSizeOnMB = 5;
 // const int _maxAllowedDocumentSizeOnMB = 15;
@@ -18,14 +18,13 @@ class MediaPickerUtils {
   static final _picker = ImagePicker();
 
   static Future<AttachmentEntity?> pickImage(ImageSource imageSource) async {
-    final XFile? pickedImage = await _picker.pickImage(
-      source: imageSource,
-    );
+    final XFile? pickedImage = await _picker.pickImage(source: imageSource);
     if (pickedImage != null) {
       return AttachmentEntity(
-          fileType: IoFileTypeEnum.file,
-          path: pickedImage.path,
-          type: AttachmentTypeEnum.photo);
+        fileType: IoFileTypeEnum.file,
+        path: pickedImage.path,
+        type: AttachmentTypeEnum.photo,
+      );
     }
     return null;
   }
@@ -34,18 +33,23 @@ class MediaPickerUtils {
     final List<XFile> pickedImages = await _picker.pickMultiImage();
     if (pickedImages.isNotEmpty) {
       return pickedImages
-          .map((e) => AttachmentEntity(
+          .map(
+            (e) => AttachmentEntity(
               fileType: IoFileTypeEnum.file,
               path: e.path,
-              type: AttachmentTypeEnum.photo))
+              type: AttachmentTypeEnum.photo,
+            ),
+          )
           .toList();
     }
     return null;
   }
 
   static Future<AttachmentEntity?> pickPdfFile() async {
-    final result = await FilePicker.platform
-        .pickFiles(type: FileType.custom, allowedExtensions: ['PDF']);
+    final result = await FilePicker.platform.pickFiles(
+      type: FileType.custom,
+      allowedExtensions: ['PDF'],
+    );
 
     if (result != null) {
       final File file = File(result.files.single.path!);
@@ -64,8 +68,10 @@ class MediaPickerUtils {
   }
 
   static Future<AttachmentEntity?> pickGif() async {
-    final result = await FilePicker.platform
-        .pickFiles(type: FileType.custom, allowedExtensions: ['GIF', "gif"]);
+    final result = await FilePicker.platform.pickFiles(
+      type: FileType.custom,
+      allowedExtensions: ['GIF', "gif"],
+    );
     if (result != null) {
       final File file = File(result.files.single.path!);
       return AttachmentEntity(
@@ -108,12 +114,14 @@ class MediaPickerUtils {
     if (pickedVideo != null) {
       // final videoThumbnailPath = await GetVideoThumbnail.getFileVideoThumbnail(
       //     videoPath: pickedVideo.path);
-      pickedMediaCallback(AttachmentEntity(
-        path: pickedVideo.path,
-        type: AttachmentTypeEnum.video,
-        fileType: IoFileTypeEnum.file,
-        // thumbnail: videoThumbnailPath,
-      ));
+      pickedMediaCallback(
+        AttachmentEntity(
+          path: pickedVideo.path,
+          type: AttachmentTypeEnum.video,
+          fileType: IoFileTypeEnum.file,
+          // thumbnail: videoThumbnailPath,
+        ),
+      );
     }
   }
 }

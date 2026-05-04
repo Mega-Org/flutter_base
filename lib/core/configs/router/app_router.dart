@@ -7,14 +7,16 @@ abstract base class AppRouter {
 
   static BuildContext get appContext => appNavigatorKey.currentContext!;
 
-
   static Future<T?> push<T extends Object?>(Widget page) async {
     return await appNavigatorKey.currentState?.push<T?>(
       MaterialPageRoute(builder: (context) => page),
     );
   }
-  static Future<T?> pushNamed<T extends Object?>(String name,
-      {Object? arguments}) async {
+
+  static Future<T?> pushNamed<T extends Object?>(
+    String name, {
+    Object? arguments,
+  }) async {
     return await appNavigatorKey.currentState?.pushNamed<T?>(
       name,
       arguments: arguments,
@@ -26,14 +28,14 @@ abstract base class AppRouter {
     bool rootNavigator = true,
     BuildContext? context,
   }) {
-    Navigator.of(context ?? appContext, rootNavigator: rootNavigator).popUntil(
-      (route) {
-        if (predicate != null) {
-          return predicate(route)!;
-        }
-        return route.isFirst;
-      },
-    );
+    Navigator.of(context ?? appContext, rootNavigator: rootNavigator).popUntil((
+      route,
+    ) {
+      if (predicate != null) {
+        return predicate(route)!;
+      }
+      return route.isFirst;
+    });
   }
 
   static void pop<T>({
@@ -41,7 +43,10 @@ abstract base class AppRouter {
     BuildContext? context,
     T? result,
   }) {
-    Navigator.of(context ?? appContext, rootNavigator: rootNavigator).pop(result);
+    Navigator.of(
+      context ?? appContext,
+      rootNavigator: rootNavigator,
+    ).pop(result);
   }
 
   static String? get getCurrentRoute {

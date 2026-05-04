@@ -1,20 +1,21 @@
 part of core;
 
-class ThemeNotifier extends ChangeNotifier implements ValueListenable<AppTheme> {
-  ThemeNotifier._();
+class ThemeManager extends ChangeNotifier implements ValueListenable<AppTheme> {
+  ThemeManager._();
 
-  static ThemeNotifier? _instance;
-  static ThemeNotifier get instance {
-    return _instance ??= ThemeNotifier._();
+  static ThemeManager? _instance;
+  static ThemeManager get instance {
+    return _instance ??= ThemeManager._();
   }
 
-  factory ThemeNotifier() => instance;
+  factory ThemeManager() => instance;
 
   final ThemeRepository _themeRepository = ThemeRepositoryImpl();
   AppTheme _theme = const LightTheme();
   AppTheme get theme => _theme;
 
-  ThemeMode get themeMode => _theme is LightTheme ? ThemeMode.light : ThemeMode.dark;
+  ThemeMode get themeMode =>
+      _theme is LightTheme ? ThemeMode.light : ThemeMode.dark;
 
   Future<void> initialize() async {
     try {
@@ -54,20 +55,4 @@ class ThemeNotifier extends ChangeNotifier implements ValueListenable<AppTheme> 
 
   @override
   AppTheme get value => _theme;
-}
-
-class ThemeBuilder extends StatelessWidget {
-  const ThemeBuilder({super.key, required this.builder});
-
-  final Widget Function(BuildContext context, bool isDark) builder;
-
-  @override
-  Widget build(BuildContext context) {
-    return ValueListenableBuilder(
-      valueListenable: ThemeNotifier.instance,
-      builder: (context, value, child) {
-        return builder(context, value is DarkTheme);
-      },
-    );
-  }
 }

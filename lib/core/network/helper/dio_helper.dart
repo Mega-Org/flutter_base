@@ -28,25 +28,27 @@ class DioHelper {
 
   void _init() {
     _dio.options.headers = _headers;
-    _dio.interceptors.add(HeaderInterceptor());
+    _dio.interceptors.add(ApiRequestHeaderInterceptor());
     _dio.interceptors.add(
       PrettyDioLogger(requestHeader: true, requestBody: true),
     );
     _dio.interceptors.add(UnAuthenticatedInterceptor.instance);
   }
 
-  DioHelper copyWith(BaseOptions Function(BaseOptions options) getOptions) {
+  DioHelper copyWith(
+    final BaseOptions Function(BaseOptions options) getOptions,
+  ) {
     final DioHelper newDioObj = this;
     newDioObj._dio.options = getOptions(_dio.clone().options);
     return newDioObj;
   }
 
   Future<Map<String, dynamic>> get({
-    required String url,
-    Map<String, dynamic>? body,
-    Map<String, dynamic>? queryParameters,
+    required final String url,
+    final Map<String, dynamic>? body,
+    final Map<String, dynamic>? queryParameters,
   }) async {
-    final result = await mapApiException(
+    final Map<String, dynamic> result = await mapApiException(
       task: () async {
         final FormData? formData = body != null ? FormData.fromMap(body) : null;
         final result = await _dio.get(
@@ -66,8 +68,8 @@ class DioHelper {
 
   Future<Map<String, dynamic>> put({
     required String url,
-    Map<String, dynamic>? formData,
-    Map<String, dynamic>? body,
+    final Map<String, dynamic>? formData,
+    final Map<String, dynamic>? body,
   }) async {
     return mapApiException(
       task: () async {
@@ -83,17 +85,16 @@ class DioHelper {
     required final String url,
     final Map<String, dynamic>? body,
     final Map<String, dynamic>? json,
-    bool isRaw = true,
   }) async {
     return mapApiException(
       task: () async {
         final FormData? formData = body != null ? FormData.fromMap(body) : null;
-        return await _dio.post(url, data: isRaw ? body : (formData ?? body));
+        return await _dio.post(url, data: formData ?? json);
       },
     );
   }
 
-  Future<dynamic> delete({required String url}) async {
+  Future<dynamic> delete({required final String url}) async {
     return mapApiException(
       task: () async {
         return await _dio.delete(url);

@@ -4,12 +4,10 @@ Future<T> mapApiException<T>({
   required Future<Response?> Function() task,
 }) async {
   try {
-    final taskResult = await task();
+    final Response? taskResult = await task();
     final Response? response = taskResult;
     if (response == null) {
-      throw UnexpectedException(
-        message: appLocalizer.unexpectedError,
-      );
+      throw UnexpectedException(message: appLocalizer.unexpectedError);
     }
     switch (response.statusCode) {
       case 200:
@@ -39,9 +37,11 @@ Future<T> mapApiException<T>({
       case 500:
       default:
         throw UnexpectedException(
-            message: response.data["error"] ??
-                response.data["message"] ??
-                appLocalizer.unexpectedError);
+          message:
+              response.data["error"] ??
+              response.data["message"] ??
+              appLocalizer.unexpectedError,
+        );
     }
   } on SocketException {
     throw ServerException(message: appLocalizer.noInternetConnection);
@@ -69,12 +69,14 @@ Future<T> mapApiException<T>({
       throw ApiRequestException(message: appLocalizer.noInternetConnection);
     } else if (e.type == DioExceptionType.badResponse) {
       throw ApiRequestException(
-          message: errorMessage ?? appLocalizer.noInternetConnection);
+        message: errorMessage ?? appLocalizer.noInternetConnection,
+      );
     } else if (e.type == DioExceptionType.connectionError) {
       throw ApiRequestException(message: appLocalizer.noInternetConnection);
     } else {
       throw UnexpectedException(
-          message: errorMessage ?? appLocalizer.unexpectedError);
+        message: errorMessage ?? appLocalizer.unexpectedError,
+      );
     }
   } on UnexpectedException catch (_) {
     rethrow;

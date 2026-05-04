@@ -1,4 +1,5 @@
 part of core;
+
 class AppScaledBox extends StatelessWidget {
   const AppScaledBox({super.key, required this.child});
   final Widget child;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../share_and_url_launch/url_launcher_utils.dart';
+import '../../services/launcher/url_launcher_utils.dart';
 
 part 'assets_paths.dart';
 part 'popular_sites_enum.dart';

@@ -19,24 +19,24 @@ class CacheUserModel extends CacheUserEntity {
   factory CacheUserModel.fromJson(String tokenJson) {
     final Map<String, dynamic> encodedMap = json.decode(tokenJson);
     return CacheUserModel(
-      id: encodedMap[_idKey] ?? '',
-      name: encodedMap[_nameKey] ?? '',
-      avatar: encodedMap[_avatarKey] as String?,
+      id: encodedMap[_kIdKey] ?? '',
+      name: encodedMap[_kNameKey] ?? '',
+      avatar: encodedMap[_kAvatarKey] as String?,
       mobile: encodedMap[_kCacheMobileObjectKey] ?? '',
     );
   }
 
   Map<String, dynamic> get toMap => {
-    _idKey: id,
-    _nameKey: name,
-    _avatarKey: avatar,
+    _kIdKey: id,
+    _kNameKey: name,
+    _kAvatarKey: avatar,
     _kCacheMobileObjectKey: mobile,
   };
 
   String get toJson => json.encode(toMap);
 }
 
-const String _idKey = "idKey";
-const String _nameKey = "nameKey";
-const String _avatarKey = "avatarKey";
+const String _kIdKey = "idKey";
+const String _kNameKey = "nameKey";
+const String _kAvatarKey = "avatarKey";
 const String _kCacheMobileObjectKey = "kCacheMobileObjectKey";

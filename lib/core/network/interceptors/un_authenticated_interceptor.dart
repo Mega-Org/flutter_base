@@ -27,6 +27,9 @@ class UnAuthenticatedInterceptor extends Interceptor {
     super.onError(err, handler);
   }
 
+  /// Manage ObserverList for UnAuthenticatedInterceptor
+  ///
+
   final ObserverList<UnAuthenticatedCallBackType> _listeners =
       ObserverList<UnAuthenticatedCallBackType>();
 

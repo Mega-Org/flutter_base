@@ -33,9 +33,9 @@ part 'foundation/i_use_case.dart';
 part 'foundation/typedef.dart';
 
 // Network
-part 'network/dio_helper.dart';
-part 'network/header_interceptor.dart';
-part 'network/un_authenticated_interceptor.dart';
+part 'network/helper/dio_helper.dart';
+part 'network/interceptors/api_request_header_interceptor.dart';
+part 'network/interceptors/un_authenticated_interceptor.dart';
 
 // Errors
 part 'network/errors/exceptions.dart';
@@ -53,7 +53,8 @@ part 'blocs/app_auth_bloc/app_authentication_events.dart';
 part 'blocs/app_auth_bloc/app_authentication_states.dart';
 part 'blocs/language_cubit/app_language_cubit.dart';
 part 'blocs/language_cubit/app_language_state.dart';
-part 'blocs/theme_notifier/theme_notifier.dart';
+part 'configs/theme/theme_notifier.dart';
+part 'configs/theme/theme_builder.dart';
 
 // Values
 part 'configs/values/text_styles.dart';
@@ -70,7 +71,7 @@ part 'configs/theme/light_theme.dart';
 // Router
 part 'configs/router/app_router.dart';
 part 'configs/router/animated_routes.dart';
-part 'configs/router/app_scaled_box.dart';
+part 'configs/responsive/app_scaled_box.dart';
 
 // Data
 part 'data/data_source/language_cache_data_source.dart';
