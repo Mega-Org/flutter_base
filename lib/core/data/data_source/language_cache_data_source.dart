@@ -3,10 +3,10 @@ part of core;
 const String _kCacheLanguageCodeKey = "LanguageCodeKey";
 
 abstract class LanguageCacheDataSource {
-  Future<AppLanguageTypeEnum> getLanguage();
-  Future<bool> setLanguageCode(AppLanguageTypeEnum language);
-  Future<AppLanguageTypeEnum> getDeviceLanguage();
-  AppLanguageTypeEnum get getDefaultAppLanguage;
+  Future<AppLanguageEnum> getLanguage();
+  Future<bool> setLanguageCode(AppLanguageEnum language);
+  Future<AppLanguageEnum> getDeviceLanguage();
+  AppLanguageEnum get getDefaultAppLanguage;
   Future<void> clearCache();
 }
 
@@ -18,7 +18,7 @@ class LanguageCacheDataSourceImpl implements LanguageCacheDataSource {
       _shardPreferences ??= await SharedPreferences.getInstance();
 
   @override
-  Future<bool> setLanguageCode(AppLanguageTypeEnum language) async {
+  Future<bool> setLanguageCode(AppLanguageEnum language) async {
     try {
       await (await _getPrefInstance).setString(
         _kCacheLanguageCodeKey,
@@ -32,13 +32,13 @@ class LanguageCacheDataSourceImpl implements LanguageCacheDataSource {
   }
 
   @override
-  Future<AppLanguageTypeEnum> getLanguage() async {
+  Future<AppLanguageEnum> getLanguage() async {
     try {
       final String? languageCode = (await _getPrefInstance)
           .getString(_kCacheLanguageCodeKey)
           ?.trim();
       if (languageCode != null) {
-        return AppLanguageTypeEnum.fromJson(languageCode);
+        return AppLanguageEnum.fromJson(languageCode);
       } else {
         return getDefaultAppLanguage;
       }
@@ -49,10 +49,10 @@ class LanguageCacheDataSourceImpl implements LanguageCacheDataSource {
   }
 
   @override
-  Future<AppLanguageTypeEnum> getDeviceLanguage() async {
+  Future<AppLanguageEnum> getDeviceLanguage() async {
     try {
       final String? deviceLangCode = Platform.localeName.split("_").firstOrNull;
-      final deviceLangEnum = AppLanguageTypeEnum.values.firstWhereOrNull(
+      final deviceLangEnum = AppLanguageEnum.values.firstWhereOrNull(
         (element) =>
             element.value.toLowerCase() == deviceLangCode?.toLowerCase(),
       );
@@ -64,8 +64,8 @@ class LanguageCacheDataSourceImpl implements LanguageCacheDataSource {
   }
 
   @override
-  AppLanguageTypeEnum get getDefaultAppLanguage {
-    return AppLanguageTypeEnum.ar;
+  AppLanguageEnum get getDefaultAppLanguage {
+    return AppLanguageEnum.ar;
   }
 
   @override

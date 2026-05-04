@@ -1,7 +1,7 @@
 part of core;
 
 Future<T> mapApiException<T>({
-  required Future<Response?> Function() task,
+  required final Future<Response?> Function() task,
 }) async {
   try {
     final Response? taskResult = await task();

@@ -15,15 +15,15 @@ Locale get getLocale {
   }
 }
 
-AppLanguageTypeEnum get getLocaleTypeEnum {
+AppLanguageEnum get getLocaleTypeEnum {
   try {
-    return AppLanguageTypeEnum.fromLanguageCode(getLocale.languageCode);
+    return AppLanguageEnum.fromLanguageCode(getLocale.languageCode);
   } catch (_) {
-    return AppLanguageTypeEnum.ar;
+    return AppLanguageEnum.ar;
   }
 }
 
-/// Registered by injectable; initial [AppLanguageTypeEnum] comes from
+/// Registered by injectable; initial [AppLanguageEnum] comes from
 /// [LanguagePreferencesHelper] via [GetCachedLanguageUseCase] in [@PostConstruct].
 @singleton
 class LocalizationContainer {
@@ -32,9 +32,9 @@ class LocalizationContainer {
   final GetCachedLanguageUseCase _getLanguageUseCase;
   final SetCachedLanguageUseCase _setLanguageUseCase;
 
-  AppLanguageTypeEnum _lang = AppLanguageTypeEnum.ar;
+  AppLanguageEnum _lang = AppLanguageEnum.ar;
 
-  AppLanguageTypeEnum get getLang => _lang;
+  AppLanguageEnum get getLang => _lang;
 
   AppLocalizations appLocalizations = AppLocalizationsAr();
 
@@ -43,7 +43,7 @@ class LocalizationContainer {
     _lang = await _getLanguageUseCase();
   }
 
-  Future<void> setLanguage(AppLanguageTypeEnum lang) async {
+  Future<void> setLanguage(AppLanguageEnum lang) async {
     _lang = lang;
     await _setLanguageUseCase(lang);
   }

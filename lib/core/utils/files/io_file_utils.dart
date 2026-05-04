@@ -1,10 +1,4 @@
-import 'dart:io';
-
-import 'package:flutter/services.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:uuid/uuid.dart';
-
-import '../../core.dart';
+part of core;
 
 enum IoFileTypeEnum { asset, network, file }
 
@@ -118,10 +112,8 @@ class IoFileUtils {
     _FileContentEntity(extension: 'psd', mimeType: 'image/vnd.adobe.photoshop'),
   ];
 
-  List<String> get getAllowedImagesExtensions => _imagesExtension
-      .where((e) => e.allowed)
-      .map((e) => e.extension)
-      .toList();
+  List<String> get getAllowedImagesExtensions =>
+      _imagesExtension.where((e) => e.allowed).map((e) => e.extension).toList();
 
   final List<_FileContentEntity> _videosExtension = [
     ///✅ COMMONLY SUPPORTED & SAFE IN FLUTTER
@@ -180,10 +172,8 @@ class IoFileUtils {
     _FileContentEntity(extension: 'movie', mimeType: 'video/x-sgi-movie'),
   ];
 
-  List<String> get getAllowedVideosExtensions => _videosExtension
-      .where((e) => e.allowed)
-      .map((e) => e.extension)
-      .toList();
+  List<String> get getAllowedVideosExtensions =>
+      _videosExtension.where((e) => e.allowed).map((e) => e.extension).toList();
 
   final List<_FileContentEntity> _audioExtension = [
     _FileContentEntity(extension: 'aac', mimeType: 'audio/aac', allowed: true),
@@ -226,10 +216,8 @@ class IoFileUtils {
     _FileContentEntity(extension: 'xm', mimeType: 'audio/xm'),
   ];
 
-  List<String> get getAllowedAudioExtensions => _audioExtension
-      .where((e) => e.allowed)
-      .map((e) => e.extension)
-      .toList();
+  List<String> get getAllowedAudioExtensions =>
+      _audioExtension.where((e) => e.allowed).map((e) => e.extension).toList();
 
   final List<_FileContentEntity> _docsExtension = [
     _FileContentEntity(extension: 'def', mimeType: 'text/plain', allowed: true),
@@ -363,10 +351,8 @@ class IoFileUtils {
     ),
   ];
 
-  List<String> get getAllowedDocsExtensions => _docsExtension
-      .where((e) => e.allowed)
-      .map((e) => e.extension)
-      .toList();
+  List<String> get getAllowedDocsExtensions =>
+      _docsExtension.where((e) => e.allowed).map((e) => e.extension).toList();
 
   Future<File> convertAssetToFile(String assetPath) async {
     final byteData = await rootBundle.load(assetPath);

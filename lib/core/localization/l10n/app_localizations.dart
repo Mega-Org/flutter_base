@@ -194,6 +194,24 @@ abstract class AppLocalizations {
   /// **'Friday'**
   String get friday;
 
+  /// No description provided for @storeUpdaterTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Update Available'**
+  String get storeUpdaterTitle;
+
+  /// No description provided for @storeUpdaterMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'A new version of the app is available. Please update to continue.'**
+  String get storeUpdaterMessage;
+
+  /// No description provided for @storeUpdaterBtnLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Update'**
+  String get storeUpdaterBtnLabel;
+
   /// No description provided for @deleteAccount.
   ///
   /// In en, this message translates to:
@@ -661,6 +679,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No result found'**
   String get noResultFound;
+
+  /// No description provided for @paginationLoadingMore.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading more...'**
+  String get paginationLoadingMore;
+
+  /// No description provided for @paginationCouldNotLoadMore.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t load more. Tap to retry.'**
+  String get paginationCouldNotLoadMore;
+
+  /// No description provided for @paginationNoItems.
+  ///
+  /// In en, this message translates to:
+  /// **'No items to show'**
+  String get paginationNoItems;
+
+  /// No description provided for @materialPhoneFieldLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Mobile number'**
+  String get materialPhoneFieldLabel;
+
+  /// No description provided for @materialPhoneFieldHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your mobile number'**
+  String get materialPhoneFieldHint;
+
+  /// No description provided for @materialPhoneSearchCountry.
+  ///
+  /// In en, this message translates to:
+  /// **'Search for country'**
+  String get materialPhoneSearchCountry;
+
+  /// No description provided for @materialPhoneNoCountryResults.
+  ///
+  /// In en, this message translates to:
+  /// **'No result found'**
+  String get materialPhoneNoCountryResults;
+
+  /// No description provided for @materialPhoneInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid phone number'**
+  String get materialPhoneInvalid;
+
+  /// No description provided for @materialReadMore.
+  ///
+  /// In en, this message translates to:
+  /// **'Read more'**
+  String get materialReadMore;
+
+  /// No description provided for @materialReadLess.
+  ///
+  /// In en, this message translates to:
+  /// **'Read less'**
+  String get materialReadLess;
 
   /// No description provided for @youMustAgreeTermsAndConditionsFirst.
   ///

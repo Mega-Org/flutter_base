@@ -6,11 +6,11 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../../core.dart';
 
-abstract class LaunchUrlUtils {
-  LaunchUrlUtils._();
+abstract class UrlLauncherService {
+  const UrlLauncherService._();
 
   static Future<void> openUrl({
-    required String url,
+    required final String url,
     LaunchMode linkLaunchMode = LaunchMode.externalApplication,
   }) async {
     if (await canLaunchUrl(Uri.parse(url))) {
@@ -31,7 +31,7 @@ abstract class LaunchUrlUtils {
     }
   }
 
-  static Future<void> openPhoneNumber(String phoneNumber) async {
+  static Future<void> openPhoneNumber(final String phoneNumber) async {
     try {
       await launchUrl(Uri.parse("tel:$phoneNumber"));
     } catch (e) {
@@ -46,7 +46,7 @@ abstract class LaunchUrlUtils {
     }
   }
 
-  static Future<void> openInWhatsApp(String phoneNumber) async {
+  static Future<void> openInWhatsApp(final String phoneNumber) async {
     try {
       if (Platform.isAndroid) {
         launchUrl(Uri.parse('https://wa.me/$phoneNumber'));
@@ -67,14 +67,12 @@ abstract class LaunchUrlUtils {
     }
   }
 
-  static Future<void> openEmailAddress(String email) async {
+  static Future<void> openEmailAddress(final String email) async {
     try {
       final Uri emailLaunchUri = Uri(
         scheme: 'mailto',
         path: email,
-        query: _encodeQueryParameters(<String, String>{
-          'subject': 'Hi there , From Rise Now App',
-        }),
+        query: _encodeQueryParameters(<String, String>{'subject': 'Hi there'}),
       );
       launchUrl(emailLaunchUri);
     } catch (e) {

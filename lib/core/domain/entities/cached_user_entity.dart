@@ -6,20 +6,20 @@ class CacheUserEntity extends Equatable {
   final String id;
   final String name;
   final String? avatar;
-  final String mobile;
+  final PhoneEntity phone;
 
   const CacheUserEntity({
     required this.id,
     required this.name,
     this.avatar,
-    required this.mobile,
+    required this.phone,
   });
 
   @override
-  List<Object?> get props => [id, name, avatar, mobile];
+  List<Object?> get props => [id, name, avatar, phone];
 
   @override
   String toString() {
-    return '[CachedUser] id=$id, name=$name, avatar=$avatar, mobile=$mobile';
+    return '[CachedUser] id=$id, name=$name, avatar=$avatar, phone=$phone';
   }
 }

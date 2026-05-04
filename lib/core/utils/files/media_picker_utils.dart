@@ -3,7 +3,6 @@ import 'package:file_picker/file_picker.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../core.dart';
-import 'io_file_utils.dart';
 
 typedef PickedMediaCallback = void Function(AttachmentEntity media);
 

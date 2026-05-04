@@ -61,6 +61,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get friday => 'Friday';
 
   @override
+  String get storeUpdaterTitle => 'Update Available';
+
+  @override
+  String get storeUpdaterMessage =>
+      'A new version of the app is available. Please update to continue.';
+
+  @override
+  String get storeUpdaterBtnLabel => 'Update';
+
+  @override
   String get deleteAccount => 'Delete Account';
 
   @override
@@ -300,6 +310,36 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get noResultFound => 'No result found';
+
+  @override
+  String get paginationLoadingMore => 'Loading more...';
+
+  @override
+  String get paginationCouldNotLoadMore => 'Couldn\'t load more. Tap to retry.';
+
+  @override
+  String get paginationNoItems => 'No items to show';
+
+  @override
+  String get materialPhoneFieldLabel => 'Mobile number';
+
+  @override
+  String get materialPhoneFieldHint => 'Enter your mobile number';
+
+  @override
+  String get materialPhoneSearchCountry => 'Search for country';
+
+  @override
+  String get materialPhoneNoCountryResults => 'No result found';
+
+  @override
+  String get materialPhoneInvalid => 'Invalid phone number';
+
+  @override
+  String get materialReadMore => 'Read more';
+
+  @override
+  String get materialReadLess => 'Read less';
 
   @override
   String get youMustAgreeTermsAndConditionsFirst =>

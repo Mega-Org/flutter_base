@@ -22,6 +22,12 @@
   "wednesday": "Wednesday",
   "thursday": "Thursday",
   "friday": "Friday",
+  "@-STORE_UPDATER-": {
+    "description": "----------------- STORE_UPDATER Localizations -----------------"
+  },
+  "storeUpdaterTitle": "Update Available",
+  "storeUpdaterMessage": "A new version of the app is available. Please update to continue.",
+  "storeUpdaterBtnLabel": "Update",
   "@-COMMON-": {
     "description": "----------------- Common Localizations -----------------"
   },
@@ -109,6 +115,22 @@
   "invalidPhoneNumber": "Phone number invalid format.",
   "searchForCountry": "Search for country",
   "noResultFound": "No result found",
+  "@-PAGINATION-": {
+    "description": "----------------- Pagination (lists, grids) -----------------"
+  },
+  "paginationLoadingMore": "Loading more...",
+  "paginationCouldNotLoadMore": "Couldn't load more. Tap to retry.",
+  "paginationNoItems": "No items to show",
+  "@-MATERIAL-": {
+    "description": "----------------- Material widgets (phone field, sheets, etc.) -----------------"
+  },
+  "materialPhoneFieldLabel": "Mobile number",
+  "materialPhoneFieldHint": "Enter your mobile number",
+  "materialPhoneSearchCountry": "Search for country",
+  "materialPhoneNoCountryResults": "No result found",
+  "materialPhoneInvalid": "Invalid phone number",
+  "materialReadMore": "Read more",
+  "materialReadLess": "Read less",
   "youMustAgreeTermsAndConditionsFirst": "You must agree to the terms and conditions first",
   "invalidIdentityNumber": "Invalid identity number",
   "search": "Search",

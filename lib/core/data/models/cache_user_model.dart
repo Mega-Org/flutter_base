@@ -5,7 +5,7 @@ class CacheUserModel extends CacheUserEntity {
     required super.id,
     required super.name,
     super.avatar,
-    required super.mobile,
+    required super.phone,
   });
 
   CacheUserModel.fromEntity(CacheUserEntity entity)
@@ -13,7 +13,7 @@ class CacheUserModel extends CacheUserEntity {
         id: entity.id,
         name: entity.name,
         avatar: entity.avatar,
-        mobile: entity.mobile,
+        phone: entity.phone,
       );
 
   factory CacheUserModel.fromJson(String tokenJson) {
@@ -21,8 +21,8 @@ class CacheUserModel extends CacheUserEntity {
     return CacheUserModel(
       id: encodedMap[_kIdKey] ?? '',
       name: encodedMap[_kNameKey] ?? '',
-      avatar: encodedMap[_kAvatarKey] as String?,
-      mobile: encodedMap[_kCacheMobileObjectKey] ?? '',
+      avatar: encodedMap[_kAvatarKey],
+      phone: PhoneModel.fromMap(encodedMap[_kCacheMobileObjectKey]),
     );
   }
 
@@ -30,7 +30,7 @@ class CacheUserModel extends CacheUserEntity {
     _kIdKey: id,
     _kNameKey: name,
     _kAvatarKey: avatar,
-    _kCacheMobileObjectKey: mobile,
+    _kCacheMobileObjectKey: PhoneModel.fromEntity(phone).toMap,
   };
 
   String get toJson => json.encode(toMap);

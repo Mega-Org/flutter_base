@@ -1,9 +1,9 @@
 part of core;
 
 Future<Either<Failure, T>> collectFailure<T>(
-  Future<Either<Failure, T>> Function() task, {
-  Future<Failure?> Function(Exception execption)? catchExecption,
-  Future<Failure?> Function(Object? execption)? catchError,
+  final Future<Either<Failure, T>> Function() task, {
+  final Future<Failure?> Function(Exception execption)? catchExecption,
+  final Future<Failure?> Function(Object? execption)? catchError,
 }) async {
   try {
     return await task();
@@ -21,14 +21,9 @@ Future<Either<Failure, T>> collectFailure<T>(
     }
 
     if (e is ApiRequestException) {
-      return Left(RequestFailure(
-        message: e.message,
-      ));
+      return Left(RequestFailure(message: e.message));
     } else if (e is ServerException) {
-      return Left(ServerFailure(
-        message: e.message,
-        errorMap: e.errorMap,
-      ));
+      return Left(ServerFailure(message: e.message, errorMap: e.errorMap));
     } else if (e is SecureStorageException) {
       return Left(SecureStorageFailure(message: e.message));
     } else if (e is UnauthorizedException) {
@@ -38,11 +33,7 @@ Future<Either<Failure, T>> collectFailure<T>(
     } else if (e is UnexpectedException) {
       return Left(UnexpectedFailure(message: e.message));
     } else {
-      return Left(
-        ServerFailure(
-          message: appLocalizer.somethingWentWrong,
-        ),
-      );
+      return Left(ServerFailure(message: appLocalizer.somethingWentWrong));
     }
   }
 }

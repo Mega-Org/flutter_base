@@ -22,6 +22,12 @@
   "wednesday": "الأربعاء",
   "thursday": "الخميس",
   "friday": "الجمعة",
+  "@-STORE_UPDATER-": {
+    "description": "----------------- STORE_UPDATER Localizations -----------------"
+  },
+  "storeUpdaterTitle": "تحديث التطبيق",
+  "storeUpdaterMessage": "يتوفر إصدار جديد من التطبيق. يرجى التحديث للمتابعة.",
+  "storeUpdaterBtnLabel": "تحديث",
   "@-COMMON-": {
     "description": "----------------- Common Localizations -----------------"
   },
@@ -109,6 +115,22 @@
   "invalidPhoneNumber": "تنسيق رقم الجوال غير صالح",
   "searchForCountry": "ابحث عن دولة",
   "noResultFound": "لم يتم العثور على نتائج",
+  "@-PAGINATION-": {
+    "description": "----------------- Pagination (lists, grids) -----------------"
+  },
+  "paginationLoadingMore": "جاري تحميل المزيد...",
+  "paginationCouldNotLoadMore": "تعذر تحميل المزيد. اضغط لإعادة المحاولة.",
+  "paginationNoItems": "لا توجد عناصر لعرضها",
+  "@-MATERIAL-": {
+    "description": "----------------- Material widgets (phone field, sheets, etc.) -----------------"
+  },
+  "materialPhoneFieldLabel": "رقم الجوال",
+  "materialPhoneFieldHint": "ادخل رقم الجوال",
+  "materialPhoneSearchCountry": "ابحث عن دولة",
+  "materialPhoneNoCountryResults": "لم يتم العثور على نتائج",
+  "materialPhoneInvalid": "رقم الجوال غير صالح",
+  "materialReadMore": "اقرأ المزيد",
+  "materialReadLess": "اقرأ أقل",
   "youMustAgreeTermsAndConditionsFirst": "يجب الموافقة على الشروط والأحكام أولاً",
   "invalidIdentityNumber": "رقم الهوية غير صالح",
   "search": "ابحث",

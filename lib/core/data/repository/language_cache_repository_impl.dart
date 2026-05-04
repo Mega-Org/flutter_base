@@ -12,21 +12,21 @@ class LanguageCacheRepositoryImpl implements LanguageCacheRepository {
   }
 
   @override
-  AppLanguageTypeEnum get getDefaultAppLanguage =>
+  AppLanguageEnum get getDefaultAppLanguage =>
       _languageCacheDataSource.getDefaultAppLanguage;
 
   @override
-  Future<AppLanguageTypeEnum> getDeviceLanguage() async {
+  Future<AppLanguageEnum> getDeviceLanguage() async {
     return await _languageCacheDataSource.getDeviceLanguage();
   }
 
   @override
-  Future<AppLanguageTypeEnum> getLanguage() async {
+  Future<AppLanguageEnum> getLanguage() async {
     return await _languageCacheDataSource.getLanguage();
   }
 
   @override
-  Future<bool> setLanguageCode(AppLanguageTypeEnum language) async {
+  Future<bool> setLanguageCode(AppLanguageEnum language) async {
     return await _languageCacheDataSource.setLanguageCode(language);
   }
 }

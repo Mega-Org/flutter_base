@@ -61,6 +61,16 @@ class AppLocalizationsAr extends AppLocalizations {
   String get friday => 'الجمعة';
 
   @override
+  String get storeUpdaterTitle => 'تحديث التطبيق';
+
+  @override
+  String get storeUpdaterMessage =>
+      'يتوفر إصدار جديد من التطبيق. يرجى التحديث للمتابعة.';
+
+  @override
+  String get storeUpdaterBtnLabel => 'تحديث';
+
+  @override
   String get deleteAccount => 'حذف الحساب';
 
   @override
@@ -298,6 +308,37 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get noResultFound => 'لم يتم العثور على نتائج';
+
+  @override
+  String get paginationLoadingMore => 'جاري تحميل المزيد...';
+
+  @override
+  String get paginationCouldNotLoadMore =>
+      'تعذر تحميل المزيد. اضغط لإعادة المحاولة.';
+
+  @override
+  String get paginationNoItems => 'لا توجد عناصر لعرضها';
+
+  @override
+  String get materialPhoneFieldLabel => 'رقم الجوال';
+
+  @override
+  String get materialPhoneFieldHint => 'ادخل رقم الجوال';
+
+  @override
+  String get materialPhoneSearchCountry => 'ابحث عن دولة';
+
+  @override
+  String get materialPhoneNoCountryResults => 'لم يتم العثور على نتائج';
+
+  @override
+  String get materialPhoneInvalid => 'رقم الجوال غير صالح';
+
+  @override
+  String get materialReadMore => 'اقرأ المزيد';
+
+  @override
+  String get materialReadLess => 'اقرأ أقل';
 
   @override
   String get youMustAgreeTermsAndConditionsFirst =>

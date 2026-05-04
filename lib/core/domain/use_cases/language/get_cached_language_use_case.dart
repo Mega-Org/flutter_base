@@ -10,7 +10,7 @@ class GetCachedLanguageUseCase {
     LanguageCacheRepositoryImpl(LanguageCacheDataSourceImpl()),
   );
 
-  Future<AppLanguageTypeEnum> call() async {
+  Future<AppLanguageEnum> call() async {
     return await _repository.getLanguage();
   }
 }

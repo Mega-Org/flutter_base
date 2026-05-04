@@ -1,19 +1,19 @@
 import 'dart:convert';
 import 'dart:ui';
 
-enum AppLanguageTypeEnum {
+enum AppLanguageEnum {
   ar(value: "ar", countryCode: "EG"),
   en(value: "en", countryCode: "US");
 
   final String value;
   final String countryCode;
 
-  const AppLanguageTypeEnum({required this.value, required this.countryCode});
+  const AppLanguageEnum({required this.value, required this.countryCode});
 
-  factory AppLanguageTypeEnum.fromLanguageCode(String languageCode) {
-    return AppLanguageTypeEnum.values.firstWhere(
+  factory AppLanguageEnum.fromLanguageCode(String languageCode) {
+    return AppLanguageEnum.values.firstWhere(
       (element) => element.value.toLowerCase() == languageCode.toLowerCase(),
-      orElse: () => AppLanguageTypeEnum.ar,
+      orElse: () => AppLanguageEnum.ar,
     );
   }
 
@@ -21,9 +21,9 @@ enum AppLanguageTypeEnum {
 
   String get displayName {
     switch (this) {
-      case AppLanguageTypeEnum.ar:
+      case AppLanguageEnum.ar:
         return "العربية";
-      case AppLanguageTypeEnum.en:
+      case AppLanguageEnum.en:
         return "English";
     }
   }
@@ -37,12 +37,12 @@ enum AppLanguageTypeEnum {
 
   String get toJson => json.encode(toMap);
 
-  factory AppLanguageTypeEnum.fromJson(String tokenJson) {
+  factory AppLanguageEnum.fromJson(String tokenJson) {
     final Map<String, dynamic> encodedMap = json.decode(tokenJson);
     final String? value = encodedMap["value"]?.toLowerCase();
     final String? countryCode = encodedMap["countryCode"]?.toLowerCase();
 
-    return AppLanguageTypeEnum.values.firstWhere(
+    return AppLanguageEnum.values.firstWhere(
       (element) =>
           element.value.toLowerCase() == value &&
           element.countryCode.toLowerCase() == countryCode,

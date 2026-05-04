@@ -6,6 +6,9 @@ class AppConstants {
   static const String appleStoreUrl = "";
   static const String googlePlayUrl = "";
 
+  /// Apple App Store numeric ID for in-app review / store listing (iOS).
+  static const String appStoreId = "";
+
   static String get getAppProductionUrl {
     switch (Platform.isAndroid) {
       case true:

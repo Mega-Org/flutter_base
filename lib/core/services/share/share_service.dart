@@ -1,7 +1,7 @@
 part of core;
 
-abstract base class ShareUtils {
-  ShareUtils._();
+abstract base class ShareService {
+  const ShareService._();
   static Future<void> shareText({required String text, String? subject}) async {
     await SharePlus.instance.share(ShareParams(text: text, subject: subject));
   }
@@ -78,7 +78,7 @@ abstract base class ShareUtils {
     final subject =
         'Enjoy with your friends'
         '\nYou can download our app via ${AppConstants.getAppProductionUrl}\n';
-    await ShareUtils.shareFiles(
+    await ShareService.shareFiles(
       filePaths: [assetAppLogo],
       text: '$text\n$subject',
     );

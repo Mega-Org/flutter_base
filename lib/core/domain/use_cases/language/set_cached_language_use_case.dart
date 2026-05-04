@@ -10,7 +10,7 @@ class SetCachedLanguageUseCase {
     LanguageCacheRepositoryImpl(LanguageCacheDataSourceImpl()),
   );
 
-  Future<bool> call(AppLanguageTypeEnum language) async {
+  Future<bool> call(AppLanguageEnum language) async {
     return await _repository.setLanguageCode(language);
   }
 }

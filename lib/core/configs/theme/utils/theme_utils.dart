@@ -19,20 +19,3 @@ T getGenericTheme<T>({required T lightColor, required T darkColor}) {
       return darkColor;
   }
 }
-
-class ThemeBuilder extends StatelessWidget {
-  const ThemeBuilder({super.key, required this.builder});
-
-  final Widget Function(BuildContext context, bool isDark, AppTheme theme)
-  builder;
-
-  @override
-  Widget build(BuildContext context) {
-    return ValueListenableBuilder(
-      valueListenable: ThemeManager.instance,
-      builder: (context, value, child) {
-        return builder(context, value is DarkTheme, value);
-      },
-    );
-  }
-}

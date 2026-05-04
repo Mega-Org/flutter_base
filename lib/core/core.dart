@@ -2,6 +2,7 @@
 library core;
 
 import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:dartz/dartz.dart';
@@ -13,23 +14,31 @@ import 'package:flutter/services.dart';
 import 'package:flutter_base/core/localization/l10n/app_localizations_ar.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:in_app_review/in_app_review.dart';
 import 'package:injectable/injectable.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'localization/l10n/app_localizations.dart';
 import 'utils/extensions/list_ext.dart';
 import 'package:responsive_framework/responsive_framework.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:uuid/uuid.dart';
+import 'package:vibration/vibration.dart';
 
 import 'configs/values/assets.gen.dart';
 import 'constants/api_constants.dart';
+import 'constants/app_constants.dart';
 import 'data/models/token_model.dart';
 import 'di/di.dart';
-import 'localization/app_language_type_enum.dart';
-import 'utils/files/io_file_utils.dart';
+import 'localization/app_language_enum.dart';
+
+export 'localization/app_language_enum.dart';
 
 // Foundation
 part 'foundation/async.dart';
 part 'foundation/i_use_case.dart';
+part 'foundation/safe_emit_mixin.dart';
 part 'foundation/typedef.dart';
 
 // Network
@@ -53,8 +62,9 @@ part 'blocs/app_auth_bloc/app_authentication_events.dart';
 part 'blocs/app_auth_bloc/app_authentication_states.dart';
 part 'blocs/language_cubit/app_language_cubit.dart';
 part 'blocs/language_cubit/app_language_state.dart';
-part 'configs/theme/theme_notifier.dart';
-part 'configs/theme/theme_builder.dart';
+part 'configs/theme/manager/theme_manager.dart';
+part 'configs/theme/utils/theme_utils.dart';
+part 'configs/theme/widgets/theme_builder.dart';
 
 // Values
 part 'configs/values/text_styles.dart';
@@ -64,9 +74,9 @@ part 'configs/values/colors.dart';
 part 'configs/values/assets_getters.dart';
 
 // Configs
-part 'configs/theme/app_theme.dart';
-part 'configs/theme/dark_theme.dart';
-part 'configs/theme/light_theme.dart';
+part 'configs/theme/values/app_theme.dart';
+part 'configs/theme/values/dark_theme.dart';
+part 'configs/theme/values/light_theme.dart';
 
 // Router
 part 'configs/router/app_router.dart';
@@ -76,6 +86,7 @@ part 'configs/responsive/app_scaled_box.dart';
 // Data
 part 'data/data_source/language_cache_data_source.dart';
 part 'data/data_source/secure_storage_data_source.dart';
+part 'data/models/phone_model.dart';
 part 'data/models/cache_user_model.dart';
 
 // Repository
@@ -90,6 +101,7 @@ part 'domain/repository/secure_storage_repository.dart';
 part 'domain/repository/theme_repository.dart';
 
 // Entity
+part 'domain/entities/phone_entity.dart';
 part 'domain/entities/cached_user_entity.dart';
 part 'domain/entities/attachment_entity.dart';
 
@@ -107,11 +119,14 @@ part 'domain/use_cases/secure_storage/get_token_use_case.dart';
 part 'domain/use_cases/secure_storage/set_cached_user_use_case.dart';
 part 'domain/use_cases/secure_storage/set_token_use_case.dart';
 
-
-
 // Utils (library parts)
 part 'utils/pretty_numbers_utils.dart';
 part 'utils/regular_exp/regular_exp.dart';
+part 'utils/files/io_file_utils.dart';
+
+// Services
+part 'services/share/share_service.dart';
+part 'services/vibrator/vibrator_service.dart';
+part 'services/app_rate/app_rate_service.dart';
 
 // Extensions
-
