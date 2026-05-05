@@ -15,6 +15,20 @@ import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:shared_preferences/shared_preferences.dart' as _i460;
 
+import '../../src/app_realtime/app_realtime.dart' as _i483;
+import '../../src/app_realtime/di/realtime_injection_module.dart' as _i115;
+import '../../src/common/data/repository/common_repository_imp.dart' as _i867;
+import '../../src/common/domain/repository/common_repository.dart' as _i92;
+import '../../src/common/domain/repository/menu_common_repository.dart'
+    as _i646;
+import '../../src/common/domain/use_cases/language/change_langauge_use_case.dart'
+    as _i1006;
+import '../../src/common/domain/use_cases/menu/get_contact_us_data_use_case.dart'
+    as _i268;
+import '../../src/common/domain/use_cases/menu/get_static_data_use_case.dart'
+    as _i573;
+import '../../src/common/domain/use_cases/menu/send_contact_us_message_use_case.dart'
+    as _i45;
 import '../core.dart' as _i351;
 import 'di.dart' as _i913;
 
@@ -26,6 +40,7 @@ extension GetItInjectableX on _i174.GetIt {
   }) async {
     final gh = _i526.GetItHelper(this, environment, environmentFilter);
     final registerModule = _$RegisterModule();
+    final realtimeInjectionModule = _$RealtimeInjectionModule();
     await gh.factoryAsync<_i351.DioHelper>(
       () => _i351.DioHelper().create(),
       preResolve: true,
@@ -38,12 +53,30 @@ extension GetItInjectableX on _i174.GetIt {
       () => registerModule.sharedPreferences,
       preResolve: true,
     );
+    gh.lazySingleton<_i483.RealtimeTransportConfig>(
+      () => realtimeInjectionModule.realtimeTransportConfig,
+    );
     gh.factory<_i351.LanguageCacheDataSource>(
       () => _i351.LanguageCacheDataSourceImpl(),
     );
     gh.factory<_i351.ThemeRepository>(() => _i351.ThemeRepositoryImpl());
+    gh.factory<_i92.CommonRepository>(
+      () => _i867.CommonRepositoryImp(gh<_i351.DioHelper>()),
+    );
     gh.factory<_i351.SecureStorageDataSource>(
       () => _i351.SecureStorageDataSourceImpl(gh<_i558.FlutterSecureStorage>()),
+    );
+    gh.factory<_i1006.ChangeLanguageUseCase>(
+      () => _i1006.ChangeLanguageUseCase(gh<_i92.CommonRepository>()),
+    );
+    gh.factory<_i268.GetContactUsDataUseCase>(
+      () => _i268.GetContactUsDataUseCase(gh<_i646.MenuCommonRepository>()),
+    );
+    gh.factory<_i573.GetStaticDataUseCase>(
+      () => _i573.GetStaticDataUseCase(gh<_i646.MenuCommonRepository>()),
+    );
+    gh.factory<_i45.SendContactUsMessageUseCase>(
+      () => _i45.SendContactUsMessageUseCase(gh<_i646.MenuCommonRepository>()),
     );
     gh.factory<_i351.LanguageCacheRepository>(
       () => _i351.LanguageCacheRepositoryImpl(
@@ -104,8 +137,32 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i351.GetCachedUserUseCase>(),
       ),
     );
+    gh.lazySingleton<_i483.RealtimeCoordinator>(
+      () => realtimeInjectionModule.realtimeCoordinator(
+        gh<_i483.RealtimeTransportConfig>(),
+        gh<_i361.Dio>(),
+        gh<_i351.GetTokenUseCase>(),
+      ),
+    );
+    gh.lazySingleton<_i483.RealtimeAuthProvider>(
+      () => _i483.RealtimeAuthProviderImpl(gh<_i351.GetTokenUseCase>()),
+    );
+    gh.lazySingleton<_i483.RealtimeRepository>(
+      () => _i483.RealtimeRepositoryImpl(
+        gh<_i483.RealtimeCoordinator>(),
+        gh<_i483.RealtimeAuthProvider>(),
+      ),
+    );
+    gh.factory<_i483.ListenRealtimeEnvelopeUseCase>(
+      () => _i483.ListenRealtimeEnvelopeUseCase(gh<_i483.RealtimeRepository>()),
+    );
+    gh.factory<_i483.EmitRealtimeEventUseCase>(
+      () => _i483.EmitRealtimeEventUseCase(gh<_i483.RealtimeRepository>()),
+    );
     return this;
   }
 }
 
 class _$RegisterModule extends _i913.RegisterModule {}
+
+class _$RealtimeInjectionModule extends _i115.RealtimeInjectionModule {}

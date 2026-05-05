@@ -5,6 +5,7 @@ import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../constants/api_constants.dart';
 import 'di.config.dart';
+import 'realtime_dispose_bridge.dart';
 
 final injector = GetIt.instance;
 
@@ -29,6 +30,7 @@ Future<void> configureDependencies() async {
 }
 
 Future<void> resetDependenciesScope() async {
+  await disposeRealtimeBeforeScopeResetHook?.call();
   await injector.resetScope();
   await configureDependencies();
 }
