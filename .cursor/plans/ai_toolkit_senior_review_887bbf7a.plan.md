@@ -19,7 +19,7 @@ todos:
     status: pending
   - id: cursor-always-rule
     content: "Optional: add .cursor/rules/*.mdc with alwaysApply pointing to ai_toolkit/INDEX.md for team-wide seeding."
-    status: pending
+    status: completed
 isProject: false
 ---
 

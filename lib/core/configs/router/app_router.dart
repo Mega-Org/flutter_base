@@ -1,5 +1,8 @@
 part of core;
 
+final RouteObserver<ModalRoute<dynamic>> routeAwareObserver =
+    RouteObserver<ModalRoute<dynamic>>();
+
 final GlobalKey<NavigatorState> appNavigatorKey = GlobalKey<NavigatorState>();
 
 abstract base class AppRouter {
