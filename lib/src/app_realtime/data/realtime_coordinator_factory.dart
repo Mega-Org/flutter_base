@@ -7,15 +7,15 @@ abstract final class RealtimeCoordinatorFactory {
     Future<dynamic> Function(String channelName, String socketId)?
         pusherChannelAuthorizer,
   }) {
-    final RealtimeTransport adapter;
+    final _RealtimeTransport adapter;
     switch (transport) {
       case final RealtimeTransportConfigPusher c:
-        adapter = PusherRealtimeAdapter(
+        adapter = _PusherRealtimeAdapter(
           config: c,
           channelAuthorizer: pusherChannelAuthorizer,
         );
       case final RealtimeTransportConfigSocket c:
-        adapter = SocketRealtimeAdapter(config: c);
+        adapter = _SocketRealtimeAdapter(config: c);
     }
     return RealtimeCoordinator._(transport, adapter);
   }

@@ -7,6 +7,7 @@ class _ChannelHub {
       StreamController<RealtimeEnvelope>.broadcast(sync: true);
 
   int listenRefCount = 0;
+  bool detaching = false;
 
   final _SocketFilterAggregate socketFilter = _SocketFilterAggregate();
 
@@ -108,7 +109,7 @@ class RealtimeCoordinator {
   );
 
   final RealtimeTransportConfig transportConfig;
-  final RealtimeTransport _transport;
+  final _RealtimeTransport _transport;
 
   final Map<String, _ChannelHub> _hubs = <String, _ChannelHub>{};
   final Map<String, Future<void>> _inflight = <String, Future<void>>{};
@@ -142,7 +143,7 @@ class RealtimeCoordinator {
         _connected = false;
       }
       _ctx = context;
-      await _transport.connect(context);
+      await _connectWithRetry(context);
       _connected = true;
     });
   }
@@ -159,7 +160,13 @@ class RealtimeCoordinator {
       throw StateError('Call ensureConnected before watch.');
     }
 
-    final hub = _hubs.putIfAbsent(channelKey, _ChannelHub.new);
+    // If the existing hub is being torn down, create a fresh one immediately.
+    final existing = _hubs[channelKey];
+    final hub = (existing != null && !existing.detaching)
+        ? existing
+        : _ChannelHub();
+    _hubs[channelKey] = hub;
+
     late StreamSubscription<RealtimeEnvelope> subscription;
     late StreamController<RealtimeEnvelope> outer;
 
@@ -203,7 +210,7 @@ class RealtimeCoordinator {
 
     await ensureConnected(context: _ctx!);
 
-    if (_transport is PusherRealtimeAdapter) {
+    if (_transport is _PusherRealtimeAdapter) {
       return _emitPusher(
         channelKey,
         eventName,
@@ -236,6 +243,61 @@ class RealtimeCoordinator {
     }
   }
 
+  Future<void> _connectWithRetry(RealtimeConnectContext context) async {
+    final policy = transportConfig.retryPolicy;
+    Object? lastError;
+    StackTrace? lastStack;
+
+    for (var attempt = 1; attempt <= policy.maxAttempts; attempt++) {
+      try {
+        await _transport.connect(
+          context,
+          onUnexpectedDisconnect: _onTransportDisconnected,
+        );
+        return;
+      } catch (e, st) {
+        lastError = e;
+        lastStack = st;
+        debugPrint('[RealtimeCoordinator] connect attempt $attempt failed: $e');
+        if (attempt < policy.maxAttempts && !_disposed) {
+          await Future<void>.delayed(policy.delayForAttempt(attempt));
+          if (_disposed) break;
+        }
+      }
+    }
+    Error.throwWithStackTrace(lastError!, lastStack!);
+  }
+
+  void _onTransportDisconnected() {
+    if (_disposed || !_connected) return;
+    _connected = false;
+    _inflight.remove('__connect__');
+    debugPrint('[RealtimeCoordinator] unexpected disconnect — reconnecting');
+    unawaited(_reconnect());
+  }
+
+  Future<void> _reconnect() async {
+    if (_disposed || _ctx == null) return;
+    try {
+      await _connectWithRetry(_ctx!);
+      _connected = true;
+    } catch (e) {
+      debugPrint(
+        '[RealtimeCoordinator] reconnect failed after all retries: $e',
+      );
+      return;
+    }
+    final activeChannels = List<String>.from(_hubs.keys);
+    for (final channelKey in activeChannels) {
+      final hub = _hubs[channelKey];
+      if (hub == null || hub.detaching) continue;
+      hub.subscriptionState = SubscriptionState.idle;
+      hub.readyCompleter = null;
+      _inflight.remove('sub:$channelKey');
+      await _attachChannelTransport(channelKey, hub);
+    }
+  }
+
   Future<void> _onWatchListenStart(
     String channelKey,
     Set<String>? socketEventFilter,
@@ -255,7 +317,7 @@ class RealtimeCoordinator {
 
     if (hub.listenRefCount == 1) {
       await _attachChannelTransport(channelKey, hub);
-    } else if (_transport is SocketRealtimeAdapter && filterChanged) {
+    } else if (_transport is _SocketRealtimeAdapter && filterChanged) {
       await _refreshSocketSubscription(channelKey, hub);
     }
   }
@@ -271,15 +333,19 @@ class RealtimeCoordinator {
     final nextMerged = hub.socketFilter.mergedForSocketAdapter();
 
     if (hub.listenRefCount > 0) {
-      if (_transport is SocketRealtimeAdapter &&
+      if (_transport is _SocketRealtimeAdapter &&
           hub.socketFilter.mergeChanged(previousMerged, nextMerged)) {
         await _refreshSocketSubscription(channelKey, hub);
       }
       return;
     }
 
-    await _detachChannelTransport(channelKey, hub);
+    // Mark and remove BEFORE the async detach to close the race window where
+    // a new watch() could pick up a hub that is being torn down.
+    hub.detaching = true;
     _hubs.remove(channelKey);
+
+    await _detachChannelTransport(channelKey, hub);
   }
 
   Future<void> _attachChannelTransport(
@@ -290,7 +356,7 @@ class RealtimeCoordinator {
 
     hub.subscriptionState = SubscriptionState.subscribing;
 
-    final callbacks = RealtimeTransportCallbacks(
+    final callbacks = _RealtimeTransportCallbacks(
       onEnvelope: (RealtimeEnvelope envelope) {
         if (!_disposed && !hub.controller.isClosed) {
           hub.controller.add(envelope);
@@ -307,7 +373,7 @@ class RealtimeCoordinator {
     );
 
     final Set<String>? socketFilter =
-        _transport is SocketRealtimeAdapter
+        _transport is _SocketRealtimeAdapter
             ? hub.socketFilter.mergedForSocketAdapter()
             : null;
 
@@ -376,7 +442,11 @@ class RealtimeCoordinator {
     dynamic payload,
     Duration pusherReadyTimeout,
   ) async {
-    final hub = _hubs.putIfAbsent(channelKey, _ChannelHub.new);
+    final existing = _hubs[channelKey];
+    final hub = (existing != null && !existing.detaching)
+        ? existing
+        : _ChannelHub();
+    _hubs[channelKey] = hub;
 
     if (hub.subscriptionState == SubscriptionState.failed) {
       return const Left(

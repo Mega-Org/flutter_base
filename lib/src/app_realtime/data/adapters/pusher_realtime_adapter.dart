@@ -1,8 +1,8 @@
 part of app_realtime;
 
-/// [RealtimeTransport] for Pusher Channels (native/Web via `pusher_channels_flutter`).
-final class PusherRealtimeAdapter implements RealtimeTransport {
-  PusherRealtimeAdapter({
+/// [_RealtimeTransport] for Pusher Channels (native/Web via `pusher_channels_flutter`).
+final class _PusherRealtimeAdapter implements _RealtimeTransport {
+  _PusherRealtimeAdapter({
     required RealtimeTransportConfigPusher config,
     Future<dynamic> Function(String channelName, String socketId)?
         channelAuthorizer,
@@ -16,9 +16,17 @@ final class PusherRealtimeAdapter implements RealtimeTransport {
   final PusherChannelsFlutter _pusher = PusherChannelsFlutter.getInstance();
 
   bool _initialized = false;
+  bool _explicitDisconnect = false;
+  void Function()? _onUnexpectedDisconnect;
 
   @override
-  Future<void> connect(RealtimeConnectContext ctx) async {
+  Future<void> connect(
+    RealtimeConnectContext ctx, {
+    void Function()? onUnexpectedDisconnect,
+  }) async {
+    _explicitDisconnect = false;
+    _onUnexpectedDisconnect = onUnexpectedDisconnect;
+
     final channelAuthorizer = _channelAuthorizer;
     await _pusher.init(
       apiKey: _config.apiKey,
@@ -29,7 +37,17 @@ final class PusherRealtimeAdapter implements RealtimeTransport {
               return channelAuthorizer(channelName, socketId);
             },
       onError: (message, code, error) {
-        debugPrint('[PusherRealtimeAdapter] onError: $message ($code) $error');
+        debugPrint('[_PusherRealtimeAdapter] onError: $message ($code) $error');
+      },
+      onConnectionStateChange: (currentState, previousState) {
+        // Fire reconnect callback when Pusher re-establishes connection from
+        // a non-initial state (SDK handles its own reconnect internally, but
+        // active channel subscriptions need to be re-registered).
+        if (!_explicitDisconnect &&
+            currentState == 'CONNECTED' &&
+            previousState != 'CONNECTING') {
+          _onUnexpectedDisconnect?.call();
+        }
       },
     );
     _initialized = true;
@@ -38,6 +56,7 @@ final class PusherRealtimeAdapter implements RealtimeTransport {
 
   @override
   Future<void> disconnect() async {
+    _explicitDisconnect = true;
     await _pusher.disconnect();
     _initialized = false;
   }
@@ -45,12 +64,12 @@ final class PusherRealtimeAdapter implements RealtimeTransport {
   @override
   Future<void> subscribe(
     String channel,
-    RealtimeTransportCallbacks callbacks, {
+    _RealtimeTransportCallbacks callbacks, {
     Set<String>? socketEventFilter,
   }) async {
     if (!_initialized) {
       throw StateError(
-        'PusherRealtimeAdapter.connect must be called before subscribe.',
+        '_PusherRealtimeAdapter.connect must be called before subscribe.',
       );
     }
     await _pusher.subscribe(

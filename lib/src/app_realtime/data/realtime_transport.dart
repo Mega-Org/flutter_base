@@ -1,8 +1,8 @@
 part of app_realtime;
 
 /// Per-channel callbacks supplied when subscribing at the transport layer.
-class RealtimeTransportCallbacks {
-  RealtimeTransportCallbacks({
+class _RealtimeTransportCallbacks {
+  _RealtimeTransportCallbacks({
     required this.onEnvelope,
     this.onSubscriptionSucceeded,
     this.onSubscriptionError,
@@ -17,17 +17,20 @@ class RealtimeTransportCallbacks {
 }
 
 /// Thin wrapper over Pusher or Socket.IO — forwards events and transport calls only.
-abstract class RealtimeTransport {
-  Future<void> connect(RealtimeConnectContext ctx);
+abstract class _RealtimeTransport {
+  Future<void> connect(
+    RealtimeConnectContext ctx, {
+    void Function()? onUnexpectedDisconnect,
+  });
 
   Future<void> disconnect();
 
-  /// [socketEventFilter]: when using [SocketRealtimeAdapter], only these event
+  /// [socketEventFilter]: when using [_SocketRealtimeAdapter], only these event
   /// names are delivered; when null, every non-internal Socket.IO event is
-  /// forwarded (via `onAny`). Ignored by [PusherRealtimeAdapter].
+  /// forwarded (via `onAny`). Ignored by [_PusherRealtimeAdapter].
   Future<void> subscribe(
     String channel,
-    RealtimeTransportCallbacks callbacks, {
+    _RealtimeTransportCallbacks callbacks, {
     Set<String>? socketEventFilter,
   });
 

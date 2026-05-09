@@ -3,6 +3,7 @@ library app_realtime;
 import 'dart:async';
 import 'dart:collection';
 import 'dart:convert';
+import 'dart:math' show min, pow;
 
 import 'package:dartz/dartz.dart' show Either, Left, Right, Unit, unit;
 import 'package:equatable/equatable.dart';

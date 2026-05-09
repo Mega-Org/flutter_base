@@ -6,13 +6,13 @@ final class _SocketLogicalSubscription {
     required this.eventFilter,
   });
 
-  final RealtimeTransportCallbacks callbacks;
+  final _RealtimeTransportCallbacks callbacks;
   final Set<String>? eventFilter;
 }
 
-/// [RealtimeTransport] for Socket.IO (`socket_io_client`).
-final class SocketRealtimeAdapter implements RealtimeTransport {
-  SocketRealtimeAdapter({required RealtimeTransportConfigSocket config})
+/// [_RealtimeTransport] for Socket.IO (`socket_io_client`).
+final class _SocketRealtimeAdapter implements _RealtimeTransport {
+  _SocketRealtimeAdapter({required RealtimeTransportConfigSocket config})
       : _config = config;
 
   final RealtimeTransportConfigSocket _config;
@@ -25,6 +25,8 @@ final class SocketRealtimeAdapter implements RealtimeTransport {
   void Function(String event, dynamic data)? _anyHandler;
 
   bool _connected = false;
+  bool _explicitDisconnect = false;
+  void Function()? _onUnexpectedDisconnect;
 
   static const _internalSocketEvents = {
     'connect',
@@ -44,7 +46,13 @@ final class SocketRealtimeAdapter implements RealtimeTransport {
   };
 
   @override
-  Future<void> connect(RealtimeConnectContext ctx) async {
+  Future<void> connect(
+    RealtimeConnectContext ctx, {
+    void Function()? onUnexpectedDisconnect,
+  }) async {
+    _explicitDisconnect = false;
+    _onUnexpectedDisconnect = onUnexpectedDisconnect;
+
     _socket?.dispose();
 
     final query = Map<String, dynamic>.from(_config.queryParameters);
@@ -71,6 +79,9 @@ final class SocketRealtimeAdapter implements RealtimeTransport {
 
     _socket!.onDisconnect((_) {
       _connected = false;
+      if (!_explicitDisconnect) {
+        _onUnexpectedDisconnect?.call();
+      }
     });
 
     _socket!.connect();
@@ -78,6 +89,7 @@ final class SocketRealtimeAdapter implements RealtimeTransport {
 
   @override
   Future<void> disconnect() async {
+    _explicitDisconnect = true;
     _tearDownAnyListener();
     _socket?.dispose();
     _socket = null;
@@ -88,13 +100,13 @@ final class SocketRealtimeAdapter implements RealtimeTransport {
   @override
   Future<void> subscribe(
     String channel,
-    RealtimeTransportCallbacks callbacks, {
+    _RealtimeTransportCallbacks callbacks, {
     Set<String>? socketEventFilter,
   }) async {
     final socket = _socket;
     if (socket == null) {
       throw StateError(
-        'SocketRealtimeAdapter.connect must be called before subscribe.',
+        '_SocketRealtimeAdapter.connect must be called before subscribe.',
       );
     }
 
