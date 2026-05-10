@@ -16,13 +16,16 @@ abstract class AppTheme {
   abstract final Color text2;
   abstract final Color text3;
   abstract final Color hintColor;
+
+  /// Neutral grey for borders, outlines, and disabled button backgrounds (light theme).
+  abstract final Color lightGrey;
+
+  /// Surface grey used for subtle backgrounds (e.g. tiles, sections).
   abstract final Color bgGreyColor;
 
-  final Color greyColor = const Color(0xffA3A3A3);
-  final Color grey2Color = const Color(0xffF7F7F8);
   final Color borderColor = const Color(0xffF0F0F0);
-  final Color border2Color = const Color(0xffD6D6D6);
   final Color disableBorderColor = const Color(0xffD6D6D6);
+  final Color dividerColor = const Color(0xffE6E6EA);
 
   final BoxShadow boxShadow = const BoxShadow(
     color: Colors.black12,
@@ -49,7 +52,6 @@ abstract class AppTheme {
   );
 
   final String fontFamily = AppFonts.elMessiri;
-  final Color dividerColor = const Color(0xffE6E6EA);
 
   /// App Const Colors
   ///
@@ -65,41 +67,17 @@ abstract class AppTheme {
   abstract final Color primary800;
   abstract final Color primary900;
 
-  // Color get secondary => secondary500;
-  // final Color secondary50 = const Color(0xffFDF5E7);
-  // final Color secondary100 = const Color(0xffFCEBCF);
-  // final Color secondary200 = const Color(0xffF9D69F);
-  // final Color secondary300 = const Color(0xffF6C26F);
-  // final Color secondary400 = const Color(0xffF3AE3F);
-  // final Color secondary500 = const Color(0xffF2A831);
-  // final Color secondary600 = const Color(0xffC07B0C);
-  // final Color secondary700 = const Color(0xff905C09);
-  // final Color secondary800 = const Color(0xff603D06);
-  // final Color secondary900 = const Color(0xff301F03);
-
-  // Color get third => third500;
-  // final Color third50 = const Color(0xffFFE5F5);
-  // final Color third100 = const Color(0xffFFCCEB);
-  // final Color third200 = const Color(0xffFF99D6);
-  // final Color third300 = const Color(0xffFF66C2);
-  // final Color third400 = const Color(0xffFF33AD);
-  // final Color third500 = const Color(0xffED008E);
-  // final Color third600 = const Color(0xffCC007A);
-  // final Color third700 = const Color(0xff99005C);
-  // final Color third800 = const Color(0xff66003D);
-  // final Color third900 = const Color(0xff33001F);
-
-  // Color get blue => blue600;
-  // final Color blue50 = const Color(0xffEFF1F5);
-  // final Color blue100 = const Color(0xffDFE3EC);
-  // final Color blue200 = const Color(0xffC0C6D8);
-  // final Color blue300 = const Color(0xffA0AAC5);
-  // final Color blue400 = const Color(0xff808EB2);
-  // final Color blue500 = const Color(0xff1E2331);
-  // final Color blue600 = const Color(0xff4D5B7F);
-  // final Color blue700 = const Color(0xff3A445F);
-  // final Color blue800 = const Color(0xff272D3F);
-  // final Color blue900 = const Color(0xff131720);
+  Color get secondary => secondary500;
+  final Color secondary50 = const Color(0xffFDF5E7);
+  final Color secondary100 = const Color(0xffFCEBCF);
+  final Color secondary200 = const Color(0xffF9D69F);
+  final Color secondary300 = const Color(0xffF6C26F);
+  final Color secondary400 = const Color(0xffF3AE3F);
+  final Color secondary500 = const Color(0xffF2A831);
+  final Color secondary600 = const Color(0xffC07B0C);
+  final Color secondary700 = const Color(0xff905C09);
+  final Color secondary800 = const Color(0xff603D06);
+  final Color secondary900 = const Color(0xff301F03);
 
   Color get error => red650;
   final Color red50 = const Color(0xFFFFFBFB);
@@ -136,13 +114,6 @@ abstract class AppTheme {
   final Color success700 = const Color(0xFF0C9D61);
   final Color success800 = const Color(0xFF34C759);
 
-  // Color get white => const Color(0xffFFFFFF);
-  final Color white200 = const Color(0xffE6E6E6);
-  final Color white600 = const Color(0xff666666);
-
-  final Color grey = const Color(0xFF666666);
-  final Color lightGrey = const Color(0xFFF2F2F2);
-
   LinearGradient get primaryGradient => const LinearGradient(
     begin: Alignment.topCenter,
     end: Alignment.bottomCenter,
@@ -155,38 +126,10 @@ abstract class AppTheme {
     end: Alignment.centerLeft,
     colors: [primary500, primary600],
   );
+
   LinearGradient get linearGradient1Horizntal => LinearGradient(
     begin: Alignment.topCenter,
     end: Alignment.bottomCenter,
     colors: [primary500, primary600],
   );
-  LinearGradient get grid1 => LinearGradient(
-    begin: Alignment.topRight,
-    end: Alignment.bottomLeft,
-    colors: [primary500, primary600],
-    stops: [0.47, 0.92],
-  );
-
-  /// Represnet grid3 in design
-  LinearGradient get linearGradient2 => LinearGradient(
-    begin: const Alignment(0.9968, -0.0793), // start from top-right-ish
-    end: const Alignment(-0.9968, 0.0793), // end at bottom-left-ish
-    colors: [primary500, primary600, primary700],
-    stops: [0.0, 0.47, 0.92],
-  );
-
-  LinearGradient get linearGradient3 =>
-      LinearGradient(colors: [canvasBackgroundColor, canvasBackgroundColor]);
-
-  LinearGradient get cardGradient =>
-      LinearGradient(colors: [cardColor, cardColor]);
-
-  LinearGradient get linearGradient4 => LinearGradient(
-    begin: Alignment.topCenter,
-    end: Alignment.bottomCenter,
-    colors: [primary500, primary600],
-  );
-
-  LinearGradient get disableGradient =>
-      LinearGradient(colors: [primary500, primary600]);
 }

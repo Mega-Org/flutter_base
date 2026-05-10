@@ -34,8 +34,7 @@ class DarkTheme extends AppTheme {
   Color get text3 => const Color(0xffF5F5F5);
 
   @override
-  LinearGradient get disableGradient =>
-      LinearGradient(colors: [primary200, primary200]);
+  Color get lightGrey => primary200;
 
   @override
   ThemeData get theme => ThemeData(

@@ -22,6 +22,9 @@ class LightTheme extends AppTheme {
   Color get hintColor => const Color(0xffA5A5A5);
 
   @override
+  Color get lightGrey => const Color(0xffE6E6EA);
+
+  @override
   Color get text => primary500;
 
   @override
@@ -118,7 +121,7 @@ class LightTheme extends AppTheme {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
       side: BorderSide(color: primary600),
     ),
-    colorScheme: ColorScheme.light(primary: primary, secondary: primary600, onSecondary: AppColors.primary, error: error),
+    colorScheme: ColorScheme.light(primary: primary, secondary: primary600, onSecondary: primary, error: error),
     cardColor: cardColor,
     appBarTheme: AppBarTheme(
       titleSpacing: 0,
@@ -147,7 +150,7 @@ class LightTheme extends AppTheme {
         surfaceTintColor: WidgetStateProperty.all(Colors.transparent),
         shape: WidgetStateProperty.all(const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(12)))),
         backgroundColor: WidgetStateProperty.all(Colors.transparent),
-        foregroundColor: WidgetStateProperty.all(AppColors.primary),
+        foregroundColor: WidgetStateProperty.all(primary),
         textStyle: WidgetStateProperty.resolveWith<TextStyle>((states) {
           if (states.contains(WidgetState.disabled)) {
             return TextStyles.medium16.copyWith(color: disableBorderColor);
@@ -196,7 +199,7 @@ class LightTheme extends AppTheme {
           if (states.contains(WidgetState.disabled)) {
             return lightGrey;
           }
-          return AppColors.primary;
+          return primary;
         }),
         shape: WidgetStateProperty.all(const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(8)))),
         foregroundColor: WidgetStateProperty.resolveWith<Color>((states) {
@@ -298,3 +301,4 @@ class LightTheme extends AppTheme {
   @override
   Color get bgGreyColor => const Color(0xFFF5F8F8);
 }
+
