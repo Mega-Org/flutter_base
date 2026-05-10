@@ -35,9 +35,7 @@ class MyApp extends StatelessWidget {
               child: ThemeBuilder(
                 builder: (context, _, theme) {
                   return MaterialApp(
-                    key: ValueKey(
-                      state.langCode.value + theme.hashCode.toString(),
-                    ),
+                    key: ValueKey(state.langCode.value + theme.name),
                     title: AppLocalizations.of(context).appName,
                     navigatorKey: appNavigatorKey,
                     debugShowCheckedModeBanner: false,
