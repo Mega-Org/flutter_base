@@ -152,8 +152,7 @@ class _DialogShape extends StatelessWidget {
                           textAlign: TextAlign.center,
                           style: headerStyle,
                         )
-                      else if (headerWidget != null)
-                        headerWidget!,
+                      else ?headerWidget,
                       if (headerText?.isNotEmpty == true ||
                           headerWidget != null)
                         Container(

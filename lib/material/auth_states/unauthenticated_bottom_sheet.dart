@@ -35,10 +35,10 @@ class UnAuthenticatedBottomSheet extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           const AppSvgIcon(path: "assets/icons/user-login-ic.svg"),
-          Text('appLocalizer.guestHeaderMessage'),
+          const Text('appLocalizer.guestHeaderMessage'),
           const SizedBox(height: 24),
           AppButton(
-            text: appLocalizer.login,
+            text: 'appLocalizer.login',
             onPressed: () {
               Navigator.of(context).popUntil((route) => route.isFirst);
               AppAuthenticationBloc.of(context).add(const LoggedOutEvent());

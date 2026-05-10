@@ -127,15 +127,17 @@ class DefaultInputFieldDesign extends StatelessWidget {
                     clipBehavior: Clip.antiAlias,
                     width: double.infinity,
                     duration: Durations.medium4,
-                    constraints:
-                        Theme.of(context).inputDecorationTheme.constraints,
+                    constraints: Theme.of(
+                      context,
+                    ).inputDecorationTheme.constraints,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
                       border: Border.all(color: borderColor),
                       color: Theme.of(context).inputDecorationTheme.fillColor,
                     ),
-                    padding:
-                        Theme.of(context).inputDecorationTheme.contentPadding,
+                    padding: Theme.of(
+                      context,
+                    ).inputDecorationTheme.contentPadding,
                     child: Row(
                       children: [
                         if (prefixIconPath != null)
@@ -157,22 +159,20 @@ class DefaultInputFieldDesign extends StatelessWidget {
                                     maxLines: 1,
                                     style: resolvedInputStyle,
                                   )
-                                : Text(hint,
-                                    maxLines: 1, style: resolvedHintStyle),
+                                : Text(
+                                    hint,
+                                    maxLines: 1,
+                                    style: resolvedHintStyle,
+                                  ),
                           ),
                         ),
                         const SizedBox(width: 4),
-                        if (suffixIcon != null) suffixIcon!,
+                        ?suffixIcon,
                         if (suffixIconPath?.isNotEmpty == true)
-                          AppSvgIcon(
-                            path: suffixIconPath ?? '',
-                          ),
+                          AppSvgIcon(path: suffixIconPath ?? ''),
                         if (suffixIconPath?.isNotEmpty == false &&
                             suffixIcon == null)
-                          const Icon(
-                            Icons.arrow_forward_ios,
-                            size: 10,
-                          ),
+                          const Icon(Icons.arrow_forward_ios, size: 10),
                       ],
                     ),
                   ),

@@ -4,7 +4,6 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_base/core/core.dart';
-import 'package:flutter_base/core/localization/app_language_enum.dart';
 import 'package:flutter_base/material/inputs/app_text_form_field.dart';
 import 'package:flutter_base/material/overlay/show_modal_bottom_sheet.dart';
 

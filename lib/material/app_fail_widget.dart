@@ -114,13 +114,13 @@ class AppFailWidget extends StatelessWidget {
         ),
       );
     } else {
-      return Center(
+      return const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: [
             // AppSvgIcon(path: AppIllustrations.errorIllustration),
-            const SizedBox(height: 12),
+            SizedBox(height: 12),
             Text(
               "appLocalizer.anErrorOccurredWhileLoading",
               textAlign: TextAlign.center,

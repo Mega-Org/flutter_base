@@ -27,7 +27,7 @@ class ContactUsCubit extends Cubit<ContactUsState> {
 
   void getData() async {
     emit(state.copyWith(dataState: const Async.loading()));
-    final result = await _getContactDataUseCase(NoParams());
+    final result = await _getContactDataUseCase(const NoParams());
     result.fold(
       (failer) {
         emit(state.copyWith(dataState: Async.failure(failer)));

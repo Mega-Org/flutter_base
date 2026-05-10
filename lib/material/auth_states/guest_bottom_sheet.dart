@@ -28,7 +28,7 @@ class GuestBottomSheet extends StatelessWidget {
       children: [
         const AppSvgIcon(path: "assets/icons/user-login-ic.svg", size: 75),
         const SizedBox(height: 12),
-        Text('appLocalizer.guestHeaderMessage'),
+        const Text('appLocalizer.guestHeaderMessage'),
         Text(
           " appLocalizer.guestSubHeaderMessage",
           style: TextStyles.light12.copyWith(color: AppColors.primary700),
@@ -52,7 +52,7 @@ class GuestBottomSheet extends StatelessWidget {
             Expanded(
               flex: 5,
               child: AppButton(
-                text: appLocalizer.login,
+                text: 'appLocalizer.login',
                 padding: const EdgeInsets.symmetric(horizontal: 32),
                 onPressed: () {
                   Navigator.of(context).popUntil((route) => route.isFirst);

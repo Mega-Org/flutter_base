@@ -12,6 +12,7 @@ class Validator {
     }
     return null;
   }
+
   String? get plateNumbersValidator {
     final String? text = inputText?.replaceAll(RegExp(r'\s+'), '');
     if (text == null || text.trim().isEmpty == true) {
@@ -20,7 +21,7 @@ class Validator {
     // Validate exactly 4 digits
     final digitsOnly = RegExp(r'^\d{4}$');
     if (!digitsOnly.hasMatch(text)) {
-      return appLocalizer.invalidPlateNumbers;
+      return 'appLocalizer.invalidPlateNumbers';
     }
     return null;
   }
@@ -121,17 +122,17 @@ class Validator {
     if (id.isEmpty) {
       return defaultValidator;
     }
-    
+
     // Must be exactly 10 digits
     if (id.length != 10) {
       return appLocalizer.invalidIdentityNumber;
     }
-    
+
     // Check if all characters are digits
     if (!RegExp(r'^\d+$').hasMatch(id)) {
       return appLocalizer.invalidIdentityNumber;
     }
-    
+
     final List<RegExp> patterns = [
       // RegExp(r'^\d{3}-\d{2}-\d{4}$'), // 🇺🇸 USA - SSN
       // RegExp(r'^[A-CEGHJ-NPR-TW-Z]{2}\d{6}[A-D]$'), // 🇬🇧 UK - NIN
