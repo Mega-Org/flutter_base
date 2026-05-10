@@ -1,0 +1,23 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Vorma",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+    },
+    {
+      "name": "Vorma (profile mode)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "profile",
+    },
+    {
+      "name": "Vorma (release mode)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "release",
+    }
+  ]
+}
