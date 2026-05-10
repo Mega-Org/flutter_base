@@ -14,10 +14,22 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResponsiveBreakpoints.builder(
       breakpoints: const [
-        Breakpoint(start: 0, end: 450, name: MOBILE),
-        Breakpoint(start: 451, end: 800, name: TABLET),
-        Breakpoint(start: 801, end: 1920, name: DESKTOP),
-        Breakpoint(start: 1921, end: double.infinity, name: '4K'),
+        Breakpoint(start: 0, end: AppResponsiveLayout.mobileMax, name: MOBILE),
+        Breakpoint(
+          start: AppResponsiveLayout.tabletMin,
+          end: AppResponsiveLayout.tabletMax,
+          name: TABLET,
+        ),
+        Breakpoint(
+          start: AppResponsiveLayout.desktopMin,
+          end: AppResponsiveLayout.desktopMax,
+          name: DESKTOP,
+        ),
+        Breakpoint(
+          start: AppResponsiveLayout.fourKMin,
+          end: double.infinity,
+          name: '4K',
+        ),
       ],
       child: MultiBlocProvider(
         providers: [

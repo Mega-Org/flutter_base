@@ -29,11 +29,13 @@ import 'package:vibration/vibration.dart';
 import 'configs/values/assets.gen.dart';
 import 'constants/api_constants.dart';
 import 'constants/app_constants.dart';
+import 'constants/responsive_constants.dart';
 import 'data/models/token_model.dart';
 import 'di/di.dart';
 import 'localization/app_language_enum.dart';
 
 export 'localization/app_language_enum.dart';
+export 'constants/responsive_constants.dart';
 
 // Foundation
 part 'foundation/async.dart';
